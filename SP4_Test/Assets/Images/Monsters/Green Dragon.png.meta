@@ -1,0 +1,313 @@
+fileFormatVersion: 2
+guid: f4ad956a7e17ba74e8a0150bdb880576
+timeCreated: 1487044366
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Green Dragon_0
+    21300002: Green Dragon_1
+    21300004: Green Dragon_2
+    21300006: Green Dragon_3
+    21300008: Green Dragon_4
+    21300010: Green Dragon_5
+    21300012: Green Dragon_6
+    21300014: Green Dragon_7
+    21300016: Green Dragon_8
+    21300018: Green Dragon_9
+    21300020: Green Dragon_10
+    21300022: Green Dragon_11
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: Green Dragon_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 360
+        width: 120
+        height: 120
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -32, y: 60}
+        - {x: -60, y: 40}
+        - {x: -60, y: -23}
+        - {x: -30, y: -60}
+        - {x: 32, y: -60}
+        - {x: 60, y: -31}
+        - {x: 60, y: 40}
+        - {x: 0, y: 60}
+    - name: Green Dragon_1
+      rect:
+        serializedVersion: 2
+        x: 121
+        y: 360
+        width: 118
+        height: 120
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -59, y: 60}
+        - {x: -59, y: -33}
+        - {x: -51, y: -60}
+        - {x: 52, y: -60}
+        - {x: 59, y: -31}
+        - {x: 59, y: 60}
+    - name: Green Dragon_2
+      rect:
+        serializedVersion: 2
+        x: 243
+        y: 363
+        width: 114
+        height: 115
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20, y: 57.5}
+        - {x: -20, y: 48.5}
+        - {x: -24, y: 52.5}
+        - {x: -57, y: 42.5}
+        - {x: -57, y: -8.5}
+        - {x: -29, y: -57.5}
+        - {x: 32, y: -57.5}
+        - {x: 57, y: -12.5}
+        - {x: 57, y: 51.5}
+        - {x: 38, y: 57.5}
+    - name: Green Dragon_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 248
+        width: 120
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -48, y: 47.5}
+        - {x: -60, y: 27.5}
+        - {x: -60, y: -19.5}
+        - {x: -46, y: -44.5}
+        - {x: -42, y: -47.5}
+        - {x: 37, y: -47.5}
+        - {x: 60, y: -42.5}
+        - {x: 60, y: 32.5}
+        - {x: 50, y: 47.5}
+    - name: Green Dragon_4
+      rect:
+        serializedVersion: 2
+        x: 121
+        y: 248
+        width: 119
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 59.5, y: 6}
+        - {x: 59.5, y: 28}
+        - {x: 29.5, y: 49}
+        - {x: -44.5, y: 49}
+        - {x: -59.5, y: 27}
+        - {x: -59.5, y: 8}
+        - {x: -51.5, y: 2}
+        - {x: -46.5, y: 3}
+        - {x: -43.5, y: -39}
+        - {x: -32.5, y: -49}
+        - {x: 21.5, y: -49}
+        - {x: 57.5, y: -38}
+        - {x: 51.5, y: -27}
+        - {x: 46.5, y: -24}
+        - {x: 52.5, y: -10}
+    - name: Green Dragon_5
+      rect:
+        serializedVersion: 2
+        x: 242
+        y: 248
+        width: 114
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 34, y: 49}
+        - {x: -46, y: 49}
+        - {x: -57, y: 37}
+        - {x: -57, y: -49}
+        - {x: 57, y: -49}
+        - {x: 57, y: 31}
+        - {x: 50, y: 42}
+    - name: Green Dragon_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 128
+        width: 120
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -47, y: 47.5}
+        - {x: -60, y: 21.5}
+        - {x: -60, y: 3.5}
+        - {x: -48, y: -14.5}
+        - {x: -38, y: -14.5}
+        - {x: -48, y: -19.5}
+        - {x: -57, y: -29.5}
+        - {x: -31, y: -47.5}
+        - {x: 56, y: -47.5}
+        - {x: 60, y: -28.5}
+        - {x: 60, y: 44.5}
+        - {x: 56, y: 47.5}
+    - name: Green Dragon_7
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 128
+        width: 119
+        height: 98
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -35.5, y: 49}
+        - {x: -59.5, y: 26}
+        - {x: -59.5, y: 2}
+        - {x: -57.5, y: -4}
+        - {x: -46.5, y: -15}
+        - {x: -41.5, y: -17}
+        - {x: -54.5, y: -26}
+        - {x: -54.5, y: -45}
+        - {x: -46.5, y: -49}
+        - {x: 49.5, y: -49}
+        - {x: 59.5, y: -38}
+        - {x: 59.5, y: 49}
+    - name: Green Dragon_8
+      rect:
+        serializedVersion: 2
+        x: 244
+        y: 129
+        width: 114
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -30, y: 48.5}
+        - {x: -57, y: 31.5}
+        - {x: -57, y: -35.5}
+        - {x: -53, y: -43.5}
+        - {x: -42, y: -48.5}
+        - {x: 51, y: -48.5}
+        - {x: 57, y: -47.5}
+        - {x: 57, y: 48.5}
+    - name: Green Dragon_9
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 0
+        width: 118
+        height: 116
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -24, y: 58}
+        - {x: -59, y: 25}
+        - {x: -59, y: -39}
+        - {x: -39, y: -58}
+        - {x: 20, y: -58}
+        - {x: 59, y: -39}
+        - {x: 59, y: 36}
+        - {x: 15, y: 58}
+    - name: Green Dragon_10
+      rect:
+        serializedVersion: 2
+        x: 122
+        y: 0
+        width: 117
+        height: 118
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 25.5, y: 59}
+        - {x: -40.5, y: 59}
+        - {x: -58.5, y: 54}
+        - {x: -58.5, y: -42}
+        - {x: -35.5, y: -59}
+        - {x: 23.5, y: -59}
+        - {x: 58.5, y: -41}
+        - {x: 58.5, y: 22}
+        - {x: 47.5, y: 37}
+    - name: Green Dragon_11
+      rect:
+        serializedVersion: 2
+        x: 242
+        y: 0
+        width: 116
+        height: 118
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -52, y: 59}
+        - {x: -58, y: 40}
+        - {x: -58, y: -49}
+        - {x: -33, y: -59}
+        - {x: 30, y: -59}
+        - {x: 58, y: -33}
+        - {x: 58, y: 29}
+        - {x: 28, y: 59}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
