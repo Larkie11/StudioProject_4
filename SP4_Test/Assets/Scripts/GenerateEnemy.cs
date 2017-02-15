@@ -5,11 +5,9 @@ public class GenerateEnemy : MonoBehaviour {
     [SerializeField]
     GameObject enemyType;
     int enemyCount = 0;
-    Camera cam;
 
     // Use this for initialization
     void Start () {
-        cam = GetComponent<Camera>();
     }
 
     // Update is called once per frame

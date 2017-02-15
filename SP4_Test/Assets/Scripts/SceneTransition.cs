@@ -18,8 +18,12 @@ public class SceneTransition : MonoBehaviour {
     {
         SceneManager.LoadScene("Gameplay");
     }
-    public void LoadMeny()
+    public void LoadMenu()
     {
         SceneManager.LoadScene("Menu");
+    }
+    public void LoadCharSelection()
+    {
+        SceneManager.LoadScene("Character Selection");
     }
 }
