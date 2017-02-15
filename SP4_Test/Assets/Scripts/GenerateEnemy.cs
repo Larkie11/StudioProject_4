@@ -21,6 +21,6 @@ public class GenerateEnemy : MonoBehaviour {
     void CreateEnemy()
     {
         enemyCount++;
-        GameObject go = Instantiate(enemyType, new Vector3(Random.Range(-5F, 5.0F), -3.7F, 89.1F), Quaternion.identity) as GameObject;
+        GameObject go = Instantiate(enemyType, new Vector3(Random.Range(-5F, 5.0F), -3.7F, 0.0F), Quaternion.identity) as GameObject;
     }
 }
