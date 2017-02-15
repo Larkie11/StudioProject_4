@@ -16,7 +16,9 @@ using UnityStandardAssets.CrossPlatformInput;
      //What layer is consider a ground
      public LayerMask WhatIsGround;
 
-     void Start()
+    [SerializeField]
+    GameObject firebreath;
+    void Start()
      {
             #if UNITY_ANDROID
                       Debug.Log("Android");
@@ -43,8 +45,13 @@ using UnityStandardAssets.CrossPlatformInput;
                  Jump();
              }
          }
+        if (Input.GetKey(KeyCode.C))
+        {
+            Attack(transform.position);
+        }
 
-         if (Input.GetKey(KeyCode.A))
+
+        if (Input.GetKey(KeyCode.A))
          {
              transform.position += Vector3.left * speed * Time.deltaTime;
          }
@@ -83,4 +90,12 @@ using UnityStandardAssets.CrossPlatformInput;
          myBody.AddForce(Vector2.up * jumpPower);
      }
 
- }
+    void Attack(Vector2 playerPos)
+    {
+        GameObject go;
+                go = Instantiate(firebreath, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.Euler(0, -90, 0)) as GameObject;
+            
+        
+    }
+
+}

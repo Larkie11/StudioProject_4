@@ -182,9 +182,9 @@ public class EnemyBehavior : MonoBehaviour
         if (a == Attacks.FIREBALL)
         {
             if (transform.position.x < playerPos.x)
-                go = Instantiate(firebreath, new Vector3(transform.position.x, transform.position.y, transform.position.z - 3), Quaternion.Euler(0, 90, 0)) as GameObject;
+                go = Instantiate(firebreath, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.Euler(0, 90, 0)) as GameObject;
             else
-                go = Instantiate(firebreath, new Vector3(transform.position.x, transform.position.y, transform.position.z - 3), Quaternion.Euler(0, -90, 0)) as GameObject;
+                go = Instantiate(firebreath, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.Euler(0, -90, 0)) as GameObject;
         }
     }
 }
