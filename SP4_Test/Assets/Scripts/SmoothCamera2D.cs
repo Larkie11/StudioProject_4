@@ -6,7 +6,12 @@
      public float dampTime = 0.15f;
      private Vector3 velocity = Vector3.zero;
      public Transform target;
- 
+    private void Start()
+    {
+        target = GlobalScript.go2.transform;
+    }
+    // Update is called once per frame
+
      // Update is called once per frame
      void Update () 
      {

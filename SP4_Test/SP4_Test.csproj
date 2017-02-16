@@ -81,9 +81,11 @@
     <Compile Include="Assets\Scripts\ParticleCollision.cs" />
     <Compile Include="Assets\Scripts\PlayerMovement.cs" />
     <Compile Include="Assets\Scripts\SceneTransition.cs" />
+    <Compile Include="Assets\Scripts\Shield.cs" />
     <Compile Include="Assets\Scripts\SmoothCamera2D.cs" />
     <Compile Include="Assets\Scripts\Weapon.cs" />
     <Compile Include="Assets\Scripts\bulletmove.cs" />
+    <Compile Include="Assets\Spin.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Fit All Screen Size\ReadMe.txt" />

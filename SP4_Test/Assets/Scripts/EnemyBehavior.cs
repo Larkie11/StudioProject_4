@@ -35,6 +35,9 @@ public class EnemyBehavior : MonoBehaviour
 
     public List<GameObject> myPlatforms;
     float spawnX;
+    float width;
+    float width2;
+    string nowCollide;
     enum States
     {
         IDLE,
@@ -55,6 +58,7 @@ public class EnemyBehavior : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        nowCollide = null;
         myPlatforms = new List<GameObject>();
         myPlatforms.Clear();
         iamtouchingthis = false;
@@ -73,24 +77,22 @@ public class EnemyBehavior : MonoBehaviour
     void EnemyMovement()
     {
         GameObject player = GameObject.FindGameObjectWithTag("Player");
-        float distance = Mathf.Abs(transform.position.x - player.transform.position.x);
+        float distance = Vector3.Distance(transform.position, player.transform.position);
 
         if (distance < distanceToAttackPlayer)
         {
-            enemyStates = States.ATTACK;
             if (attackCD <= 0F && enemyType == 0)
             {
                 Attack(player.transform.position, Attacks.FIREBALL);
                 attackCD = 3F;
             }
         }
-        if (attackCD > 0 && enemyStates == States.ATTACK)
+        if (attackCD > 0)
             attackCD -= Time.deltaTime;
 
         if (distance < distanceToDetectPlayer)
         {
             animator.enabled = true;
-            enemyStates = States.CHASE;
             transform.position += (player.transform.position - transform.position).normalized * speed * Time.deltaTime;
 
             if (player.transform.position.x > transform.position.x)
@@ -137,7 +139,7 @@ public class EnemyBehavior : MonoBehaviour
             }
             if (enemyStates == States.MOVE)
             {
-                transform.position += (target - transform.position).normalized * speed * Time.deltaTime;               
+                transform.position += (target - transform.position).normalized * speed * Time.deltaTime;
             }
             if (!moving && Mathf.Abs(transform.position.x - target.x) < 3)
             {
@@ -150,8 +152,8 @@ public class EnemyBehavior : MonoBehaviour
                 Debug.Log(enemyStates);
                 timer = Random.Range(5, 10);
                 moving = false;
-                
-                 if (enemyStates == States.IDLE)
+
+                if (enemyStates == States.IDLE)
                 {
                     if (animator.GetCurrentAnimatorStateInfo(0).IsName("Dragon_Left"))
                     {
@@ -165,23 +167,18 @@ public class EnemyBehavior : MonoBehaviour
             }
         }
     }
-    private void OnCollisionEnter(Collision collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.transform.name == myPlatforms[GenerateEnemy.spawnPointIndex].name)
-        {
-            iamtouchingthis = true;
-        }
-        else
-            iamtouchingthis = false;
+        nowCollide = collision.transform.name;
     }
     void GenerateNextWP()
     {
-        if (iamtouchingthis)
+        if (nowCollide != null)
         {
-            float width = myPlatforms[GenerateEnemy.spawnPointIndex].GetComponent<Collider2D>().bounds.min.x + 2;
-            float width2 = myPlatforms[GenerateEnemy.spawnPointIndex].GetComponent<Collider2D>().bounds.max.x - 2;
+            width = GameObject.Find(nowCollide).GetComponent<Collider2D>().bounds.min.x + 3.5F;
+            width2 = GameObject.Find(nowCollide).GetComponent<Collider2D>().bounds.max.x - 2;
             spawnX = Random.Range(width2, width);
-
+            Debug.Log(GameObject.Find(nowCollide).GetComponent<Collider2D>().bounds.max.x + " " + width2);
             target = new Vector3(spawnX, transform.position.y, transform.position.z);
             moving = true;
         }
@@ -189,7 +186,8 @@ public class EnemyBehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        EnemyMovement();
+        if (nowCollide != null)
+            EnemyMovement();
         Debug.DrawLine(transform.position, new Vector3(spawnX, transform.position.y, transform.position.z), Color.red);
     }
 
@@ -209,9 +207,9 @@ public class EnemyBehavior : MonoBehaviour
         if (a == Attacks.FIREBALL)
         {
             if (transform.position.x < playerPos.x)
-                go = Instantiate(firebreath, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.Euler(0, 90, 0)) as GameObject;
+                go = Instantiate(firebreath, new Vector3(transform.position.x + 1.2F, transform.position.y - 0.5F, transform.position.z), Quaternion.Euler(0, 90, 0)) as GameObject;
             else
-                go = Instantiate(firebreath, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.Euler(0, -90, 0)) as GameObject;
+                go = Instantiate(firebreath, new Vector3(transform.position.x - 0.8F, transform.position.y - 0.5F, transform.position.z), Quaternion.Euler(0, -90, 0)) as GameObject;
         }
     }
 }
