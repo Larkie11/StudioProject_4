@@ -6,12 +6,29 @@
      public float dampTime = 0.15f;
      private Vector3 velocity = Vector3.zero;
      public Transform target;
-  
-     // Update is called once per frame
-     void Update () 
+    private void Start()
+    {
+        if (!GlobalScript.RenderedPlayer && GlobalScript.go2 == null)
+        {
+            if (GlobalScript.CharacterType == 0)
+                GlobalScript.go2 = Instantiate(Resources.Load("Player"), new Vector3(0, 0, 0), Quaternion.identity) as GameObject;
+            if (GlobalScript.CharacterType == 1)
+                GlobalScript.go2 = Instantiate(Resources.Load("Player 2"), new Vector3(0, 0, 0), Quaternion.identity) as GameObject;
+            GlobalScript.RenderedPlayer = true;
+
+        }
+    }
+        // Update is called once per frame
+        // Update is called once per frame
+        void Update () 
      {
-        if(target == null)
-            target = GlobalScript.go2.transform;
+        
+           // if (GlobalScript.playerToRender == "Santa")
+              //  GlobalScript.go2 = Instantiate(Resources.Load("Player 2"), new Vector3(0, 0, 0), Quaternion.identity) as GameObject;
+
+            if (target == null && GlobalScript.go2 != null)
+                target = GlobalScript.go2.transform;
+       
         if (target)
          {
              Vector3 point = GetComponent<Camera>().WorldToViewportPoint(target.position);

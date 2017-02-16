@@ -58,6 +58,8 @@ public class EnemyBehavior : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        
+
         nowCollide = null;
         myPlatforms = new List<GameObject>();
         myPlatforms.Clear();

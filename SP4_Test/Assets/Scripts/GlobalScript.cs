@@ -22,10 +22,11 @@ public class GlobalScript : MonoBehaviour {
     Characters robot;
     Characters santa;
     Characters knight;
+    public static string playerToRender = "";
+    public static bool RenderedPlayer = false;
     // Use this for initialization
     void Start () {
        AddCharacters();
-       go2 = Instantiate(Resources.Load("Player 2"), new Vector3(0, 0, 0), Quaternion.identity) as GameObject;
     }
     void AddCharacters()
     {
@@ -68,7 +69,6 @@ public class GlobalScript : MonoBehaviour {
         myCharacters.Add(santa);
     }
     // Update is called once per frame
-    void Update () {
-	
-	}
+    void Update () { 
+    }
 }
