@@ -24,7 +24,7 @@ public class GlobalScript : MonoBehaviour {
     Characters knight;
     // Use this for initialization
     void Start () {
-        AddCharacters();
+       AddCharacters();
        go2 = Instantiate(Resources.Load("Player 2"), new Vector3(0, 0, 0), Quaternion.identity) as GameObject;
     }
     void AddCharacters()
