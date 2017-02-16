@@ -7,42 +7,33 @@ public class Shield : MonoBehaviour
     //public ParticleSystem part;
     //public List<ParticleCollisionEvent> collisionEvents;
     //public GameObject GO;
-    int particleCount;
-    bool b_ShieldInterval;
-    public int ShieldDurability;
-    public float ShieldInterval;
-    float timer;
+    public GameObject SheildGo;
+    public float ShieldDurability;
 
     void Start()
     {
-       // part = GetComponent<ParticleSystem>();
-       // collisionEvents = new List<ParticleCollisionEvent>();
-        ShieldDurability = 10000;
+        // part = GetComponent<ParticleSystem>();
+        // collisionEvents = new List<ParticleCollisionEvent>();
+        
+        SheildGo = GameObject.FindGameObjectWithTag("Shield");
+        Debug.Log(SheildGo.transform.name);
+        SheildGo.SetActive(false);
     }
-
-    void OnParticleCollision(GameObject other)
-    {
-        b_ShieldInterval = true;
-    }
-
     void Update()
     {
-        if (b_ShieldInterval == true)
+        if (Input.GetKey(KeyCode.Mouse1) && ShieldDurability > 0)
         {
-            timer += Time.deltaTime;
-        }
-        if (timer > ShieldInterval)
-        {
-            ShieldDamged();
+            SheildGo.SetActive(true);
+            ShieldDurability -= Time.deltaTime * 10;
 
         }
-    }
-
-    void ShieldDamged()
-    {
-            timer = 0;
-            ShieldDurability--;
-            b_ShieldInterval = false;
-            Debug.Log(ShieldDurability);
+        else
+        {
+            if(ShieldDurability < 100)
+            {
+                ShieldDurability += Time.deltaTime;
+            }
+            SheildGo.SetActive(false);
+        }
     }
 }
