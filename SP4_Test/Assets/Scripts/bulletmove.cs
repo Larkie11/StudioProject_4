@@ -19,7 +19,8 @@ public class bulletmove : MonoBehaviour
         
         Quaternion rotation = Quaternion.AngleAxis(angle, Vector3.forward);
         transform.rotation = Quaternion.Slerp(transform.rotation, rotation, tempspeed * Time.deltaTime);
-         rb.velocity = direction*tempspeed;
+        direction.Normalize();
+        rb.velocity = direction*tempspeed;
     }
 
     // Update is called once per frame
