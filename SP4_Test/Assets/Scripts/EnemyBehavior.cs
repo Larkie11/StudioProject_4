@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Linq;
+using System.Collections.Generic;
 
 public class EnemyBehavior : MonoBehaviour
 {
@@ -32,6 +33,8 @@ public class EnemyBehavior : MonoBehaviour
     [SerializeField]
     AnimationClip moveRight;
 
+    public List<GameObject> myPlatforms;
+    float spawnX;
     enum States
     {
         IDLE,
@@ -48,12 +51,20 @@ public class EnemyBehavior : MonoBehaviour
     }
     States enemyStates;
     Attacks attack;
+    bool iamtouchingthis;
     // Use this for initialization
     void Start()
     {
+        myPlatforms = new List<GameObject>();
+        myPlatforms.Clear();
+        iamtouchingthis = false;
+        foreach (GameObject platforms in GameObject.FindGameObjectsWithTag("Platform"))
+        {
+            myPlatforms.Add(platforms);
+        }
         enemyStates = GetRandomEnum<States>();
         timer = 0;
-        target = new Vector3(Random.Range(-7.5F, 7.50F), -3.7F, transform.position.z);
+        target = new Vector3(Random.Range(myPlatforms[GenerateEnemy.spawnPointIndex].GetComponent<Collider2D>().bounds.min.x + 4, myPlatforms[GenerateEnemy.spawnPointIndex].GetComponent<Collider2D>().bounds.max.x - 2), -3.7F, transform.position.z);
         timer = Random.Range(2, 5);
 
         moving = false;
@@ -62,7 +73,7 @@ public class EnemyBehavior : MonoBehaviour
     void EnemyMovement()
     {
         GameObject player = GameObject.FindGameObjectWithTag("Player");
-        float distance = Distance(player.transform.position, transform.position);
+        float distance = Mathf.Abs(transform.position.x - player.transform.position.x);
 
         if (distance < distanceToAttackPlayer)
         {
@@ -96,7 +107,7 @@ public class EnemyBehavior : MonoBehaviour
         {
             if (timer >= 0)
                 timer -= Time.deltaTime;
-            if (timer <= 0)
+            if (timer <= 0 && enemyStates == States.IDLE)
             {
                 enemyStates = GetRandomEnum<States>();
                 Debug.Log(enemyStates);
@@ -126,15 +137,14 @@ public class EnemyBehavior : MonoBehaviour
             }
             if (enemyStates == States.MOVE)
             {
-                transform.position += (target - transform.position).normalized * speed * Time.deltaTime;
-                timer = Random.Range(2, 5);
-                if (Distance(target, transform.position) < 1)
-                {
-                    target = new Vector3(Random.Range(-7.5F, 7.50F), -3.7F, transform.position.z);
-                    moving = true;
-                }
+                transform.position += (target - transform.position).normalized * speed * Time.deltaTime;               
             }
-            if (moving && timer <= 0)
+            if (!moving && Mathf.Abs(transform.position.x - target.x) < 3)
+            {
+                GenerateNextWP();
+                Debug.Log("HO");
+            }
+            if (Mathf.Abs(transform.position.x - target.x) < 1)
             {
                 enemyStates = GetRandomEnum<States>();
                 Debug.Log(enemyStates);
@@ -154,18 +164,35 @@ public class EnemyBehavior : MonoBehaviour
                 }
             }
         }
+    }
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.transform.name == myPlatforms[GenerateEnemy.spawnPointIndex].name)
+        {
+            iamtouchingthis = true;
+        }
+        else
+            iamtouchingthis = false;
+    }
+    void GenerateNextWP()
+    {
+        if (iamtouchingthis)
+        {
+            float width = myPlatforms[GenerateEnemy.spawnPointIndex].GetComponent<Collider2D>().bounds.min.x + 2;
+            float width2 = myPlatforms[GenerateEnemy.spawnPointIndex].GetComponent<Collider2D>().bounds.max.x - 2;
+            spawnX = Random.Range(width2, width);
 
+            target = new Vector3(spawnX, transform.position.y, transform.position.z);
+            moving = true;
+        }
     }
     // Update is called once per frame
     void Update()
     {
         EnemyMovement();
+        Debug.DrawLine(transform.position, new Vector3(spawnX, transform.position.y, transform.position.z), Color.red);
     }
 
-    private float Distance(Vector3 pos1, Vector3 pos2)
-    {
-        return Vector3.Distance(pos1, pos2);
-    }
     static T GetRandomEnum<T>()
     {
         System.Array A = System.Enum.GetValues(typeof(T));

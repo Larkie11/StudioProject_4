@@ -1,13 +1,23 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class GenerateEnemy : MonoBehaviour {
     [SerializeField]
     GameObject enemyType;
     int enemyCount = 0;
+    public static int spawnPointIndex;
+    public List<GameObject> myPlatforms;
 
     // Use this for initialization
     void Start () {
+        myPlatforms = new List<GameObject>();
+        spawnPointIndex = 0;
+        myPlatforms.Clear();
+        foreach (GameObject platforms in GameObject.FindGameObjectsWithTag("Platform"))
+        {
+            myPlatforms.Add(platforms);
+        }
     }
 
     // Update is called once per frame
@@ -18,7 +28,16 @@ public class GenerateEnemy : MonoBehaviour {
     }
     void CreateEnemy()
     {
+        spawnPointIndex = Random.Range(0, myPlatforms.Count);
+
+        float width = myPlatforms[spawnPointIndex].GetComponent<Collider2D>().bounds.min.x + 2;
+        float width2 = myPlatforms[spawnPointIndex].GetComponent<Collider2D>().bounds.max.x - 2;
+        float spawnX = 0;
+       
+        spawnX = Random.Range(width, width2);
+        Debug.Log(width2 +  " " + width);
+        Vector2 a = new Vector2(spawnX, myPlatforms[spawnPointIndex].transform.position.y + 2);
         enemyCount++;
-        GameObject go = Instantiate(enemyType, new Vector3(Random.Range(-5F, 5.0F), -3.7F, 0.0F), Quaternion.identity) as GameObject;
+        GameObject go = Instantiate(enemyType, new Vector2(spawnX, transform.position.y + 1), Quaternion.identity) as GameObject;
     }
 }
