@@ -58,8 +58,6 @@ public class EnemyBehavior : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        
-
         nowCollide = null;
         myPlatforms = new List<GameObject>();
         myPlatforms.Clear();
@@ -80,31 +78,33 @@ public class EnemyBehavior : MonoBehaviour
     {
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         float distance = Vector3.Distance(transform.position, player.transform.position);
-
-        if (distance < distanceToAttackPlayer)
+        if (GlobalScript.playerStandingOn == nowCollide)
         {
-            if (attackCD <= 0F && enemyType == 0)
+            if (distance < distanceToAttackPlayer)
             {
-                Attack(player.transform.position, Attacks.FIREBALL);
-                attackCD = 3F;
+                if (attackCD <= 0F && enemyType == 0)
+                {
+                    Attack(player.transform.position, Attacks.FIREBALL);
+                    attackCD = 3F;
+                }
             }
-        }
-        if (attackCD > 0)
-            attackCD -= Time.deltaTime;
+            if (attackCD > 0)
+                attackCD -= Time.deltaTime;
 
-        if (distance < distanceToDetectPlayer)
-        {
-            animator.enabled = true;
-            transform.position += (player.transform.position - transform.position).normalized * speed * Time.deltaTime;
-
-            if (player.transform.position.x > transform.position.x)
+            if (distance < distanceToDetectPlayer)
             {
-                animator.Play(moveRight.name);
-            }
+                animator.enabled = true;
+                transform.position += (player.transform.position - transform.position).normalized * speed * Time.deltaTime;
 
-            else
-            {
-                animator.Play(moveLeft.name);
+                if (player.transform.position.x > transform.position.x)
+                {
+                    animator.Play(moveRight.name);
+                }
+
+                else
+                {
+                    animator.Play(moveLeft.name);
+                }
             }
         }
         else
@@ -114,7 +114,6 @@ public class EnemyBehavior : MonoBehaviour
             if (timer <= 0 && enemyStates == States.IDLE)
             {
                 enemyStates = GetRandomEnum<States>();
-                Debug.Log(enemyStates);
                 timer = Random.Range(2, 5);
 
                 if (enemyStates == States.IDLE)
@@ -146,12 +145,10 @@ public class EnemyBehavior : MonoBehaviour
             if (!moving && Mathf.Abs(transform.position.x - target.x) < 3)
             {
                 GenerateNextWP();
-                Debug.Log("HO");
             }
             if (Mathf.Abs(transform.position.x - target.x) < 1)
             {
                 enemyStates = GetRandomEnum<States>();
-                Debug.Log(enemyStates);
                 timer = Random.Range(5, 10);
                 moving = false;
 
@@ -180,7 +177,6 @@ public class EnemyBehavior : MonoBehaviour
             width = GameObject.Find(nowCollide).GetComponent<Collider2D>().bounds.min.x + 3.5F;
             width2 = GameObject.Find(nowCollide).GetComponent<Collider2D>().bounds.max.x - 2;
             spawnX = Random.Range(width2, width);
-            Debug.Log(GameObject.Find(nowCollide).GetComponent<Collider2D>().bounds.max.x + " " + width2);
             target = new Vector3(spawnX, transform.position.y, transform.position.z);
             moving = true;
         }
@@ -208,10 +204,8 @@ public class EnemyBehavior : MonoBehaviour
         GameObject go;
         if (a == Attacks.FIREBALL)
         {
-            if (transform.position.x < playerPos.x)
-                go = Instantiate(firebreath, new Vector3(transform.position.x + 1.2F, transform.position.y - 0.5F, transform.position.z), Quaternion.Euler(0, 90, 0)) as GameObject;
-            else
-                go = Instantiate(firebreath, new Vector3(transform.position.x - 0.8F, transform.position.y - 0.5F, transform.position.z), Quaternion.Euler(0, -90, 0)) as GameObject;
+
+            go = Instantiate(Resources.Load("bullet01"), new Vector3(transform.position.x + 1F, transform.position.y - 0.5F, transform.position.z), Quaternion.identity) as GameObject;
         }
     }
 }

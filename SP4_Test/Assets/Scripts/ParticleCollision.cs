@@ -5,6 +5,6 @@ public class ParticleCollision : MonoBehaviour
 {
     void OnParticleCollision(GameObject other)
     {
-        
+
     }
 }

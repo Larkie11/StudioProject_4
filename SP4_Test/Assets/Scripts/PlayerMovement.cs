@@ -29,7 +29,6 @@ public class PlayerMovement : MonoBehaviour
     {
         platformPref = GameObject.FindGameObjectWithTag("Platform");
         shieldPref = GameObject.FindGameObjectWithTag("Shield");
-        Debug.Log(shieldPref.name + " " + platformPref.name);
 
 #if UNITY_ANDROID
                       Debug.Log("Android");
@@ -116,6 +115,19 @@ public class PlayerMovement : MonoBehaviour
         myBody.AddForce(Vector2.up * jumpPower);
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+
+        if (collision.gameObject.tag == "Particle")
+        {
+            Destroy(collision.gameObject);
+        }
+
+        if (collision.gameObject.tag == "Platform")
+        {
+            GlobalScript.playerStandingOn = collision.gameObject.name;
+        }
+    }
     void Attack(Vector2 playerPos)
     {
         GameObject go;

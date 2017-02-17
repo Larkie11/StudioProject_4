@@ -5,6 +5,7 @@ using System.Collections.Generic;
 public class GlobalScript : MonoBehaviour {
 
     public static int CharacterType = 0;
+    public static string playerStandingOn;
     public struct Characters
     {
         public string description;

@@ -36,7 +36,6 @@ public class CharacterSelection : MonoBehaviour {
     }
 	public void NextCharacter()
     {
-        Debug.Log("AA");
         if (selectionIndex < sprites.Count-1)
         {
             sprites[selectionIndex].SetActive(false);
@@ -56,8 +55,6 @@ public class CharacterSelection : MonoBehaviour {
     public void Selected()
     {
         GlobalScript.CharacterType = selectionIndex;
-        Debug.Log(GlobalScript.CharacterType);
-        Debug.Log(GlobalScript.myCharacters[selectionIndex].shield);
 
     }
     // Update is called once per frame

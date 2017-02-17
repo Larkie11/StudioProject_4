@@ -35,7 +35,6 @@ public class GenerateEnemy : MonoBehaviour {
         float spawnX = 0;
        
         spawnX = Random.Range(width, width2);
-        Debug.Log(width2 +  " " + width);
         Vector2 a = new Vector2(spawnX, myPlatforms[spawnPointIndex].transform.position.y + 2);
         enemyCount++;
         GameObject go = Instantiate(enemyType, new Vector2(spawnX, myPlatforms[spawnPointIndex].transform.position.y + 1F), Quaternion.identity) as GameObject;
