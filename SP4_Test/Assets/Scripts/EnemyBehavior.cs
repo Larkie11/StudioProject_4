@@ -32,6 +32,10 @@ public class EnemyBehavior : MonoBehaviour
     AnimationClip moveLeft;
     [SerializeField]
     AnimationClip moveRight;
+    [SerializeField]
+    AnimationClip idleLeft;
+    [SerializeField]
+    AnimationClip idleRight;
 
     public List<GameObject> myPlatforms;
     float spawnX;
@@ -116,30 +120,32 @@ public class EnemyBehavior : MonoBehaviour
                 enemyStates = GetRandomEnum<States>();
                 timer = Random.Range(2, 5);
 
-                if (enemyStates == States.IDLE)
+                
+            }
+
+            if (enemyStates == States.IDLE)
+            {
+                if (transform.position.x < target.x)
                 {
-                    if (animator.GetCurrentAnimatorStateInfo(0).IsName("Dragon_Left"))
-                    {
-                        animator.Play("Dragon_Idle");
-                    }
-                    if (animator.GetCurrentAnimatorStateInfo(0).IsName("Dragon_Right"))
-                    {
-                        animator.Play("Dragon_IdleR");
-                    }
+                    animator.Play(idleRight.name);
                 }
-            }
-
-            if (transform.position.x < target.x)
-            {
-                animator.Play(moveRight.name);
-            }
-
-            if (transform.position.x > target.x)
-            {
-                animator.Play(moveLeft.name);
+                if (transform.position.x > target.x)
+                {
+                    animator.Play(idleLeft.name);
+                }
             }
             if (enemyStates == States.MOVE)
             {
+
+                if (transform.position.x < target.x)
+                {
+                    animator.Play(moveRight.name);
+                }
+
+                if (transform.position.x > target.x)
+                {
+                    animator.Play(moveLeft.name);
+                }
                 transform.position += (target - transform.position).normalized * speed * Time.deltaTime;
             }
             if (!moving && Mathf.Abs(transform.position.x - target.x) < 3)
@@ -205,7 +211,7 @@ public class EnemyBehavior : MonoBehaviour
         if (a == Attacks.FIREBALL)
         {
 
-            go = Instantiate(Resources.Load("bullet01"), new Vector3(transform.position.x + 1F, transform.position.y - 0.5F, transform.position.z), Quaternion.identity) as GameObject;
+            go = Instantiate(Resources.Load("bullet01"), new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity) as GameObject;
         }
     }
 }
