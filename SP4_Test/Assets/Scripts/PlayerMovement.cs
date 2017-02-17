@@ -14,8 +14,6 @@ public class PlayerMovement : MonoBehaviour
     public Transform bottom_right;
     //What layer is consider a ground
     public LayerMask WhatIsGround;
-    public GameObject platformPref;
-    public GameObject shieldPref;
 
     float lockPos = 0;
 
@@ -25,10 +23,13 @@ public class PlayerMovement : MonoBehaviour
     public GameObject bulletPrefab;
     public Transform bulletSpawn;
 
+    SpriteRenderer Sr;
+    Animator anim;
+
     void Start()
     {
-        platformPref = GameObject.FindGameObjectWithTag("Platform");
-        shieldPref = GameObject.FindGameObjectWithTag("Shield");
+
+        anim = GetComponent<Animator>();
 
 #if UNITY_ANDROID
                       Debug.Log("Android");
@@ -39,6 +40,8 @@ public class PlayerMovement : MonoBehaviour
 #endif
 
         myBody = this.GetComponent<Rigidbody2D>();
+        Sr = this.GetComponent<SpriteRenderer>();
+
     }
 
     void Update()
@@ -58,9 +61,17 @@ public class PlayerMovement : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Space))
             {
+                anim.SetInteger("State", 3);
                 Jump();
             }
+            if(Input.GetKeyUp(KeyCode.Space))
+            {
+                anim.SetInteger("State", 0);
+            }
         }
+
+        PlayerAnimationPC();
+
         if (Input.GetKey(KeyCode.C))
         {
             Attack(transform.position);
@@ -88,11 +99,43 @@ public class PlayerMovement : MonoBehaviour
                          }
                      }
         //Jumping and moving
-         Vector2 moveVec = new Vector2(CrossPlatformInputManager.GetAxis("Horizontal"),
+        Vector2 moveVec = new Vector2(CrossPlatformInputManager.GetAxis("Horizontal"),
 		CrossPlatformInputManager.GetAxis("Vertical")) * moveForce;
 		bool isBoosting = CrossPlatformInputManager.GetButtonDown("Boost");
         bool isJumping = CrossPlatformInputManager.GetButtonDown("Jump");
 
+        Debug.Log(moveVec.x);
+
+        if(moveVec.x == 0)
+        {
+
+            anim.SetInteger("State", 0);
+        }
+
+        if (moveVec.x > 0 && isJumping)
+        {
+            Sr.flipX = false;
+            anim.SetInteger("State", 3);
+        }
+        else if (moveVec.x < 0 && isJumping)
+        {
+            Sr.flipX = true;
+            anim.SetInteger("State", 3);
+        }
+
+        if (moveVec.x > 0)
+        {
+            Sr.flipX = false;
+            anim.SetInteger("State", 1);
+        }
+        else if (moveVec.x < 0)
+        {
+            Sr.flipX = true;
+            anim.SetInteger("State", 1);
+        }
+
+        
+        
         Debug.Log(isGrounded);
 
         if (isGrounded)
@@ -100,6 +143,7 @@ public class PlayerMovement : MonoBehaviour
             if (isJumping)
             {
                 Jump();
+                anim.SetInteger("State", 3);
             }
         }
         
@@ -115,25 +159,11 @@ public class PlayerMovement : MonoBehaviour
         myBody.AddForce(Vector2.up * jumpPower);
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-
-        if (collision.gameObject.tag == "Particle")
-        {
-            Destroy(collision.gameObject);
-        }
-
-        if (collision.gameObject.tag == "Platform")
-        {
-            GlobalScript.playerStandingOn = collision.gameObject.name;
-        }
-    }
     void Attack(Vector2 playerPos)
     {
         GameObject go;
         go = Instantiate(firebreath, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.Euler(0, -90, 0)) as GameObject;
     }
-
 
     void Fire()
     {
@@ -150,5 +180,47 @@ public class PlayerMovement : MonoBehaviour
         Destroy(bullet, 2.0f);
     }
 
+    void PlayerAnimationPC()
+    {
+        if (Input.GetKey(KeyCode.Space) && Input.GetKey(KeyCode.A))
+        {
+            anim.SetInteger("State", 3);
+        }
+        else if (Input.GetKey(KeyCode.A))
+        {
+            Sr.flipX = true;
+            anim.SetInteger("State", 1);
+        }
+
+        if (Input.GetKeyUp(KeyCode.Space) && Input.GetKeyUp(KeyCode.A))
+        {
+            anim.SetInteger("State", 0);
+        }
+        else if (Input.GetKeyUp(KeyCode.A))
+        {
+            Sr.flipX = true;
+            anim.SetInteger("State", 0);
+        }
+
+        if (Input.GetKey(KeyCode.Space) && Input.GetKey(KeyCode.D))
+        {
+            anim.SetInteger("State", 3);
+        }
+        else if (Input.GetKey(KeyCode.D))
+        {
+            Sr.flipX = false;
+            anim.SetInteger("State", 1);
+        }
+
+        if (Input.GetKeyUp(KeyCode.Space) && Input.GetKeyUp(KeyCode.D))
+        {
+            anim.SetInteger("State", 0);
+        }
+        else if (Input.GetKeyUp(KeyCode.D))
+        {
+            Sr.flipX = false;
+            anim.SetInteger("State", 0);
+        }
+    }
 
 }

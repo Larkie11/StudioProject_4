@@ -82,7 +82,8 @@ public class EnemyBehavior : MonoBehaviour
     {
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         float distance = Vector3.Distance(transform.position, player.transform.position);
-        if (GlobalScript.playerStandingOn == nowCollide)
+
+        if (GlobalScript.playerStandingOn == nowCollide && distance < distanceToDetectPlayer)
         {
             if (distance < distanceToAttackPlayer)
             {

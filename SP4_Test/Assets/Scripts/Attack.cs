@@ -19,8 +19,8 @@ public class Attack : MonoBehaviour {
     private void OnCollisionEnter2D(Collision2D collision)
     {
         //Destroy(this.gameObject);
+        if(collision.gameObject.tag == "Shield")
         Debug.Log(collision.gameObject.name);
-
     }
     // Update is called once per frame
     void Update () {
