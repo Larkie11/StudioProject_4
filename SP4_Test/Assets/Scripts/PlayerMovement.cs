@@ -14,6 +14,9 @@ public class PlayerMovement : MonoBehaviour
     public Transform bottom_right;
     //What layer is consider a ground
     public LayerMask WhatIsGround;
+    public GameObject platformPref;
+    public GameObject shieldPref;
+
     float lockPos = 0;
 
     [SerializeField]
@@ -24,6 +27,10 @@ public class PlayerMovement : MonoBehaviour
 
     void Start()
     {
+        platformPref = GameObject.FindGameObjectWithTag("Platform");
+        shieldPref = GameObject.FindGameObjectWithTag("Shield");
+        Debug.Log(shieldPref.name + " " + platformPref.name);
+
 #if UNITY_ANDROID
                       Debug.Log("Android");
 #endif

@@ -11,7 +11,7 @@
         if (!GlobalScript.RenderedPlayer && GlobalScript.go2 == null)
         {
             if (GlobalScript.CharacterType == 0)
-                GlobalScript.go2 = Instantiate(Resources.Load("Player"), new Vector3(0, 0, 0), Quaternion.identity) as GameObject;
+                GlobalScript.go2 = Instantiate(Resources.Load("Player 2"), new Vector3(0, 0, 0), Quaternion.identity) as GameObject;
             if (GlobalScript.CharacterType == 1)
                 GlobalScript.go2 = Instantiate(Resources.Load("Player 2"), new Vector3(0, 0, 0), Quaternion.identity) as GameObject;
             GlobalScript.RenderedPlayer = true;

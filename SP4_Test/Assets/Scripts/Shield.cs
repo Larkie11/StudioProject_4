@@ -16,7 +16,6 @@ public class Shield : MonoBehaviour
         // collisionEvents = new List<ParticleCollisionEvent>();
         
         SheildGo = GameObject.FindGameObjectWithTag("Shield");
-        Debug.Log(SheildGo.transform.name);
         SheildGo.SetActive(false);
     }
     void Update()
