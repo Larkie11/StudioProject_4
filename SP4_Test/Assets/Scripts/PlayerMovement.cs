@@ -6,7 +6,6 @@ using UnityStandardAssets.CrossPlatformInput;
 public class PlayerMovement : MonoBehaviour
 {
     public float moveForce = 1.5f;
-    public float speed = 1.5f;
     public float jumpPower = 5;
     public float boostMultiplier = 2;
     Rigidbody2D myBody;
@@ -64,18 +63,18 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetKey(KeyCode.A))
         {
-            transform.position += Vector3.left * speed * Time.deltaTime;
+            myBody.AddForce(Vector2.left * moveForce);
         }
         if (Input.GetKey(KeyCode.D))
         {
-            transform.position += Vector3.right * speed * Time.deltaTime;
+             myBody.AddForce(Vector2.right * moveForce);
         }
 #endif
 
 #if UNITY_ANDROID
-         
+
         //Shooting
-                             if(Input.touchCount>0)
+        if (Input.touchCount>0)
                      {
                          if (Input.GetTouch(0).phase == TouchPhase.Ended)
                          {
@@ -85,8 +84,8 @@ public class PlayerMovement : MonoBehaviour
         //Jumping and moving
          Vector2 moveVec = new Vector2(CrossPlatformInputManager.GetAxis("Horizontal"),
 		CrossPlatformInputManager.GetAxis("Vertical")) * moveForce;
-		bool isBoosting = CrossPlatformInputManager.GetButton("Boost");
-        bool isJumping = CrossPlatformInputManager.GetButton("Jump");
+		bool isBoosting = CrossPlatformInputManager.GetButtonDown("Boost");
+        bool isJumping = CrossPlatformInputManager.GetButtonDown("Jump");
 
         Debug.Log(isGrounded);
 

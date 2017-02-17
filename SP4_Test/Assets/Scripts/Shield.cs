@@ -24,14 +24,13 @@ public class Shield : MonoBehaviour
         if (Input.GetKey(KeyCode.Mouse1) && ShieldDurability > 0)
         {
             SheildGo.SetActive(true);
-            ShieldDurability -= Time.deltaTime * 10;
-
+            //ShieldDurability -= Time.deltaTime * 10;
         }
         else
         {
             if(ShieldDurability < 100)
             {
-                ShieldDurability += Time.deltaTime;
+               // ShieldDurability += Time.deltaTime;
             }
             SheildGo.SetActive(false);
         }
