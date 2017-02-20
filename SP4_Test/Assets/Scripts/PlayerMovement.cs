@@ -5,11 +5,14 @@ using UnityStandardAssets.CrossPlatformInput;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float moveForce = 1.5f;
+    public float Speed = 0f;
+    private float move = 0f;
+    private float jump = 0f;
     public float jumpPower = 5;
     public float boostMultiplier = 2;
     Rigidbody2D myBody;
     bool isGrounded = false;
+    bool inair = false;
     public Transform top_left;
     public Transform bottom_right;
     //What layer is consider a ground
@@ -25,6 +28,10 @@ public class PlayerMovement : MonoBehaviour
 
     SpriteRenderer Sr;
     Animator anim;
+
+ 
+
+
 
     void Start()
     {
@@ -62,14 +69,11 @@ public class PlayerMovement : MonoBehaviour
         isGrounded = Physics2D.OverlapArea(top_left.position, bottom_right.position, WhatIsGround);
         //Debug.Log(isGrounded);
         transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, lockPos, lockPos);
-        Debug.Log(isGrounded);
+        PlayerAnimation();
 #if UNITY_STANDALONE
-        //Shooting
-        //if (Input.GetKeyUp(KeyCode.Mouse0))
-        //{
-        //    Fire();
-        //}
-        //Checking for jumping'
+
+        move = Input.GetAxis ("Horizontal");
+        GetComponent<Rigidbody2D>().velocity = new Vector2 (move * Speed, GetComponent<Rigidbody2D>().velocity.y);
 
         if (isGrounded)
         {
@@ -80,25 +84,15 @@ public class PlayerMovement : MonoBehaviour
             }
         }
         else
-
+        {
             anim.SetInteger("State", 0);
-
-        PlayerAnimationPC();
+        }
 
         if (Input.GetKey(KeyCode.C))
         {
             Attack(transform.position);
         }
         //moving
-
-        if (Input.GetKey(KeyCode.A))
-        {
-            myBody.AddForce(Vector2.left * moveForce);
-        }
-        if (Input.GetKey(KeyCode.D))
-        {
-             myBody.AddForce(Vector2.right * moveForce);
-        }
 #endif
 
 #if UNITY_ANDROID
@@ -111,57 +105,30 @@ public class PlayerMovement : MonoBehaviour
                          //    Fire();
                          //}
                      }
-        //Jumping and moving
-        Vector2 moveVec = new Vector2(CrossPlatformInputManager.GetAxis("Horizontal"),
-		CrossPlatformInputManager.GetAxis("Vertical")) * moveForce;
+
+        move = CrossPlatformInputManager.GetAxis("Horizontal");
+        GetComponent<Rigidbody2D>().velocity = new Vector2(move * Speed, GetComponent<Rigidbody2D>().velocity.y);
+
+        jump = CrossPlatformInputManager.GetAxis("Vertical");
+
 		bool isBoosting = CrossPlatformInputManager.GetButtonDown("Boost");
         bool isJumping = CrossPlatformInputManager.GetButtonDown("Jump");
 
-        Debug.Log(moveVec.x);
-
-        if(moveVec.x == 0)
-        {
-
-            anim.SetInteger("State", 0);
-        }
-
-        if (moveVec.x > 0 && isJumping)
-        {
-            Sr.flipX = false;
-            anim.SetInteger("State", 3);
-        }
-        else if (moveVec.x < 0 && isJumping)
-        {
-            Sr.flipX = true;
-            anim.SetInteger("State", 3);
-        }
-
-        if (moveVec.x > 0)
-        {
-            Sr.flipX = false;
-            anim.SetInteger("State", 1);
-        }
-        else if (moveVec.x < 0)
-        {
-            Sr.flipX = true;
-            anim.SetInteger("State", 1);
-        }
-
-        
-        
-        Debug.Log(isGrounded);
+        Debug.Log(jump);
 
         if (isGrounded)
         {
-            if (isJumping)
+            if (jump == 1 && inair == false)
             {
+                inair = true;
                 Jump();
-                anim.SetInteger("State", 3);
             }
+            else
+                inair = false;
         }
-        
+
 		//Debug.Log(isBoosting ? boostMultiplier : 1); //returns boostMultiplier if true, 1 if false
-		myBody.AddForce(moveVec * (isBoosting ? boostMultiplier : 1));
+		//myBody.AddForce(moveVec * (isBoosting ? boostMultiplier : 1));
 
 
 #endif
@@ -169,7 +136,9 @@ public class PlayerMovement : MonoBehaviour
 
     void Jump()
     {
-        myBody.AddForce(Vector2.up * jumpPower);
+        //myBody.AddForce(Vector2.up * jumpPower);
+        myBody.AddForce(new Vector2(GetComponent<Rigidbody2D>().velocity.x, jumpPower));
+        anim.SetInteger("State", 3);
     }
 
     void Attack(Vector2 playerPos)
@@ -193,46 +162,23 @@ public class PlayerMovement : MonoBehaviour
         Destroy(bullet, 2.0f);
     }
 
-    void PlayerAnimationPC()
+    void PlayerAnimation()
     {
-        if (Input.GetKey(KeyCode.Space) && Input.GetKey(KeyCode.A))
+        if (move == 0)
         {
-            anim.SetInteger("State", 3);
-        }
-        else if (Input.GetKey(KeyCode.A))
-        {
-            Sr.flipX = true;
-            anim.SetInteger("State", 1);
-        }
 
-        if (Input.GetKeyUp(KeyCode.Space) && Input.GetKeyUp(KeyCode.A))
-        {
-            anim.SetInteger("State", 0);
-        }
-        else if (Input.GetKeyUp(KeyCode.A))
-        {
-            Sr.flipX = true;
             anim.SetInteger("State", 0);
         }
 
-        if (Input.GetKey(KeyCode.Space) && Input.GetKey(KeyCode.D))
-        {
-            anim.SetInteger("State", 3);
-        }
-        else if (Input.GetKey(KeyCode.D))
+        if (move > 0)
         {
             Sr.flipX = false;
             anim.SetInteger("State", 1);
         }
-
-        if (Input.GetKeyUp(KeyCode.Space) && Input.GetKeyUp(KeyCode.D))
+        else if (move < 0)
         {
-            anim.SetInteger("State", 0);
-        }
-        else if (Input.GetKeyUp(KeyCode.D))
-        {
-            Sr.flipX = false;
-            anim.SetInteger("State", 0);
+            Sr.flipX = true;
+            anim.SetInteger("State", 1);
         }
     }
 
