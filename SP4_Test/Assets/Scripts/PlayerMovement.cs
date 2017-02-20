@@ -52,10 +52,10 @@ public class PlayerMovement : MonoBehaviour
 
 #if UNITY_STANDALONE
         //Shooting
-        if (Input.GetKeyUp(KeyCode.Mouse0))
-        {
-            Fire();
-        }
+        //if (Input.GetKeyUp(KeyCode.Mouse0))
+        //{
+        //    Fire();
+        //}
         //Checking for jumping
         if (isGrounded)
         {
@@ -93,10 +93,10 @@ public class PlayerMovement : MonoBehaviour
         //Shooting
         if (Input.touchCount>0)
                      {
-                         if (Input.GetTouch(0).phase == TouchPhase.Ended)
-                         {
-                             Fire();
-                         }
+                         //if (Input.GetTouch(0).phase == TouchPhase.Ended)
+                         //{
+                         //    Fire();
+                         //}
                      }
         //Jumping and moving
         Vector2 moveVec = new Vector2(CrossPlatformInputManager.GetAxis("Horizontal"),
@@ -165,7 +165,7 @@ public class PlayerMovement : MonoBehaviour
         go = Instantiate(firebreath, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.Euler(0, -90, 0)) as GameObject;
     }
 
-    void Fire()
+    void Fire() 
     {
         // Create the Bullet from the Bullet Prefab
         var bullet = (GameObject)Instantiate(
