@@ -75,7 +75,10 @@
     <Compile Include="Assets\Scripts\CompletePlayerController.cs" />
     <Compile Include="Assets\Scripts\EnemyBehavior.cs" />
     <Compile Include="Assets\Scripts\GenerateEnemy.cs" />
+    <Compile Include="Assets\Scripts\GenerateLightning.cs" />
     <Compile Include="Assets\Scripts\GlobalScript.cs" />
+    <Compile Include="Assets\Scripts\GrifBoss.cs" />
+    <Compile Include="Assets\Scripts\LightningAttack.cs" />
     <Compile Include="Assets\Scripts\Lookat.cs" />
     <Compile Include="Assets\Scripts\MenuOnTouch.cs" />
     <Compile Include="Assets\Scripts\Mouseinscreen.cs" />

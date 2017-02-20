@@ -6,6 +6,7 @@ public class GlobalScript : MonoBehaviour {
 
     public static int CharacterType = 0;
     public static string playerStandingOn;
+    public static float GrifLightningCD = 1;
     public struct Characters
     {
         public string description;
