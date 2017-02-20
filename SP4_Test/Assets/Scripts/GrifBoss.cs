@@ -11,6 +11,7 @@ public class GrifBoss : MonoBehaviour
     bool playNormal;
     [SerializeField]
     float LightningCD;
+    SpriteRenderer sr;
 
     Animator ar;
     Vector3 target;
@@ -25,6 +26,7 @@ public class GrifBoss : MonoBehaviour
         myPlatforms.Clear();
         playAttack = false;
         playNormal = true;
+        sr = GetComponent<SpriteRenderer>();
         foreach (GameObject platforms in GameObject.FindGameObjectsWithTag("Platform"))
         {
             myPlatforms.Add(platforms);
@@ -42,8 +44,17 @@ public class GrifBoss : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+       
         if(!player)
             player = GameObject.FindGameObjectWithTag("Player");
+
+
+        if (transform.position.x > player.transform.position.x)
+        {
+            sr.flipX = false;
+        }
+        else
+            sr.flipX = true;
 
         Debug.Log(player.transform.position);
         if(!playAttack)
@@ -54,7 +65,7 @@ public class GrifBoss : MonoBehaviour
             if(!playAttack)
             for (int i = 0; i < lightningtospawn; i++)
             {
-                target = new Vector3(Random.Range(myPlatforms[hi].GetComponent<Collider2D>().bounds.min.x + 4, myPlatforms[hi].GetComponent<Collider2D>().bounds.max.x - 2), -10.2F, transform.position.z);
+                target = new Vector3(Random.Range(myPlatforms[hi].GetComponent<Collider2D>().bounds.min.x + 4, myPlatforms[hi].GetComponent<Collider2D>().bounds.max.x - 2), -13F, transform.position.z);
                 Instantiate(Resources.Load("LightningTrigger"), target, Quaternion.identity);
             }
             playAttack = true;
