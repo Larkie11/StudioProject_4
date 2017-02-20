@@ -28,7 +28,7 @@ public class Weaponmanager : MonoBehaviour {
             noammo = true;
             Changetodefaultweapon();
         }
-    	if(Input.GetKeyUp(KeyCode.Mouse0))
+    	if(Input.GetKeyDown(KeyCode.Mouse0))
     {
        // Debug.Log("shooting"+ammocounter);
          

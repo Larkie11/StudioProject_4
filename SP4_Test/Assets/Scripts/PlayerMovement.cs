@@ -44,19 +44,33 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.transform.tag == "Platform")
+        {
+            GlobalScript.playerStandingOn = collision.transform.name;
+        }
+
+        if (collision.transform.tag == "Bullet")
+        {
+            Destroy(collision.gameObject);
+        }
+    }
+
     void Update()
     {
         isGrounded = Physics2D.OverlapArea(top_left.position, bottom_right.position, WhatIsGround);
         //Debug.Log(isGrounded);
         transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, lockPos, lockPos);
-
+        Debug.Log(isGrounded);
 #if UNITY_STANDALONE
         //Shooting
         //if (Input.GetKeyUp(KeyCode.Mouse0))
         //{
         //    Fire();
         //}
-        //Checking for jumping
+        //Checking for jumping'
+
         if (isGrounded)
         {
             if (Input.GetKeyDown(KeyCode.Space))
@@ -64,11 +78,10 @@ public class PlayerMovement : MonoBehaviour
                 anim.SetInteger("State", 3);
                 Jump();
             }
-            if(Input.GetKeyUp(KeyCode.Space))
-            {
-                anim.SetInteger("State", 0);
-            }
         }
+        else
+
+            anim.SetInteger("State", 0);
 
         PlayerAnimationPC();
 
