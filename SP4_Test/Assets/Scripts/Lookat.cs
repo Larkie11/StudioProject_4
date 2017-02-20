@@ -32,15 +32,17 @@ public class Lookat : MonoBehaviour {
 #if UNITY_ANDROID
 
 
-            Vector2 direction = Camera.main.ScreenToWorldPoint(Input.GetTouch(0).position) - transform.position;
+            if(Input.touchCount>0)
+        {
+            Debug.Log("moving");
+            Vector2 direction = Camera.main.ScreenToWorldPoint(Input.GetTouch(2).position) - transform.position;
             float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
             Quaternion rotation = Quaternion.AngleAxis(angle, Vector3.forward);
             transform.rotation = Quaternion.Slerp(transform.rotation, rotation, speed * Time.deltaTime);
-        
-
+        }
 #endif
 
-                   }
+    }
     
  
 }
