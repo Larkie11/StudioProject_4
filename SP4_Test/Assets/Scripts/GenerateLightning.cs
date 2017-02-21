@@ -17,7 +17,7 @@ public class GenerateLightning : MonoBehaviour {
         if(CoolDown < 0 && !Generated)
         {
             Generated = true;
-            Instantiate(Resources.Load("LightningAttack"), new Vector3(transform.position.x, Random.Range(9,12),transform.position.z), Quaternion.identity);
+            Instantiate(Resources.Load("LightningAttack"), new Vector3(transform.position.x,12,transform.position.z), Quaternion.identity);
         }
     }
 }

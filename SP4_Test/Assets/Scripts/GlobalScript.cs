@@ -7,6 +7,11 @@ public class GlobalScript : MonoBehaviour {
     public static int CharacterType = 0;
     public static string playerStandingOn;
     public static float GrifLightningCD = 1;
+    public static float GrifDefense = 5;
+    public static float GrifNormal = 3;
+    public static int numberOfGrifHits = 0;
+    public static bool flipAttack = false;
+
     public struct Characters
     {
         public string description;

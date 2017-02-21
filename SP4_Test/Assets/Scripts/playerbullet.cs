@@ -41,13 +41,11 @@ public class playerbullet : MonoBehaviour {
 
         if (hitsmthing.gameObject.tag != "Player")
         {
-            Debug.Log("kys");
             Destroy(gameObject);
 
         }
         if (hitsmthing.gameObject.tag == "Player")
         {
-            Debug.Log("hit player");
             Destroy(gameObject);
 
         }

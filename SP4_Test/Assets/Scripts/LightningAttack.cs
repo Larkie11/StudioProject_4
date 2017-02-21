@@ -8,14 +8,13 @@ public class LightningAttack : MonoBehaviour {
     bool moveDown;
 	// Use this for initialization
 	void Start () {
-        position = Random.Range(9F, 12F);
+        position = 12F;
         moveDown = true;
         destroy = 2F;
 	}
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log(collision.transform.name);
         if(collision.transform.tag == "Platform")
         {
             moveDown = false;
@@ -29,7 +28,7 @@ public class LightningAttack : MonoBehaviour {
     void Update () {
         if (moveDown)
         {
-            position -= Time.deltaTime * 30;
+            position -= Time.deltaTime * 170;
         }
         transform.position = new Vector3(transform.position.x, position, transform.position.z);
         if(!moveDown && destroy >= 0F)

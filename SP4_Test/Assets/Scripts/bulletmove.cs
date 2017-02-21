@@ -43,7 +43,6 @@ public class bulletmove : MonoBehaviour
     {
         if (hitsmthing.tag != "Player")
         {
-             Debug.Log("kys");
             Destroy(gameObject);
            
         }

@@ -193,7 +193,11 @@ public class EnemyBehavior : MonoBehaviour
     void Update()
     {
         if (nowCollide != null)
+        {
             EnemyMovement();
+            transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, 0, 0);
+
+        }
         Debug.DrawLine(transform.position, new Vector3(spawnX, transform.position.y, transform.position.z), Color.red);
     }
 
