@@ -16,6 +16,7 @@ public class Shield : MonoBehaviour
         // collisionEvents = new List<ParticleCollisionEvent>();
         
         SheildGo = GameObject.FindGameObjectWithTag("Shield");
+        ShieldDurability = GlobalScript.myCharacters[GlobalScript.CharacterType].shield;
         SheildGo.SetActive(false);
     }
     void Update()

@@ -22,6 +22,14 @@ public class LightningAttack : MonoBehaviour {
         if (collision.transform.tag == "LightningTrigger")
         {
             Destroy(collision.gameObject);
+        }    
+        if (collision.transform.tag == "Shield")
+            Destroy(gameObject);
+
+        else if (collision.transform.tag == "Player")
+        {
+            GlobalScript.playerGotHit = true;
+            Debug.Log("Hit player");
         }
     }
     // Update is called once per frame

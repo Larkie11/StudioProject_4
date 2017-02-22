@@ -37,6 +37,7 @@ public class PlayerMovement : MonoBehaviour
     {
 
         anim = GetComponent<Animator>();
+        Speed = GlobalScript.myCharacters[GlobalScript.CharacterType].speed;
 
 #if UNITY_ANDROID
                       Debug.Log("Android");

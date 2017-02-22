@@ -58,14 +58,12 @@ public class EnemyBehavior : MonoBehaviour
     }
     States enemyStates;
     Attacks attack;
-    bool iamtouchingthis;
     // Use this for initialization
     void Start()
     {
         nowCollide = null;
         myPlatforms = new List<GameObject>();
         myPlatforms.Clear();
-        iamtouchingthis = false;
         foreach (GameObject platforms in GameObject.FindGameObjectsWithTag("Platform"))
         {
             myPlatforms.Add(platforms);
@@ -177,6 +175,9 @@ public class EnemyBehavior : MonoBehaviour
     {
         if(collision.transform.tag == "Platform")
         nowCollide = collision.transform.name;
+
+        if (collision.transform.tag == "Bullet" && health > 0)
+            health -= 2;
     }
     void GenerateNextWP()
     {
@@ -197,6 +198,11 @@ public class EnemyBehavior : MonoBehaviour
             EnemyMovement();
             transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, 0, 0);
 
+        }
+        if (health <= 0)
+        {
+            Destroy(gameObject);
+            GlobalScript.enemyCount--;
         }
         Debug.DrawLine(transform.position, new Vector3(spawnX, transform.position.y, transform.position.z), Color.red);
     }

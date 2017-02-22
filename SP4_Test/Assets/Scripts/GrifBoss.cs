@@ -4,7 +4,6 @@ using System.Collections.Generic;
 
 public class GrifBoss : MonoBehaviour
 {
-    float spikeCD;
     int lightningtospawn;
     public List<GameObject> myPlatforms;
     bool playAttack;
@@ -39,9 +38,11 @@ public class GrifBoss : MonoBehaviour
         myPlatforms = new List<GameObject>();
         myPlatforms.Clear();
         health = 50;
+      
         animationState = 0;
         playAttack = false;
-        playNormal = false; myshield = GameObject.FindGameObjectWithTag("EnemyShield");
+        playNormal = false;
+        myshield = GameObject.FindGameObjectWithTag("EnemyShield");
         myshield.SetActive(false);
         skill = GetRandomEnum<Skills>();
         sr = GetComponent<SpriteRenderer>();
@@ -49,12 +50,10 @@ public class GrifBoss : MonoBehaviour
         {
             myPlatforms.Add(platforms);
         }
-        spikeCD = 8F;
         ar = GetComponent<Animator>();
 
-        Debug.Log(myPlatforms.Count);
         hi = Random.Range(0, myPlatforms.Count);
-        lightningtospawn = 1;
+        lightningtospawn = 2;
 
         GlobalScript.GrifLightningCD = LightningCD;
 
@@ -75,7 +74,6 @@ public class GrifBoss : MonoBehaviour
     {
         transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, 0, 0);
 
-        Debug.Log(health);
         if(!player)
             player = GameObject.FindGameObjectWithTag("Player");
         if (transform.position.x > player.transform.position.x)
@@ -87,106 +85,115 @@ public class GrifBoss : MonoBehaviour
 
         if (!playAttack && !playNormal)
             transform.position += (player.transform.position - transform.position).normalized * 0.5F * Time.deltaTime;
-
-
-        if (skill == Skills.Lightning)
+       
+        if (health > 0)
         {
-            if (health > 30)
-                lightningtospawn = 1;
-
-            else if (health < 30)
-                lightningtospawn = 3;
-
-            if (GlobalScript.GrifLightningCD <= 0.5)
+            if (skill == Skills.Lightning)
             {
-                if (!playAttack)
-                {
-                    for (int i = 0; i < lightningtospawn; i++)
-                    {
-                        target = new Vector3(Random.Range(myPlatforms[hi].GetComponent<Collider2D>().bounds.min.x + 4, myPlatforms[hi].GetComponent<Collider2D>().bounds.max.x - 2), -13F, transform.position.z);
-                        Instantiate(Resources.Load("LightningTrigger"), target, Quaternion.identity);
-                    }
-                    animationState = 7;
-                }
-                playAttack = true;
-            }
-            if(GlobalScript.GrifLightningCD <= 0.1)
-                animationState = 8;
-
-            Debug.Log(playAttack);
-     
-            ar.SetInteger("State", animationState);
-
-            GlobalScript.GrifLightningCD -= Time.deltaTime * 0.3F;
-            if (GlobalScript.GrifLightningCD <= 0F)
-            {
-                skill = GetRandomEnum<Skills>();
-                GlobalScript.GrifLightningCD = LightningCD;
-                animationState = 8;
-                playAttack = false;
-            }
-        }
-
-        if (skill == Skills.Defense)
-        {
-            GlobalScript.GrifDefense -= Time.deltaTime * 0.3F;
-            animationState = 0;
-           
-            if (GlobalScript.GrifDefense <= 0F)
-            {
-                skill = GetRandomEnum<Skills>();
                 myshield.SetActive(false);
-                GlobalScript.GrifDefense = 5F;
-                collide.enabled = true;
+                if (health > 30)
+                    lightningtospawn = 2;
+
+                else if (health < 30)
+                    lightningtospawn = 5;
+
+                if (GlobalScript.GrifLightningCD <= 0.5)
+                {
+                    if (!playAttack)
+                    {
+                        for (int i = 0; i < lightningtospawn; i++)
+                        {
+                            target = new Vector3(Random.Range(myPlatforms[hi].GetComponent<Collider2D>().bounds.min.x + 4, myPlatforms[hi].GetComponent<Collider2D>().bounds.max.x - 2), -13F, transform.position.z);
+                            Instantiate(Resources.Load("LightningTrigger"), target, Quaternion.identity);
+                        }
+                        animationState = 7;
+                    }
+                    playAttack = true;
+                }
+                if (GlobalScript.GrifLightningCD <= 0.1)
+                    animationState = 8;
+
+                ar.SetInteger("State", animationState);
+
+                GlobalScript.GrifLightningCD -= Time.deltaTime * 0.3F;
+                if (GlobalScript.GrifLightningCD <= 0F)
+                {
+                    skill = GetRandomEnum<Skills>();
+                    GlobalScript.GrifLightningCD = LightningCD;
+                    animationState = 8;
+                    playAttack = false;
+                }
             }
-            else if (GlobalScript.GrifDefense <= 2F)
+
+            if (skill == Skills.Defense)
             {
-                collide.enabled = false;
-                myshield.SetActive(true);
+                GlobalScript.GrifDefense -= Time.deltaTime * 0.3F;
+                animationState = 0;
+
+                if (GlobalScript.GrifDefense <= 0F)
+                {
+                    skill = GetRandomEnum<Skills>();
+                    myshield.SetActive(false);
+                    GlobalScript.GrifDefense = 5F;
+                    collide.enabled = true;
+                }
+                else if (GlobalScript.GrifDefense <= 2F)
+                {
+                    collide.enabled = false;
+                    myshield.SetActive(true);
+                }
+            }
+            if (skill == Skills.Normal)
+            {
+                myshield.SetActive(false);
+
+                if (health > 30)
+                    lightningtospawn = 1;
+
+                else if (health < 30)
+                    lightningtospawn = 3;
+
+                if (GlobalScript.GrifNormal <= 0.5)
+                {
+                    if (!playNormal)
+                    {
+                        if (transform.position.x > player.transform.position.x)
+                        {
+                            GlobalScript.flipAttack = true;
+                            Instantiate(Resources.Load("GrifHit"), new Vector3(transform.position.x - 2F, -15, transform.position.z), Quaternion.identity);
+                        }
+                        else
+                        {
+                            GlobalScript.flipAttack = false;
+                            Instantiate(Resources.Load("GrifHit"), new Vector3(transform.position.x + 2F, -15, transform.position.z), Quaternion.identity);
+                        }
+                        animationState = 5;
+                    }
+                    playNormal = true;
+                }
+
+
+                GlobalScript.GrifNormal -= Time.deltaTime * 0.3F;
+
+                if (GlobalScript.GrifNormal <= 0F)
+                {
+                    GlobalScript.GrifNormal = 2F;
+                    skill = GetRandomEnum<Skills>();
+                    playNormal = false;
+                    animationState = 6;
+                    GlobalScript.numberOfGrifHits = 0;
+                }
             }
         }
-        if (skill == Skills.Normal)
+        else
         {
-            if (health > 30)
-                lightningtospawn = 1;
-
-            else if (health < 30)
-                lightningtospawn = 3;
-
-            if (GlobalScript.GrifNormal <= 0.5)
-            {
-                if (!playNormal)
-                {
-                    if (transform.position.x > player.transform.position.x)
-                    {
-                        GlobalScript.flipAttack = true;
-                        Instantiate(Resources.Load("GrifHit"), new Vector3(transform.position.x - 2F, -15, transform.position.z), Quaternion.identity);
-                    }
-                    else
-                    {
-                        GlobalScript.flipAttack = false;
-                        Instantiate(Resources.Load("GrifHit"), new Vector3(transform.position.x + 2F, -15, transform.position.z), Quaternion.identity);
-                    }
-                    animationState = 5;
-                }
-                playNormal = true;
-            }
-            Debug.Log(playAttack);
- 
-
-            GlobalScript.GrifNormal -= Time.deltaTime * 0.3F;
-
-            if (GlobalScript.GrifNormal <= 0F)
-            {
-                GlobalScript.GrifNormal = 2F;
-                skill = GetRandomEnum<Skills>();
-                playNormal = false;
-                animationState = 6;
-                GlobalScript.numberOfGrifHits = 0;
-            }
+            if (animationState == 5)
+                animationState = 17;
+            else if (animationState == 7)
+                animationState = 16;
+            else
+                animationState = 15;
         }
         ar.SetInteger("State", animationState);
-
-        Debug.Log(skill);
     }
 }

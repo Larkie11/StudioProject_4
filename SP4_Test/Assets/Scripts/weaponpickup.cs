@@ -24,7 +24,6 @@ public class weaponpickup : MonoBehaviour {
         {
             other.transform.Find("weaponslot").GetComponent<Weaponmanager>().Updateweapon(weaponhere);
             //Destroy(gameObject );
-            Debug.Log("puckup");
         }
             
     }

@@ -11,7 +11,8 @@ public class GlobalScript : MonoBehaviour {
     public static float GrifNormal = 3;
     public static int numberOfGrifHits = 0;
     public static bool flipAttack = false;
-
+    public static bool playerGotHit = false;
+    public static int enemyCount = 0;
     public struct Characters
     {
         public string description;
@@ -19,7 +20,6 @@ public class GlobalScript : MonoBehaviour {
         public float jumpPower;
         public int speed;
         public int shield;
-        public float moveForce;
         public float buffDuration;
         public float bulletSpeed;
     }
@@ -40,39 +40,39 @@ public class GlobalScript : MonoBehaviour {
         myCharacters = new List<Characters>();
         pumpkin.name = "BEK";
         pumpkin.description = "A pumpking character";
-        pumpkin.speed = 1;
-        pumpkin.shield = 5;
-        pumpkin.moveForce = 1;
+        pumpkin.speed = 8;
+        pumpkin.shield = 60;
         pumpkin.bulletSpeed = 5;
         pumpkin.jumpPower = 1.2F;
         pumpkin.buffDuration = 0.5F;
+
         robot.description = "From the future";
         robot.name = "EEK";
-        robot.speed = 1;
-        robot.shield = 4;
+        robot.speed = 7;
+        robot.shield = 100;
         robot.jumpPower = 2F;
-        robot.moveForce = 0.6F;
         robot.bulletSpeed = 10;
         robot.buffDuration = 0.4F;
+
         santa.description = "He loves children";
         santa.name = "KEK";
         santa.jumpPower = 1.4F;
-        //santa.speed = 5;
-        santa.moveForce = 0.8F;
-        santa.shield = 3;
+        santa.speed = 5;
+        santa.shield = 70;
         santa.bulletSpeed = 3;
         santa.buffDuration = 1.4F;
+
         knight.description = "Wants to save a princess";
         knight.name = "SEK";
-        knight.speed = 5;
+        knight.speed = 10;
         knight.jumpPower = 1.6F;
         knight.bulletSpeed = 6;
-        knight.shield = 10;
-        knight.moveForce = 0.5F;
+        knight.shield = 80;
         knight.buffDuration = 1.6F;
+
         myCharacters.Add(pumpkin);
-        myCharacters.Add(robot);
         myCharacters.Add(knight);
+        myCharacters.Add(robot);
         myCharacters.Add(santa);
     }
     // Update is called once per frame

@@ -23,8 +23,11 @@ public class GenerateEnemy : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        if (enemyCount < 3)
+        if (GlobalScript.enemyCount < 6)
+        {
             CreateEnemy();
+            GlobalScript.enemyCount++;
+        }
     }
     void CreateEnemy()
     {
@@ -37,6 +40,6 @@ public class GenerateEnemy : MonoBehaviour {
         spawnX = Random.Range(width, width2);
         Vector2 a = new Vector2(spawnX, myPlatforms[spawnPointIndex].transform.position.y + 2);
         enemyCount++;
-        GameObject go = Instantiate(enemyType, new Vector2(spawnX, myPlatforms[spawnPointIndex].transform.position.y + 1F), Quaternion.identity) as GameObject;
+        GameObject go = Instantiate(enemyType, new Vector2(spawnX, myPlatforms[spawnPointIndex].transform.position.y + 0.5F), Quaternion.identity) as GameObject;
     }
 }

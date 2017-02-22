@@ -16,7 +16,7 @@ public class SceneTransition : MonoBehaviour {
 
     public void LoadGame()
     {
-        SceneManager.LoadScene("Gameplay");
+        SceneManager.LoadScene("wm");
     }
     public void LoadMenu()
     {

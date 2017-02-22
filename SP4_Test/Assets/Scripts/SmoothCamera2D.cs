@@ -6,14 +6,16 @@
      public float dampTime = 0.15f;
      private Vector3 velocity = Vector3.zero;
      public Transform target;
+    GameObject startingpoint;
     private void Start()
     {
+        startingpoint = GameObject.FindGameObjectWithTag("StartingPoint");
         if (!GlobalScript.RenderedPlayer && GlobalScript.go2 == null)
         {
             if (GlobalScript.CharacterType == 0)
-                GlobalScript.go2 = Instantiate(Resources.Load("Player"), new Vector3(0, 0, 0), Quaternion.identity) as GameObject;
+                GlobalScript.go2 = Instantiate(Resources.Load("Player"), new Vector3(startingpoint.transform.position.x, startingpoint.transform.position.y, 0), Quaternion.identity) as GameObject;
             if (GlobalScript.CharacterType == 1)
-                GlobalScript.go2 = Instantiate(Resources.Load("Player"), new Vector3(0, 0, 0), Quaternion.identity) as GameObject;
+                GlobalScript.go2 = Instantiate(Resources.Load("Player"), new Vector3(startingpoint.transform.position.x, startingpoint.transform.position.y, 0), Quaternion.identity) as GameObject;
             GlobalScript.RenderedPlayer = true;
 
         }

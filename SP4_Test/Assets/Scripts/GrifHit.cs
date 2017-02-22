@@ -7,9 +7,20 @@ public class GrifHit : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 	}
-	
-	// Update is called once per frame
-	void Update () {
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.transform.tag == "Shield")
+        {
+            Destroy(gameObject);
+        }
+        else if (collision.transform.tag == "Player")
+        {
+            GlobalScript.playerGotHit = true;
+            Debug.Log("Hit player");
+        }
+    }
+    // Update is called once per frame
+    void Update () {
 	    if(posy < 5F)
         {
             posy += Time.deltaTime*5F;
