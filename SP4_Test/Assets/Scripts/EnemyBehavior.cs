@@ -203,6 +203,7 @@ public class EnemyBehavior : MonoBehaviour
         {
             Destroy(gameObject);
             GlobalScript.enemyCount--;
+            GlobalScript.howmanytokill++;
         }
         Debug.DrawLine(transform.position, new Vector3(spawnX, transform.position.y, transform.position.z), Color.red);
     }

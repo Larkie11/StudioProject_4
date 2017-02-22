@@ -26,4 +26,10 @@ public class SceneTransition : MonoBehaviour {
     {
         SceneManager.LoadScene("Character Selection");
     }
+    public void LoadWMBoss()
+    {
+        SceneManager.LoadScene("wmboss");
+        GlobalScript.RenderedPlayer = false;
+        GlobalScript.go2 = null;
+    }
 }

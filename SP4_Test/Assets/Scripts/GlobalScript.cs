@@ -13,6 +13,7 @@ public class GlobalScript : MonoBehaviour {
     public static bool flipAttack = false;
     public static bool playerGotHit = false;
     public static int enemyCount = 0;
+    public static int howmanytokill = 0;
     public struct Characters
     {
         public string description;

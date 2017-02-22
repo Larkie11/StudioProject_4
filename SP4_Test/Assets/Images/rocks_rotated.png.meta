@@ -1,0 +1,1414 @@
+fileFormatVersion: 2
+guid: 55435ae682ce17f4f8f5ffa808167cdf
+timeCreated: 1487747065
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: rocks_rotated_0
+    21300002: rocks_rotated_1
+    21300004: rocks_rotated_2
+    21300006: rocks_rotated_3
+    21300008: rocks_rotated_4
+    21300010: rocks_rotated_5
+    21300012: rocks_rotated_6
+    21300014: rocks_rotated_7
+    21300016: rocks_rotated_8
+    21300018: rocks_rotated_9
+    21300020: rocks_rotated_10
+    21300022: rocks_rotated_11
+    21300024: rocks_rotated_12
+    21300026: rocks_rotated_13
+    21300028: rocks_rotated_14
+    21300030: rocks_rotated_15
+    21300032: rocks_rotated_16
+    21300034: rocks_rotated_17
+    21300036: rocks_rotated_18
+    21300038: rocks_rotated_19
+    21300040: rocks_rotated_20
+    21300042: rocks_rotated_21
+    21300044: rocks_rotated_22
+    21300046: rocks_rotated_23
+    21300048: rocks_rotated_24
+    21300050: rocks_rotated_25
+    21300052: rocks_rotated_26
+    21300054: rocks_rotated_27
+    21300056: rocks_rotated_28
+    21300058: rocks_rotated_29
+    21300060: rocks_rotated_30
+    21300062: rocks_rotated_31
+    21300064: rocks_rotated_32
+    21300066: rocks_rotated_33
+    21300068: rocks_rotated_34
+    21300070: rocks_rotated_35
+    21300072: rocks_rotated_36
+    21300074: rocks_rotated_37
+    21300076: rocks_rotated_38
+    21300078: rocks_rotated_39
+    21300080: rocks_rotated_40
+    21300082: rocks_rotated_41
+    21300084: rocks_rotated_42
+    21300086: rocks_rotated_43
+    21300088: rocks_rotated_44
+    21300090: rocks_rotated_45
+    21300092: rocks_rotated_46
+    21300094: rocks_rotated_47
+    21300096: rocks_rotated_48
+    21300098: rocks_rotated_49
+    21300100: rocks_rotated_50
+    21300102: rocks_rotated_51
+    21300104: rocks_rotated_52
+    21300106: rocks_rotated_53
+    21300108: rocks_rotated_54
+    21300110: rocks_rotated_55
+    21300112: rocks_rotated_56
+    21300114: rocks_rotated_57
+    21300116: rocks_rotated_58
+    21300118: rocks_rotated_59
+    21300120: rocks_rotated_60
+    21300122: rocks_rotated_61
+    21300124: rocks_rotated_62
+    21300126: rocks_rotated_63
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: -1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: rocks_rotated_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 896
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -31, y: 39}
+        - {x: -46, y: 15}
+        - {x: -46, y: -10}
+        - {x: -24, y: -41}
+        - {x: 27, y: -41}
+        - {x: 40, y: -20}
+        - {x: 40, y: 30}
+        - {x: 21, y: 39}
+    - name: rocks_rotated_1
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 896
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -28, y: 43}
+        - {x: -47, y: 19}
+        - {x: -47, y: -17}
+        - {x: -33, y: -42}
+        - {x: 23, y: -42}
+        - {x: 41, y: -36}
+        - {x: 41, y: 24}
+        - {x: 9, y: 43}
+    - name: rocks_rotated_2
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 896
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -25, y: 46}
+        - {x: -48, y: 9}
+        - {x: -48, y: -21}
+        - {x: -22, y: -45}
+        - {x: 13, y: -45}
+        - {x: 42, y: -31}
+        - {x: 42, y: 23}
+        - {x: 19, y: 46}
+    - name: rocks_rotated_3
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 896
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 26, y: 49}
+        - {x: -20, y: 49}
+        - {x: -48, y: 19}
+        - {x: -48, y: -21}
+        - {x: -26, y: -46}
+        - {x: 20, y: -46}
+        - {x: 23, y: -45}
+        - {x: 43, y: -20}
+        - {x: 43, y: 21}
+        - {x: 35, y: 45}
+    - name: rocks_rotated_4
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 896
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 26, y: 51}
+        - {x: -4, y: 51}
+        - {x: -15, y: 49}
+        - {x: -44, y: 32}
+        - {x: -48, y: 1}
+        - {x: -48, y: -23}
+        - {x: -16, y: -47}
+        - {x: -9, y: -47}
+        - {x: 21, y: -42}
+        - {x: 44, y: -30}
+        - {x: 44, y: 16}
+        - {x: 39, y: 45}
+    - name: rocks_rotated_5
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 896
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -14, y: 52}
+        - {x: -46, y: 20}
+        - {x: -46, y: -19}
+        - {x: -14, y: -47}
+        - {x: 0, y: -47}
+        - {x: 23, y: -43}
+        - {x: 44, y: -17}
+        - {x: 44, y: 33}
+        - {x: 29, y: 52}
+    - name: rocks_rotated_6
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 896
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 30, y: 51}
+        - {x: -24, y: 51}
+        - {x: -45, y: 17}
+        - {x: -45, y: -16}
+        - {x: -22, y: -41}
+        - {x: -13, y: -47}
+        - {x: 28, y: -47}
+        - {x: 45, y: -20}
+        - {x: 45, y: 37}
+        - {x: 40, y: 46}
+    - name: rocks_rotated_7
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 896
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -9, y: 49}
+        - {x: -19, y: 44}
+        - {x: -42, y: 21}
+        - {x: -43, y: 18}
+        - {x: -43, y: -20}
+        - {x: -35, y: -48}
+        - {x: 12, y: -48}
+        - {x: 44, y: -40}
+        - {x: 44, y: 24}
+        - {x: 24, y: 49}
+    - name: rocks_rotated_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 768
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -41, y: 45}
+        - {x: -41, y: -47}
+        - {x: -34, y: -50}
+        - {x: 12, y: -50}
+        - {x: 44, y: -24}
+        - {x: 44, y: 31}
+        - {x: 21, y: 45}
+    - name: rocks_rotated_9
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 768
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -29, y: 42}
+        - {x: -42, y: 23}
+        - {x: -42, y: -29}
+        - {x: -36, y: -50}
+        - {x: 5, y: -50}
+        - {x: 44, y: -36}
+        - {x: 44, y: 36}
+        - {x: 25, y: 42}
+    - name: rocks_rotated_10
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 768
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -26, y: 40}
+        - {x: -43, y: 29}
+        - {x: -43, y: -15}
+        - {x: -41, y: -41}
+        - {x: -18, y: -49}
+        - {x: 9, y: -49}
+        - {x: 43, y: -21}
+        - {x: 43, y: 28}
+        - {x: 17, y: 40}
+    - name: rocks_rotated_11
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 768
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -15, y: 42}
+        - {x: -43, y: 23}
+        - {x: -43, y: -17}
+        - {x: -37, y: -38}
+        - {x: -12, y: -47}
+        - {x: 9, y: -47}
+        - {x: 42, y: -32}
+        - {x: 42, y: 29}
+        - {x: 16, y: 42}
+    - name: rocks_rotated_12
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 768
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 4, y: 43}
+        - {x: -14, y: 43}
+        - {x: -43, y: 21}
+        - {x: -43, y: -13}
+        - {x: -41, y: -26}
+        - {x: -19, y: -44}
+        - {x: 12, y: -44}
+        - {x: 41, y: -23}
+        - {x: 41, y: 22}
+    - name: rocks_rotated_13
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 768
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -31, y: 44}
+        - {x: -43, y: 18}
+        - {x: -43, y: -20}
+        - {x: -31, y: -33}
+        - {x: -8, y: -40}
+        - {x: 17, y: -40}
+        - {x: 40, y: -25}
+        - {x: 40, y: 16}
+        - {x: 15, y: 44}
+    - name: rocks_rotated_14
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 768
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -18, y: 43}
+        - {x: -43, y: 17}
+        - {x: -43, y: 1}
+        - {x: -40, y: -13}
+        - {x: -30, y: -37}
+        - {x: 28, y: -37}
+        - {x: 40, y: -35}
+        - {x: 40, y: 21}
+        - {x: 10, y: 43}
+    - name: rocks_rotated_15
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 768
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -7, y: 43}
+        - {x: -20, y: 43}
+        - {x: -43, y: 16}
+        - {x: -43, y: -23}
+        - {x: -22, y: -38}
+        - {x: 38, y: -38}
+        - {x: 40, y: -37}
+        - {x: 40, y: 23}
+        - {x: 20, y: 35}
+    - name: rocks_rotated_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 640
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -45, y: -21}
+        - {x: -41, y: -24}
+        - {x: -17, y: -41}
+        - {x: 22, y: -41}
+        - {x: 42, y: -33}
+        - {x: 42, y: 11}
+        - {x: 36, y: 35}
+        - {x: 12, y: 42}
+        - {x: -32, y: 42}
+        - {x: -45, y: 13}
+    - name: rocks_rotated_17
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 640
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 15, y: 44}
+        - {x: -27, y: 44}
+        - {x: -47, y: 11}
+        - {x: -47, y: -32}
+        - {x: -36, y: -42}
+        - {x: 40, y: -42}
+        - {x: 43, y: -24}
+        - {x: 43, y: 20}
+        - {x: 35, y: 38}
+    - name: rocks_rotated_18
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 640
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 9, y: 46}
+        - {x: -24, y: 46}
+        - {x: -47, y: 18}
+        - {x: -47, y: -39}
+        - {x: -31, y: -43}
+        - {x: 29, y: -43}
+        - {x: 44, y: -25}
+        - {x: 44, y: 26}
+        - {x: 37, y: 41}
+    - name: rocks_rotated_19
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 640
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 21, y: 47}
+        - {x: -19, y: 47}
+        - {x: -47, y: 27}
+        - {x: -47, y: -36}
+        - {x: -29, y: -44}
+        - {x: 28, y: -44}
+        - {x: 45, y: -22}
+        - {x: 45, y: 25}
+        - {x: 43, y: 30}
+    - name: rocks_rotated_20
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 640
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 40, y: 35}
+        - {x: 5, y: 47}
+        - {x: -29, y: 47}
+        - {x: -46, y: 23}
+        - {x: -46, y: -36}
+        - {x: -40, y: -44}
+        - {x: 27, y: -44}
+        - {x: 32, y: -42}
+        - {x: 45, y: -17}
+        - {x: 45, y: 15}
+    - name: rocks_rotated_21
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 640
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -21, y: 46}
+        - {x: -45, y: 17}
+        - {x: -45, y: -27}
+        - {x: -31, y: -44}
+        - {x: 12, y: -44}
+        - {x: 30, y: -42}
+        - {x: 44, y: -32}
+        - {x: 44, y: 33}
+        - {x: 33, y: 46}
+    - name: rocks_rotated_22
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 640
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -27, y: 44}
+        - {x: -42, y: 34}
+        - {x: -42, y: -31}
+        - {x: -28, y: -44}
+        - {x: 28, y: -44}
+        - {x: 44, y: -18}
+        - {x: 44, y: 31}
+        - {x: 30, y: 44}
+    - name: rocks_rotated_23
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 640
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -26, y: 41}
+        - {x: -41, y: 26}
+        - {x: -41, y: -22}
+        - {x: -36, y: -43}
+        - {x: 36, y: -43}
+        - {x: 43, y: -19}
+        - {x: 43, y: 31}
+        - {x: 30, y: 41}
+    - name: rocks_rotated_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 512
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -30, y: 41}
+        - {x: -39, y: 23}
+        - {x: -39, y: -30}
+        - {x: -31, y: -42}
+        - {x: 31, y: -42}
+        - {x: 44, y: -30}
+        - {x: 44, y: 29}
+        - {x: 39, y: 41}
+    - name: rocks_rotated_25
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 512
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -7, y: 42}
+        - {x: -29, y: 39}
+        - {x: -41, y: 17}
+        - {x: -41, y: -19}
+        - {x: -15, y: -43}
+        - {x: 33, y: -43}
+        - {x: 45, y: -12}
+        - {x: 45, y: 35}
+        - {x: 32, y: 42}
+    - name: rocks_rotated_26
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 512
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -16, y: 43}
+        - {x: -43, y: 36}
+        - {x: -43, y: -18}
+        - {x: -16, y: -43}
+        - {x: 7, y: -43}
+        - {x: 43, y: -26}
+        - {x: 45, y: -6}
+        - {x: 45, y: 28}
+        - {x: 34, y: 43}
+    - name: rocks_rotated_27
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 512
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -12, y: 43}
+        - {x: -27, y: 40}
+        - {x: -44, y: 28}
+        - {x: -44, y: -41}
+        - {x: 29, y: -41}
+        - {x: 45, y: -38}
+        - {x: 45, y: 27}
+        - {x: 25, y: 43}
+    - name: rocks_rotated_28
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 512
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 22, y: 43}
+        - {x: -21, y: 43}
+        - {x: -45, y: 28}
+        - {x: -45, y: -27}
+        - {x: -17, y: -40}
+        - {x: 25, y: -40}
+        - {x: 42, y: -26}
+        - {x: 44, y: -16}
+        - {x: 44, y: 24}
+    - name: rocks_rotated_29
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 512
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -32, y: 41}
+        - {x: -45, y: 12}
+        - {x: -45, y: -14}
+        - {x: -29, y: -37}
+        - {x: -13, y: -39}
+        - {x: 25, y: -39}
+        - {x: 41, y: -28}
+        - {x: 41, y: 23}
+        - {x: 20, y: 41}
+    - name: rocks_rotated_30
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 512
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -34, y: 39}
+        - {x: -45, y: 17}
+        - {x: -45, y: -16}
+        - {x: -28, y: -35}
+        - {x: -10, y: -40}
+        - {x: 32, y: -40}
+        - {x: 39, y: -37}
+        - {x: 39, y: 15}
+        - {x: 31, y: 39}
+    - name: rocks_rotated_31
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 512
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -30, y: 38}
+        - {x: -45, y: 27}
+        - {x: -45, y: -14}
+        - {x: -18, y: -41}
+        - {x: 27, y: -41}
+        - {x: 39, y: -23}
+        - {x: 39, y: 16}
+        - {x: 26, y: 38}
+    - name: rocks_rotated_32
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 384
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 1, y: 43}
+        - {x: -18, y: 43}
+        - {x: -42, y: 25}
+        - {x: -42, y: -40}
+        - {x: -23, y: -43}
+        - {x: 35, y: -43}
+        - {x: 36, y: -41}
+        - {x: 36, y: 19}
+        - {x: 31, y: 36}
+    - name: rocks_rotated_33
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 384
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -42, y: -10}
+        - {x: -34, y: -34}
+        - {x: -21, y: -44}
+        - {x: 16, y: -44}
+        - {x: 38, y: -31}
+        - {x: 38, y: 16}
+        - {x: 37, y: 22}
+        - {x: 17, y: 44}
+        - {x: -16, y: 44}
+        - {x: -42, y: 28}
+    - name: rocks_rotated_34
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 384
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -17, y: 47}
+        - {x: -42, y: 23}
+        - {x: -42, y: 4}
+        - {x: -30, y: -42}
+        - {x: -14, y: -44}
+        - {x: 18, y: -44}
+        - {x: 40, y: -33}
+        - {x: 40, y: 20}
+        - {x: 20, y: 47}
+    - name: rocks_rotated_35
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 384
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -10, y: 49}
+        - {x: -41, y: 26}
+        - {x: -41, y: -8}
+        - {x: -27, y: -45}
+        - {x: -23, y: -46}
+        - {x: 13, y: -46}
+        - {x: 41, y: -40}
+        - {x: 41, y: 20}
+        - {x: 14, y: 49}
+    - name: rocks_rotated_36
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 384
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -24, y: 50}
+        - {x: -41, y: 18}
+        - {x: -41, y: -22}
+        - {x: -32, y: -36}
+        - {x: -13, y: -48}
+        - {x: 12, y: -48}
+        - {x: 41, y: -41}
+        - {x: 41, y: 27}
+        - {x: 10, y: 50}
+    - name: rocks_rotated_37
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 384
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 16, y: 52}
+        - {x: -7, y: 52}
+        - {x: -41, y: 26}
+        - {x: -41, y: -11}
+        - {x: -25, y: -47}
+        - {x: -14, y: -49}
+        - {x: 21, y: -49}
+        - {x: 43, y: -31}
+        - {x: 43, y: 5}
+        - {x: 37, y: 28}
+    - name: rocks_rotated_38
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 384
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 5, y: 54}
+        - {x: -5, y: 54}
+        - {x: -40, y: 23}
+        - {x: -40, y: -14}
+        - {x: -33, y: -48}
+        - {x: 29, y: -48}
+        - {x: 44, y: -26}
+        - {x: 44, y: 6}
+        - {x: 18, y: 44}
+    - name: rocks_rotated_39
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 384
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 7, y: 54}
+        - {x: -5, y: 54}
+        - {x: -33, y: 32}
+        - {x: -39, y: 21}
+        - {x: -39, y: -24}
+        - {x: -20, y: -47}
+        - {x: 29, y: -47}
+        - {x: 32, y: -46}
+        - {x: 45, y: -19}
+        - {x: 45, y: 6}
+        - {x: 20, y: 45}
+    - name: rocks_rotated_40
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 256
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 18, y: 52}
+        - {x: -10, y: 52}
+        - {x: -39, y: 32}
+        - {x: -39, y: -25}
+        - {x: -23, y: -44}
+        - {x: 21, y: -44}
+        - {x: 45, y: -30}
+        - {x: 45, y: -5}
+        - {x: 32, y: 22}
+    - name: rocks_rotated_41
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 256
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 13, y: 51}
+        - {x: -12, y: 51}
+        - {x: -38, y: 34}
+        - {x: -38, y: -18}
+        - {x: -31, y: -43}
+        - {x: -28, y: -45}
+        - {x: 18, y: -45}
+        - {x: 45, y: -27}
+        - {x: 45, y: 13}
+        - {x: 38, y: 26}
+    - name: rocks_rotated_42
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 256
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -2, y: 50}
+        - {x: -22, y: 47}
+        - {x: -38, y: 25}
+        - {x: -38, y: -15}
+        - {x: -37, y: -38}
+        - {x: -15, y: -47}
+        - {x: 17, y: -47}
+        - {x: 44, y: -20}
+        - {x: 44, y: 7}
+        - {x: 20, y: 50}
+    - name: rocks_rotated_43
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 256
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 14, y: 47}
+        - {x: -10, y: 47}
+        - {x: -19, y: 43}
+        - {x: -39, y: 26}
+        - {x: -39, y: -9}
+        - {x: -35, y: -33}
+        - {x: -10, y: -47}
+        - {x: 11, y: -47}
+        - {x: 39, y: -24}
+        - {x: 42, y: -19}
+        - {x: 42, y: 10}
+    - name: rocks_rotated_44
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 256
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -25, y: 44}
+        - {x: -39, y: 21}
+        - {x: -39, y: -36}
+        - {x: -32, y: -48}
+        - {x: 9, y: -48}
+        - {x: 40, y: -37}
+        - {x: 40, y: 12}
+        - {x: 17, y: 44}
+    - name: rocks_rotated_45
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 256
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 16, y: 44}
+        - {x: -18, y: 44}
+        - {x: -39, y: 25}
+        - {x: -39, y: -29}
+        - {x: -9, y: -47}
+        - {x: 19, y: -47}
+        - {x: 35, y: -29}
+        - {x: 38, y: -21}
+        - {x: 38, y: 16}
+    - name: rocks_rotated_46
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 256
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -27, y: 43}
+        - {x: -31, y: 42}
+        - {x: -39, y: 19}
+        - {x: -39, y: -25}
+        - {x: -7, y: -46}
+        - {x: 12, y: -46}
+        - {x: 36, y: -30}
+        - {x: 39, y: -19}
+        - {x: 39, y: 18}
+        - {x: 22, y: 43}
+    - name: rocks_rotated_47
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 256
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -39, y: -15}
+        - {x: -20, y: -45}
+        - {x: 19, y: -45}
+        - {x: 42, y: -30}
+        - {x: 42, y: 18}
+        - {x: 22, y: 42}
+        - {x: -17, y: 42}
+        - {x: -24, y: 41}
+        - {x: -39, y: 19}
+    - name: rocks_rotated_48
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 128
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -35, y: 41}
+        - {x: -40, y: 26}
+        - {x: -40, y: -28}
+        - {x: -14, y: -45}
+        - {x: 19, y: -45}
+        - {x: 37, y: -40}
+        - {x: 44, y: -29}
+        - {x: 44, y: 20}
+        - {x: 13, y: 41}
+    - name: rocks_rotated_49
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 128
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 29, y: 24}
+        - {x: 22, y: 30}
+        - {x: 10, y: 40}
+        - {x: -19, y: 40}
+        - {x: -37, y: 34}
+        - {x: -41, y: 31}
+        - {x: -41, y: -20}
+        - {x: -29, y: -44}
+        - {x: 10, y: -44}
+        - {x: 45, y: -23}
+        - {x: 45, y: -6}
+        - {x: 43, y: -1}
+        - {x: 33, y: 21}
+    - name: rocks_rotated_50
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 128
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -42, y: -11}
+        - {x: -14, y: -44}
+        - {x: 12, y: -44}
+        - {x: 48, y: -29}
+        - {x: 48, y: -7}
+        - {x: 40, y: 22}
+        - {x: 15, y: 43}
+        - {x: -23, y: 43}
+        - {x: -42, y: 30}
+    - name: rocks_rotated_51
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 128
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 49, y: -19}
+        - {x: 49, y: -8}
+        - {x: 37, y: 21}
+        - {x: -3, y: 47}
+        - {x: -18, y: 47}
+        - {x: -44, y: 41}
+        - {x: -44, y: -37}
+        - {x: -9, y: -43}
+        - {x: -3, y: -43}
+        - {x: 10, y: -40}
+        - {x: 27, y: -33}
+        - {x: 34, y: -30}
+        - {x: 45, y: -24}
+    - name: rocks_rotated_52
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 128
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -17, y: -41}
+        - {x: 19, y: -41}
+        - {x: 50, y: -30}
+        - {x: 50, y: 6}
+        - {x: 28, y: 48}
+        - {x: -22, y: 48}
+        - {x: -45, y: 35}
+        - {x: -45, y: -13}
+    - name: rocks_rotated_53
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 128
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 7, y: 49}
+        - {x: -22, y: 49}
+        - {x: -46, y: 29}
+        - {x: -46, y: -15}
+        - {x: -31, y: -40}
+        - {x: 35, y: -40}
+        - {x: 49, y: -25}
+        - {x: 49, y: 1}
+        - {x: 38, y: 21}
+    - name: rocks_rotated_54
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 128
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 6, y: 49}
+        - {x: -19, y: 49}
+        - {x: -21, y: 48}
+        - {x: -47, y: 22}
+        - {x: -47, y: -15}
+        - {x: -17, y: -38}
+        - {x: 26, y: -38}
+        - {x: 48, y: -25}
+        - {x: 48, y: -10}
+        - {x: 39, y: 22}
+    - name: rocks_rotated_55
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 128
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 9, y: 49}
+        - {x: -24, y: 49}
+        - {x: -47, y: 23}
+        - {x: -47, y: -9}
+        - {x: -21, y: -41}
+        - {x: 23, y: -41}
+        - {x: 47, y: -28}
+        - {x: 47, y: 11}
+        - {x: 44, y: 25}
+    - name: rocks_rotated_56
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -38, y: 48}
+        - {x: -46, y: 23}
+        - {x: -46, y: -21}
+        - {x: -6, y: -43}
+        - {x: 10, y: -43}
+        - {x: 29, y: -37}
+        - {x: 45, y: -31}
+        - {x: 45, y: 0}
+        - {x: 25, y: 48}
+    - name: rocks_rotated_57
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -18, y: 47}
+        - {x: -24, y: 46}
+        - {x: -45, y: 18}
+        - {x: -45, y: -10}
+        - {x: -26, y: -38}
+        - {x: -15, y: -44}
+        - {x: 15, y: -44}
+        - {x: 44, y: -27}
+        - {x: 44, y: -1}
+        - {x: 19, y: 47}
+    - name: rocks_rotated_58
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -31, y: 45}
+        - {x: -43, y: 18}
+        - {x: -43, y: -25}
+        - {x: -11, y: -43}
+        - {x: 40, y: -43}
+        - {x: 41, y: -38}
+        - {x: 41, y: 35}
+        - {x: 25, y: 45}
+    - name: rocks_rotated_59
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 24, y: 43}
+        - {x: -29, y: 43}
+        - {x: -42, y: 33}
+        - {x: -44, y: 23}
+        - {x: -44, y: -25}
+        - {x: -14, y: -41}
+        - {x: 17, y: -41}
+        - {x: 23, y: -40}
+        - {x: 39, y: -30}
+        - {x: 41, y: -21}
+        - {x: 41, y: 34}
+    - name: rocks_rotated_60
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -33, y: 42}
+        - {x: -44, y: 35}
+        - {x: -44, y: -27}
+        - {x: -18, y: -39}
+        - {x: -13, y: -40}
+        - {x: 33, y: -40}
+        - {x: 40, y: -33}
+        - {x: 40, y: 19}
+        - {x: 25, y: 42}
+    - name: rocks_rotated_61
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -27, y: 42}
+        - {x: -44, y: 36}
+        - {x: -44, y: -31}
+        - {x: -11, y: -40}
+        - {x: 39, y: -40}
+        - {x: 39, y: 20}
+        - {x: 27, y: 42}
+    - name: rocks_rotated_62
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 20, y: 43}
+        - {x: -25, y: 43}
+        - {x: -43, y: 26}
+        - {x: -43, y: -12}
+        - {x: -38, y: -23}
+        - {x: -14, y: -41}
+        - {x: 24, y: -41}
+        - {x: 37, y: -26}
+        - {x: 37, y: 21}
+        - {x: 28, y: 40}
+    - name: rocks_rotated_63
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -24, y: 43}
+        - {x: -42, y: 32}
+        - {x: -42, y: -42}
+        - {x: -31, y: -43}
+        - {x: 33, y: -43}
+        - {x: 36, y: -38}
+        - {x: 36, y: 34}
+        - {x: 12, y: 43}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
