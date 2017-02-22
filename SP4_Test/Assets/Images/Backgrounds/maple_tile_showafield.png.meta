@@ -1,0 +1,482 @@
+fileFormatVersion: 2
+guid: 6eec88cd376be16418bfcbe34590c19f
+timeCreated: 1487730630
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: maple_tile_showafield_0
+    21300002: maple_tile_showafield_1
+    21300004: maple_tile_showafield_2
+    21300006: maple_tile_showafield_3
+    21300008: maple_tile_showafield_4
+    21300010: maple_tile_showafield_5
+    21300012: maple_tile_showafield_6
+    21300014: maple_tile_showafield_7
+    21300016: maple_tile_showafield_8
+    21300018: maple_tile_showafield_9
+    21300020: maple_tile_showafield_10
+    21300022: maple_tile_showafield_11
+    21300024: maple_tile_showafield_12
+    21300026: maple_tile_showafield_13
+    21300028: maple_tile_showafield_14
+    21300030: maple_tile_showafield_15
+    21300032: maple_tile_showafield_16
+    21300034: maple_tile_showafield_17
+    21300036: maple_tile_showafield_18
+    21300038: maple_tile_showafield_19
+    21300040: maple_tile_showafield_20
+    21300042: maple_tile_showafield_21
+    21300044: maple_tile_showafield_22
+    21300046: maple_tile_showafield_23
+    21300048: maple_tile_showafield_24
+    21300050: maple_tile_showafield_25
+    21300052: maple_tile_showafield_26
+    21300054: maple_tile_showafield_27
+    21300056: maple_tile_showafield_28
+    21300058: maple_tile_showafield_29
+    21300060: maple_tile_showafield_30
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 8
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: maple_tile_showafield_0
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 267
+        width: 90
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -45, y: 30}
+        - {x: -45, y: -30}
+        - {x: 45, y: -30}
+        - {x: 45, y: 30}
+    - name: maple_tile_showafield_1
+      rect:
+        serializedVersion: 2
+        x: 105
+        y: 267
+        width: 90
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -45, y: 30}
+        - {x: -45, y: -30}
+        - {x: 45, y: -30}
+        - {x: 45, y: 30}
+    - name: maple_tile_showafield_2
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 267
+        width: 90
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -45, y: 30}
+        - {x: -45, y: -30}
+        - {x: 45, y: -30}
+        - {x: 45, y: 30}
+    - name: maple_tile_showafield_3
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 267
+        width: 90
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -45, y: 30}
+        - {x: -45, y: -30}
+        - {x: 45, y: -30}
+        - {x: 45, y: 30}
+    - name: maple_tile_showafield_4
+      rect:
+        serializedVersion: 2
+        x: 397
+        y: 267
+        width: 90
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -45, y: 30}
+        - {x: -45, y: -30}
+        - {x: 45, y: -30}
+        - {x: 45, y: 30}
+    - name: maple_tile_showafield_5
+      rect:
+        serializedVersion: 2
+        x: 495
+        y: 267
+        width: 90
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -45, y: 30}
+        - {x: -45, y: -30}
+        - {x: 45, y: -30}
+        - {x: 45, y: 30}
+    - name: maple_tile_showafield_6
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 212
+        width: 47
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: maple_tile_showafield_7
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 213
+        width: 46
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: maple_tile_showafield_8
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 213
+        width: 90
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: maple_tile_showafield_9
+      rect:
+        serializedVersion: 2
+        x: 218
+        y: 213
+        width: 90
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: maple_tile_showafield_10
+      rect:
+        serializedVersion: 2
+        x: 316
+        y: 213
+        width: 90
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: maple_tile_showafield_11
+      rect:
+        serializedVersion: 2
+        x: 414
+        y: 213
+        width: 90
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: maple_tile_showafield_12
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 142
+        width: 90
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: maple_tile_showafield_13
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 141
+        width: 90
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -45, y: 16}
+        - {x: -45, y: -15}
+        - {x: -34, y: -16}
+        - {x: 45, y: -16}
+        - {x: 45, y: 16}
+    - name: maple_tile_showafield_14
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 113
+        width: 26
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: maple_tile_showafield_15
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 113
+        width: 29
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: maple_tile_showafield_16
+      rect:
+        serializedVersion: 2
+        x: 279
+        y: 113
+        width: 27
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: maple_tile_showafield_17
+      rect:
+        serializedVersion: 2
+        x: 317
+        y: 113
+        width: 29
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: maple_tile_showafield_18
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 5
+        width: 90
+        height: 89
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -45, y: 44.5}
+        - {x: -45, y: 10.5}
+        - {x: 17, y: -41.5}
+        - {x: 31, y: -44.5}
+        - {x: 45, y: -44.5}
+        - {x: 45, y: 44.5}
+    - name: maple_tile_showafield_19
+      rect:
+        serializedVersion: 2
+        x: 106
+        y: 5
+        width: 90
+        height: 87
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 34, y: 43.5}
+        - {x: -7, y: 18.5}
+        - {x: -40, y: -7.5}
+        - {x: -45, y: -13.5}
+        - {x: -45, y: -43.5}
+        - {x: 45, y: -43.5}
+        - {x: 45, y: 43.5}
+    - name: maple_tile_showafield_20
+      rect:
+        serializedVersion: 2
+        x: 206
+        y: 5
+        width: 90
+        height: 89
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -45, y: 44.5}
+        - {x: -45, y: -44.5}
+        - {x: -38, y: -44.5}
+        - {x: 7, y: -20.5}
+        - {x: 45, y: 10.5}
+        - {x: 45, y: 44.5}
+    - name: maple_tile_showafield_21
+      rect:
+        serializedVersion: 2
+        x: 307
+        y: 5
+        width: 90
+        height: 86
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -45, y: 43}
+        - {x: -45, y: -43}
+        - {x: 45, y: -43}
+        - {x: 45, y: -8}
+        - {x: -23, y: 43}
+    - name: maple_tile_showafield_22
+      rect:
+        serializedVersion: 2
+        x: 442
+        y: 30
+        width: 55
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: maple_tile_showafield_23
+      rect:
+        serializedVersion: 2
+        x: 496
+        y: 30
+        width: 17
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: maple_tile_showafield_24
+      rect:
+        serializedVersion: 2
+        x: 519
+        y: 30
+        width: 61
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: maple_tile_showafield_25
+      rect:
+        serializedVersion: 2
+        x: 454
+        y: 9
+        width: 16
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: maple_tile_showafield_26
+      rect:
+        serializedVersion: 2
+        x: 469
+        y: 9
+        width: 7
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: maple_tile_showafield_27
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 9
+        width: 32
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: maple_tile_showafield_28
+      rect:
+        serializedVersion: 2
+        x: 511
+        y: 9
+        width: 6
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: maple_tile_showafield_29
+      rect:
+        serializedVersion: 2
+        x: 519
+        y: 9
+        width: 8
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: maple_tile_showafield_30
+      rect:
+        serializedVersion: 2
+        x: 528
+        y: 9
+        width: 40
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
