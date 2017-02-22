@@ -3,21 +3,57 @@ using System.Collections;
 
 public class playerbullet : MonoBehaviour {
 
-
+    
  public   float speed=5f;
  private Vector2 direction;
-	// Use this for initialization
-	void Start () {
+
+ GameObject joybutton;
 
 
+ void Start()
+ {
+     joybutton = GameObject.Find("MobileJoystick");
+
+
+        #if UNITY_STANDALONE
         Vector2 position = transform.position;
 
         
         Vector2 mouseposition;
         mouseposition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         direction = (mouseposition - position).normalized;
+#endif
+        #if UNITY_ANDROID
+        for (var i = 0; i < Input.touchCount; i++)
+        {
+            if ((joybutton.GetComponent<Collider2D>().bounds.Contains(Input.GetTouch(i).position)))
+            {
+                //touching joystick
+       
 
-	}
+                // means touch 1 = on joystick 
+                //do nothing 
+            }
+            else if (!(joybutton.GetComponent<Collider2D>().bounds.Contains(Input.GetTouch(i).position)))
+            {
+                Vector2 position = transform.position;
+
+
+                Vector2 mouseposition;
+                mouseposition = Camera.main.ScreenToWorldPoint(Input.GetTouch(i).position);
+                direction = (mouseposition - position).normalized;
+            }
+        }
+
+
+
+
+
+
+
+
+#endif
+                  }
 	
 	// Update is called once per frame  
 	void Update () {

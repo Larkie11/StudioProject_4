@@ -1,40 +1,90 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
-public class Mouseinscreen : MonoBehaviour {
+public class Mouseinscreen : MonoBehaviour
+{
 
-    
+    bool onjoystick = false;
+    bool touch1onjoy = false;
     public float MouseSensitivity = 0.1f;
 
-    //Rect screenRect = new Rect(0, 0, Screen.width, Screen.height);
-	// Use this for initialization
-	void Start () {
-       
-	
-	}
-	
- void Crosshair()
+    GameObject joybutton;
+
+
+    void Start()
     {
-    
-        GameObject crosshair = GameObject.Find("crosshair");
+        joybutton = GameObject.Find("MobileJoystick");
 
-            Vector2 temp = Input.mousePosition;
-            //Cursor.visible = false;
-            temp = Camera.main.ScreenToWorldPoint(temp);
-            crosshair.transform.position = Vector2.Lerp(transform. position, temp, MouseSensitivity);
 
-           
-        
+
+
 
     }
 
-    
-	// Update is called once per frame
-	void Update () {
 
 
+    void Crosshair()
+    {
+
+
+
+
+
+
+#if UNITY_ANDROID
+
+
+
+
+        for (var i = 0; i < Input.touchCount; i++)
+        {
+            if ((joybutton.GetComponent<Collider2D>().bounds.Contains(Input.GetTouch(i).position)))
+            {
+                //touching joystick
+                var touch1 = Input.GetTouch(i);
+
+
+                // means touch 1 = on joystick 
+                //do nothing 
+            }
+            else if (!(joybutton.GetComponent<Collider2D>().bounds.Contains(Input.GetTouch(i).position)))
+            {
+                GameObject crosshair = GameObject.Find("crosshair");
+
+                Vector2 temp = Input.GetTouch(i).position;
+                //Cursor.visible = false;
+                temp = Camera.main.ScreenToWorldPoint(temp);
+                crosshair.transform.position = Vector2.Lerp(transform.position, temp, MouseSensitivity);
+            }
+        }
+
+
+
+
+
+#endif
+
+
+
+
+
+#if UNITY_STANDALONE
+
+          GameObject crosshair = GameObject.Find("crosshair");
+
+                Vector2 temp = Input.mousePosition;
+                //Cursor.visible = false;
+                temp = Camera.main.ScreenToWorldPoint(temp);
+                crosshair.transform.position = Vector2.Lerp(transform.position, temp, MouseSensitivity);
+#endif
+    }
+
+
+    void Update()
+    {
 
 
         Crosshair();
-	}
+    }
 }

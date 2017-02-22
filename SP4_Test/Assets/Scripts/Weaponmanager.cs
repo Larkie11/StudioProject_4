@@ -7,7 +7,7 @@ public class Weaponmanager : MonoBehaviour {
     public GameObject defaultweapon;
     Weapon wpn;
     public float speed = 5;
-
+    GameObject joybutton;
     float ammocounter;
     bool noammo = false;
 
@@ -17,6 +17,7 @@ public class Weaponmanager : MonoBehaviour {
         ammocounter = activeweapon.GetComponent<Weapon>().ammocout;
      
         GetComponent<SpriteRenderer>().sprite = wpn.sprite;
+        joybutton = GameObject.Find("MobileJoystick");
 
 	}
 	
@@ -28,6 +29,8 @@ public class Weaponmanager : MonoBehaviour {
             noammo = true;
             Changetodefaultweapon();
         }
+
+# if UNITY_STANDALONE
     	if(Input.GetKeyDown(KeyCode.Mouse0))
     {
        // Debug.Log("shooting"+ammocounter);
@@ -46,6 +49,42 @@ public class Weaponmanager : MonoBehaviour {
 
         }
 
+#endif
+
+#if UNITY_ANDROID
+
+        for (var i = 0; i < Input.touchCount; i++)
+        {
+            if ((joybutton.GetComponent<Collider2D>().bounds.Contains(Input.GetTouch(i).position)))
+            {
+            
+            }
+            else if (!(joybutton.GetComponent<Collider2D>().bounds.Contains(Input.GetTouch(i).position)))
+            {
+              if(Input.GetTouch(i).phase==TouchPhase.Ended)
+              {
+               
+
+                  Vector3 rotation = transform.parent.localScale.x == 1 ? Vector3.zero : Vector3.forward * 1;
+                  GameObject projectile = (GameObject)Instantiate(wpn.projectile, transform.position + activeweapon.transform.GetChild(0).localPosition *
+                      transform.parent.localScale.x, Quaternion.Euler(rotation));
+                  ammocounter--;
+                  //Debug.Log(ammocount);
+                  //projectile.GetComponent<Rigidbody2D>().velocity = transform.parent.localScale.x * Vector2.up * wpn.projectilespeed;
+                  //  projectile.velocity = transform.TransformDirection (Vector3.forward * speed);
+
+                  //Vector2 position = transform.position;
+                  //position = new Vector2(position.x + speed * Time.deltaTime, position.y);
+                  //transform.position = position;
+
+              }
+
+
+            }
+        }
+
+
+#endif 
         }
 
     void Changetodefaultweapon()
