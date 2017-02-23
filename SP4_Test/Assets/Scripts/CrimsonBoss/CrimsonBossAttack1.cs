@@ -3,7 +3,7 @@ using System.Collections;
 
 public class CrimsonBossAttack1 : MonoBehaviour {
 
-    public float speed = 10f;
+    public float speed = 20.0f;
     private Vector2 direction;
     public GameObject player;
 

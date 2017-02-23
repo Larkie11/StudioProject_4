@@ -18,7 +18,11 @@ public class GlobalScript : MonoBehaviour {
     public static float GrifHealth;
     public static float Shield;
 
+    public static bool shieldisOn;
+
     //CrimsonBoss
+
+    public static int CrimsonHealth;
     public static int CrimsonLightingEffect;
 
     public struct Characters

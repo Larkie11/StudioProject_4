@@ -24,12 +24,14 @@ public class Shield : MonoBehaviour
         if (Input.GetKey(KeyCode.Mouse1) && GlobalScript.Shield > 0)
         {
             SheildGo.SetActive(true);
+            GlobalScript.shieldisOn = true;
             GlobalScript.Shield -= Time.deltaTime * 10;
         }
         else
         {
             if(GlobalScript.Shield < GlobalScript.myCharacters[GlobalScript.CharacterType].maxShield)
             {
+                GlobalScript.shieldisOn = false;
                 GlobalScript.Shield += Time.deltaTime;
             }
             SheildGo.SetActive(false);

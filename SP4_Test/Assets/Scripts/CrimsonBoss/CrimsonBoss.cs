@@ -4,10 +4,8 @@ using System.Collections.Generic;
 
 public class CrimsonBoss : MonoBehaviour 
 {
-
     int CrimsonAnimation;
     Animator anim;
-    int CrimsonHealth;
     Vector2 bossDirection;
     Vector2 randomDirection;
     CrimsonState crimsonState;
@@ -26,7 +24,7 @@ public class CrimsonBoss : MonoBehaviour
     public static int spawnPointIndex;
     public List<GameObject> myPlatforms;
 
-    public float speed = 5f;
+    public float speed = 10.0f;
 
     SpriteRenderer Sr;
 
@@ -43,11 +41,11 @@ public class CrimsonBoss : MonoBehaviour
     {
         anim = GetComponent<Animator>();
         CrimsonAnimation = 0;
-        CrimsonHealth = 10;
+        GlobalScript.CrimsonHealth = 200;
         attack1Counter = 0;
-        attack1Interval = 60;
+        attack1Interval =30;
         attack2Counter = 0;
-        attack2Interval = 60;
+        attack2Interval =30;
         directionCounter = 0;
         changeDirectionInterval = Random.Range(1, 10) * 60;
 
@@ -68,9 +66,9 @@ public class CrimsonBoss : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (CrimsonHealth > 0 && collision.transform.tag == "Bullet")
-        {       
-            CrimsonHealth--;
+        if (GlobalScript.CrimsonHealth > 0 && collision.transform.tag == "Bullet")
+        {
+            GlobalScript.CrimsonHealth--;
         }
         if (collision.transform.tag == "Platform" || collision.transform.tag == "Boundary")
         {
@@ -112,7 +110,7 @@ public class CrimsonBoss : MonoBehaviour
         {
             bossAttack2();
         }
-        if (CrimsonHealth == 0)
+        if (GlobalScript.CrimsonHealth == 0)
         {
             CrimsonAnimation = 5;
             if (frame >= 60)
@@ -120,7 +118,7 @@ public class CrimsonBoss : MonoBehaviour
                 gameObject.SetActive(false);
             }
         }
-        if (frame < 60 && CrimsonHealth == 0)
+        if (frame < 60 && GlobalScript.CrimsonHealth == 0)
         {
             frame++;
         }
@@ -149,7 +147,7 @@ public class CrimsonBoss : MonoBehaviour
         {
             CrimsonAnimation = 5;
         }
-        anim.SetInteger("CrimsonAnimation", CrimsonAnimation);
+        anim.SetInteger("CrimsonAnimationState", CrimsonAnimation);
 	}
 
     void bossAttack1()
@@ -166,7 +164,7 @@ public class CrimsonBoss : MonoBehaviour
     void bossAttack2()
     {
         CrimsonAnimation = 3;
-        if (GlobalScript.CrimsonLightingEffect < 3)
+        if (GlobalScript.CrimsonLightingEffect < 10)
         CreateAttack2();
     }
 

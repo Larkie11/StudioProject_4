@@ -63,6 +63,23 @@ public class PlayerMovement : MonoBehaviour
         {
             Destroy(collision.gameObject);
         }
+
+        if(collision.transform.tag == "EnemyBullet")
+        {
+            if (GlobalScript.shieldisOn)
+            {
+
+            }
+            else
+            {
+                Destroy(gameObject);
+            }
+
+            Debug.Log(collision);
+           // Destroy(gameObject);
+        }
+
+
     }
 
     void Update()
