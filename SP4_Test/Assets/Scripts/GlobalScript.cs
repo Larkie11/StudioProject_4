@@ -16,6 +16,8 @@ public class GlobalScript : MonoBehaviour {
     public static int enemyCount = 0;
     public static int howmanytokill = 0;
     public static float GrifHealth;
+    public static float Zakhp;
+    public static bool Zakenragemode;
     public static float Shield;
 
     public static bool shieldisOn;
