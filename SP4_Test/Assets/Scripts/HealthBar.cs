@@ -16,6 +16,17 @@ public class HealthBar : MonoBehaviour {
 	}
     void ChangeFill()
     {
+        if (healthbarid == 3)
+        {
+            content.fillAmount = Map(GlobalScript.Zakhp, 0, 100, 0, 1);
+            if (content.fillAmount <= 0.3F)
+            {
+                content.color = Color.red;
+            }
+            else
+                content.color = Color.green;
+        }
+
         if (healthbarid == 2)
         {
             content.fillAmount = Map(GlobalScript.CrimsonHealth, 0, 250, 0, 1);
@@ -41,6 +52,7 @@ public class HealthBar : MonoBehaviour {
         if (healthbarid == 0)
         {
             content.fillAmount = Map(GlobalScript.Shield, 0, GlobalScript.myCharacters[GlobalScript.CharacterType].maxShield, 0, 1);
+            Debug.Log(content.fillAmount);
             if (text == null)
                 text.GetComponent<Text>();
             if(text != null)

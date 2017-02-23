@@ -38,7 +38,7 @@ public class fireball : MonoBehaviour {
 	
         /// rotation of the balls 
         /// 
-       transform.Translate(new Vector2(0.05f, 0));
+      // transform.Translate(new Vector2(0.05f, 0));
         transform.RotateAround(zakumpos, zAxis, 100 * Time.deltaTime);
         if(fireballhp<=0)
         {
@@ -48,6 +48,7 @@ public class fireball : MonoBehaviour {
             if(blowuptimer>1)
             {
                 Destroy(gameObject);
+                GlobalScript.fireballcounter -= 1;
             }
          
             //animation to destory 

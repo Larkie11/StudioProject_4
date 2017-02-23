@@ -6,6 +6,7 @@ public class Weaponmanager : MonoBehaviour {
     public GameObject activeweapon;
     public GameObject defaultweapon;
     Weapon wpn;
+    float weaponcd;
     public float speed = 5;
     GameObject joybutton;
     float ammocounter;
@@ -18,12 +19,13 @@ public class Weaponmanager : MonoBehaviour {
      
         GetComponent<SpriteRenderer>().sprite = wpn.sprite;
         joybutton = GameObject.Find("MobileJoystick");
+        weaponcd = wpn.cooldown;
 
 	}
 	
 	// Update is called once per frame
 	void Update () {
-
+        weaponcd -= Time.deltaTime;
         if (ammocounter == 0 && noammo == false)
         {
             noammo = true;
@@ -31,8 +33,11 @@ public class Weaponmanager : MonoBehaviour {
         }
 
 # if UNITY_STANDALONE
-    	if(Input.GetKeyDown(KeyCode.Mouse0))
+    	if(Input.GetKeyDown(KeyCode.Mouse0)&&weaponcd<=0)
     {
+
+
+        weaponcd = wpn.cooldown;
        // Debug.Log("shooting"+ammocounter);
          
         Vector3 rotation = transform.parent.localScale.x == 1 ? Vector3.zero : Vector3.forward * 1;
@@ -56,14 +61,17 @@ public class Weaponmanager : MonoBehaviour {
         for (var i = 0; i < Input.touchCount; i++)
         {
             if ((joybutton.GetComponent<Collider2D>().bounds.Contains(Input.GetTouch(i).position)))
-            {
+            {   
             
             }
             else if (!(joybutton.GetComponent<Collider2D>().bounds.Contains(Input.GetTouch(i).position)))
             {
-              if(Input.GetTouch(i).phase==TouchPhase.Ended)
-              {
-               
+              if(Input.GetTouch(i).phase==TouchPhase.Ended&&weaponcd<=0)
+                 {
+
+
+        weaponcd = wpn.cooldown;
+      
 
                   Vector3 rotation = transform.parent.localScale.x == 1 ? Vector3.zero : Vector3.forward * 1;
                   GameObject projectile = (GameObject)Instantiate(wpn.projectile, transform.position + activeweapon.transform.GetChild(0).localPosition *
@@ -84,8 +92,9 @@ public class Weaponmanager : MonoBehaviour {
         }
 
 
-#endif 
-        }
+#endif
+    }
+
 
     void Changetodefaultweapon()
     {

@@ -11,6 +11,7 @@ public class GlobalScript : MonoBehaviour {
     public static float GrifDefense = 4;
     public static float GrifNormal = 2;
     public static int numberOfGrifHits = 0;
+    public static int fireballcounter;
     public static bool flipAttack = false;
     public static bool playerGotHit = false;
     public static int enemyCount = 0;
