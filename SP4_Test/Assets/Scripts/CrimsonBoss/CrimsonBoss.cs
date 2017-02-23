@@ -41,7 +41,7 @@ public class CrimsonBoss : MonoBehaviour
     {
         anim = GetComponent<Animator>();
         CrimsonAnimation = 0;
-        GlobalScript.CrimsonHealth = 200;
+        GlobalScript.CrimsonHealth = 250;
         attack1Counter = 0;
         attack1Interval =30;
         attack2Counter = 0;

@@ -16,6 +16,17 @@ public class HealthBar : MonoBehaviour {
 	}
     void ChangeFill()
     {
+        if (healthbarid == 2)
+        {
+            content.fillAmount = Map(GlobalScript.CrimsonHealth, 0, 250, 0, 1);
+            if (content.fillAmount <= 0.3F)
+            {
+                content.color = Color.red;
+            }
+            else
+                content.color = Color.green;
+        }
+
         if (healthbarid == 1)
         {
             content.fillAmount = Map(GlobalScript.GrifHealth, 0, 50, 0, 1);
