@@ -19,7 +19,7 @@ public class GlobalScript : MonoBehaviour {
     public static float Zakhp;
     public static bool Zakenragemode;
     public static float Shield;
-
+    public static float Volume = 0.5f;
     public static bool shieldisOn;
 
     //CrimsonBoss
@@ -46,7 +46,7 @@ public class GlobalScript : MonoBehaviour {
     public static string playerToRender = "";
     public static bool RenderedPlayer = false;
     // Use this for initialization
-    void Start () {
+    void Start () { 
        AddCharacters();
     }
     void AddCharacters()

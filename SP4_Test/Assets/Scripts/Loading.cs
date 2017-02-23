@@ -2,6 +2,8 @@
 using System.Collections;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System.Collections.Generic;
+
 public class Loading : MonoBehaviour {
     bool isFakeLoadingBar = false;
     float fakeIncrement = 0F;
@@ -13,10 +15,25 @@ public class Loading : MonoBehaviour {
     [SerializeField]
     Text loadingText;
     [SerializeField]
-    Button button;
-    [SerializeField]
-    Button button2;
+    List<GameObject> Buttons = new List<GameObject>();
+    int width = 0;
+    int height = 0;
     AsyncOperation ao;
+    string fs;
+    private void Awake()
+    {
+        width = PlayerPrefs.GetInt("Width");
+        height = PlayerPrefs.GetInt("Height");
+        fs = PlayerPrefs.GetString("FS");
+        if (width != 0 && height != 0)
+        {
+            if(fs == "true")
+                Screen.SetResolution(width, height, false);
+            else if (fs == "false")
+                Screen.SetResolution(width, height, false);
+
+        }
+    }
     // Use this for initialization
     void Start () {
         loadingScreenBG.enabled = false;
@@ -29,10 +46,11 @@ public class Loading : MonoBehaviour {
 	}
     public void LoadingScreen(string LevelName)
     {
-        if(button!=null)
-        button.gameObject.SetActive(false);
-        if (button2 != null)
-            button2.gameObject.SetActive(false);
+        for(int i = 0; i < Buttons.Count; i++)
+        {
+            Buttons[i].gameObject.SetActive(false);
+        }
+       
         loadingScreenBG.enabled = true;
         progBar.gameObject.SetActive(true);
 

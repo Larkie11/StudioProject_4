@@ -10,12 +10,11 @@ public class CharacterSelection : MonoBehaviour {
     [SerializeField]
     Text charName;
 
-    private List<GameObject> sprites;
+    private List<GameObject> sprites = new List<GameObject>();
     //Default index of the model
     private int selectionIndex = 0;
 	// Use this for initialization
 	void Start () {
-        sprites = new List<GameObject>();
         foreach(Transform t in transform)
         {
             sprites.Add(t.gameObject);
