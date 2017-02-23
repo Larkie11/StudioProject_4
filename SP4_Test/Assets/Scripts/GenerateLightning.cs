@@ -18,6 +18,7 @@ public class GenerateLightning : MonoBehaviour {
         {
             Generated = true;
             Instantiate(Resources.Load("LightningAttack"), new Vector3(transform.position.x,12,transform.position.z), Quaternion.identity);
+            Destroy(gameObject);
         }
     }
 }

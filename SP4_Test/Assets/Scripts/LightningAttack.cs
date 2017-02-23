@@ -12,31 +12,23 @@ public class LightningAttack : MonoBehaviour {
         moveDown = true;
         destroy = 2F;
 	}
-
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.transform.tag == "Platform")
-        {
-            moveDown = false;
-        }
+        
         if (collision.transform.tag == "LightningTrigger")
         {
             Destroy(collision.gameObject);
-        }    
-        if (collision.transform.tag == "Shield")
-            Destroy(gameObject);
-
-        else if (collision.transform.tag == "Player")
-        {
-            GlobalScript.playerGotHit = true;
-            Debug.Log("Hit player");
         }
     }
     // Update is called once per frame
     void Update () {
         if (moveDown)
         {
-            position -= Time.deltaTime * 170;
+            position -= Time.deltaTime * 100;
+        }
+        if (transform.position.y <= -4)
+        {
+            moveDown = false;
         }
         transform.position = new Vector3(transform.position.x, position, transform.position.z);
         if(!moveDown && destroy >= 0F)

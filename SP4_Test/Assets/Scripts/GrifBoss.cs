@@ -39,7 +39,7 @@ public class GrifBoss : MonoBehaviour
     {
         collide = GetComponent<Collider2D>();
         myPlatforms.Clear();
-        GlobalScript.GrifHealth = 50;
+        GlobalScript.GrifHealth = 400;
         hideCanvas = true;
         hideTimer = 0F;
         animationState = 0;
@@ -58,7 +58,6 @@ public class GrifBoss : MonoBehaviour
         hi = Random.Range(0, myPlatforms.Count);
         lightningtospawn = 2;
 
-        GlobalScript.GrifLightningCD = LightningCD;
 
     }
     private void OnCollisionEnter2D(Collision2D collision)
@@ -139,7 +138,7 @@ public class GrifBoss : MonoBehaviour
                 if (GlobalScript.GrifLightningCD <= 0F)
                 {
                     skill = GetRandomEnum<Skills>();
-                    GlobalScript.GrifLightningCD = LightningCD;
+                    GlobalScript.GrifLightningCD = 1;
                     animationState = 8;
                     playAttack = false;
                 }
@@ -154,7 +153,7 @@ public class GrifBoss : MonoBehaviour
                 {
                     skill = GetRandomEnum<Skills>();
                     myshield.SetActive(false);
-                    GlobalScript.GrifDefense = 5F;
+                    GlobalScript.GrifDefense = 3F;
                     collide.enabled = true;
                 }
                 else if (GlobalScript.GrifDefense <= 2F)

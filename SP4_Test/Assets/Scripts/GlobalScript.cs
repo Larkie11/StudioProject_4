@@ -8,8 +8,8 @@ public class GlobalScript : MonoBehaviour {
     public static string playerStandingOn;
     //For griffon boss
     public static float GrifLightningCD = 1;
-    public static float GrifDefense = 5;
-    public static float GrifNormal = 3;
+    public static float GrifDefense = 4;
+    public static float GrifNormal = 2;
     public static int numberOfGrifHits = 0;
     public static bool flipAttack = false;
     public static bool playerGotHit = false;
