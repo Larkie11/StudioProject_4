@@ -5,6 +5,7 @@ public class UnlockPortal : MonoBehaviour {
     public Animator ar;
     [SerializeField]
     Canvas canvas;
+    GameObject player;
 	// Use this for initialization
 	void Start () {
         ar = GetComponent<Animator>();
@@ -13,8 +14,7 @@ public class UnlockPortal : MonoBehaviour {
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(GlobalScript.howmanytokill >= 5)
-        canvas.enabled = true;
+        
     }
     public void DisableCanvas()
     {
@@ -22,6 +22,8 @@ public class UnlockPortal : MonoBehaviour {
     }
     // Update is called once per frame
     void Update () {
+        if(player == null)
+            player = GameObject.FindGameObjectWithTag("Player");
         if (GlobalScript.howmanytokill < 5)
         {
         }
@@ -29,6 +31,7 @@ public class UnlockPortal : MonoBehaviour {
         {
             ar.speed = 1;
         }
-
+        if (GlobalScript.howmanytokill >= 5 && transform.GetComponent<BoxCollider2D>().bounds.Contains(player.transform.position))
+            canvas.enabled = true;
     }
 }

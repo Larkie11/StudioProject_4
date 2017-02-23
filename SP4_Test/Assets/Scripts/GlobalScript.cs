@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 public class GlobalScript : MonoBehaviour {
 
-    public static int CharacterType = 0;
+    public static int CharacterType = 1;
     public static string playerStandingOn;
     //For griffon boss
     public static float GrifLightningCD = 1;

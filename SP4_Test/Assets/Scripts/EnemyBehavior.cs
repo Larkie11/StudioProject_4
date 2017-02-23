@@ -131,8 +131,6 @@ public class EnemyBehavior : MonoBehaviour
             {
                 enemyStates = GetRandomEnum<States>();
                 timer = Random.Range(2, 5);
-
-                
             }
 
             if (enemyStates == States.IDLE)
@@ -213,6 +211,10 @@ public class EnemyBehavior : MonoBehaviour
         if (nowCollide != null)
         {
             EnemyMovement();
+            if (healthbar.fillAmount < 0.5)
+                healthbar.color = Color.red;
+            else
+                healthbar.color = Color.green;
             transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, 0, 0);
         }
         if (currHealth <= 0)

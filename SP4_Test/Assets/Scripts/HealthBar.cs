@@ -8,6 +8,8 @@ public class HealthBar : MonoBehaviour {
     Image content;
     [SerializeField]
     int healthbarid;
+    [SerializeField]
+    Text text;
 	// Use this for initialization
 	void Start () {
         content = GetComponent<Image>();
@@ -29,6 +31,10 @@ public class HealthBar : MonoBehaviour {
         {
             content.fillAmount = Map(GlobalScript.Shield, 0, GlobalScript.myCharacters[GlobalScript.CharacterType].maxShield, 0, 1);
             Debug.Log(content.fillAmount);
+            if (text == null)
+                text.GetComponent<Text>();
+            if(text != null)
+            text.text = (int)GlobalScript.Shield + " / " + GlobalScript.myCharacters[GlobalScript.CharacterType].maxShield;
         }
 
     }

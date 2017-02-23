@@ -75,6 +75,7 @@
     <Compile Include="Assets\Scripts\CompletePlayerController.cs" />
     <Compile Include="Assets\Scripts\DestroyRock.cs" />
     <Compile Include="Assets\Scripts\EnemyBehavior.cs" />
+    <Compile Include="Assets\Scripts\FadeInOrOut.cs" />
     <Compile Include="Assets\Scripts\GenerateEnemy.cs" />
     <Compile Include="Assets\Scripts\GenerateLightning.cs" />
     <Compile Include="Assets\Scripts\GlobalScript.cs" />
@@ -95,6 +96,7 @@
     <Compile Include="Assets\Scripts\SmoothCamera2D.cs" />
     <Compile Include="Assets\Scripts\Spike.cs" />
     <Compile Include="Assets\Scripts\SpikeMovement.cs" />
+    <Compile Include="Assets\Scripts\Tutorial.cs" />
     <Compile Include="Assets\Scripts\UnlockPortal.cs" />
     <Compile Include="Assets\Scripts\Weapon.cs" />
     <Compile Include="Assets\Scripts\Weaponmanager.cs" />

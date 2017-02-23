@@ -3,13 +3,19 @@ using System.Collections;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 public class Loading : MonoBehaviour {
-    public bool isFakeLoadingBar = false;
-    public float fakeIncrement = 0F;
-    public float fakeTiming = 0F;
-    public Image loadingScreenBG;
-    public Slider progBar;
-    public Text loadingText;
-    public Button button;
+    bool isFakeLoadingBar = false;
+    float fakeIncrement = 0F;
+    float fakeTiming = 0F;
+    [SerializeField]
+    Image loadingScreenBG;
+    [SerializeField]
+    Slider progBar;
+    [SerializeField]
+    Text loadingText;
+    [SerializeField]
+    Button button;
+    [SerializeField]
+    Button button2;
     AsyncOperation ao;
     // Use this for initialization
     void Start () {
@@ -23,8 +29,10 @@ public class Loading : MonoBehaviour {
 	}
     public void LoadingScreen(string LevelName)
     {
+        if(button!=null)
         button.gameObject.SetActive(false);
-
+        if (button2 != null)
+            button2.gameObject.SetActive(false);
         loadingScreenBG.enabled = true;
         progBar.gameObject.SetActive(true);
 

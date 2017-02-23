@@ -28,7 +28,7 @@ public class Shield : MonoBehaviour
         }
         else
         {
-            if(GlobalScript.Shield < 100)
+            if(GlobalScript.Shield < GlobalScript.myCharacters[GlobalScript.CharacterType].maxShield)
             {
                 GlobalScript.Shield += Time.deltaTime;
             }
