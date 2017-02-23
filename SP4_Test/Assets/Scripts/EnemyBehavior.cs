@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Linq;
 using System.Collections.Generic;
+using UnityEngine.UI;
 
 public class EnemyBehavior : MonoBehaviour
 {
@@ -22,6 +23,7 @@ public class EnemyBehavior : MonoBehaviour
     float distanceToDetectPlayer;
     [SerializeField]
     float distanceToAttackPlayer;
+    private int currHealth;
     [SerializeField]
     int health;
     [SerializeField]
@@ -36,7 +38,8 @@ public class EnemyBehavior : MonoBehaviour
     AnimationClip idleLeft;
     [SerializeField]
     AnimationClip idleRight;
-
+    [SerializeField]
+    Image healthbar;
     public List<GameObject> myPlatforms;
     float spawnX;
     float width;
@@ -64,6 +67,7 @@ public class EnemyBehavior : MonoBehaviour
         nowCollide = null;
         myPlatforms = new List<GameObject>();
         myPlatforms.Clear();
+        currHealth = health;
         foreach (GameObject platforms in GameObject.FindGameObjectsWithTag("Platform"))
         {
             myPlatforms.Add(platforms);
@@ -72,9 +76,18 @@ public class EnemyBehavior : MonoBehaviour
         timer = 0;
         target = new Vector3(Random.Range(myPlatforms[GenerateEnemy.spawnPointIndex].GetComponent<Collider2D>().bounds.min.x + 4, myPlatforms[GenerateEnemy.spawnPointIndex].GetComponent<Collider2D>().bounds.max.x - 2), -3.7F, transform.position.z);
         timer = Random.Range(2, 5);
-
         moving = false;
         animator = GetComponent<Animator>();
+        healthbar = transform.GetChild(0).GetChild(0).GetChild(0).GetChild(0).GetComponentInChildren<Image>();
+        Debug.Log(healthbar.name);
+    }
+    void UpdateHealthBar()
+    {
+        healthbar.fillAmount = Map(currHealth, 0, health, 0, 1);
+    }
+    private float Map(float value, float inMin, float inMax, float outMin, float outMax)
+    {
+        return (value - inMin) * (outMax - outMin) / (inMax - inMin) + outMin;
     }
     void EnemyMovement()
     {
@@ -177,7 +190,11 @@ public class EnemyBehavior : MonoBehaviour
         nowCollide = collision.transform.name;
 
         if (collision.transform.tag == "Bullet" && health > 0)
-            health -= 2;
+        {
+            currHealth -= 2;
+            UpdateHealthBar();
+            Debug.Log(currHealth + "     " + healthbar.fillAmount);
+        }
     }
     void GenerateNextWP()
     {
@@ -197,9 +214,8 @@ public class EnemyBehavior : MonoBehaviour
         {
             EnemyMovement();
             transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, 0, 0);
-
         }
-        if (health <= 0)
+        if (currHealth <= 0)
         {
             Destroy(gameObject);
             GlobalScript.enemyCount--;

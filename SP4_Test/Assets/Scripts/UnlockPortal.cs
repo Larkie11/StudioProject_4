@@ -13,6 +13,7 @@ public class UnlockPortal : MonoBehaviour {
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if(GlobalScript.howmanytokill >= 5)
         canvas.enabled = true;
     }
     public void DisableCanvas()

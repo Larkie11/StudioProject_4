@@ -6,6 +6,7 @@ public class GlobalScript : MonoBehaviour {
 
     public static int CharacterType = 0;
     public static string playerStandingOn;
+    //For griffon boss
     public static float GrifLightningCD = 1;
     public static float GrifDefense = 5;
     public static float GrifNormal = 3;
@@ -14,13 +15,15 @@ public class GlobalScript : MonoBehaviour {
     public static bool playerGotHit = false;
     public static int enemyCount = 0;
     public static int howmanytokill = 0;
+    public static float GrifHealth;
+    public static float Shield;
     public struct Characters
     {
         public string description;
         public string name;
         public float jumpPower;
-        public int speed;
-        public int shield;
+        public float speed;
+        public float maxShield;
         public float buffDuration;
         public float bulletSpeed;
     }
@@ -42,7 +45,7 @@ public class GlobalScript : MonoBehaviour {
         pumpkin.name = "BEK";
         pumpkin.description = "A pumpking character";
         pumpkin.speed = 8;
-        pumpkin.shield = 60;
+        pumpkin.maxShield = 60;
         pumpkin.bulletSpeed = 5;
         pumpkin.jumpPower = 1.2F;
         pumpkin.buffDuration = 0.5F;
@@ -50,7 +53,7 @@ public class GlobalScript : MonoBehaviour {
         robot.description = "From the future";
         robot.name = "EEK";
         robot.speed = 7;
-        robot.shield = 100;
+        robot.maxShield = 100;
         robot.jumpPower = 2F;
         robot.bulletSpeed = 10;
         robot.buffDuration = 0.4F;
@@ -59,16 +62,16 @@ public class GlobalScript : MonoBehaviour {
         santa.name = "KEK";
         santa.jumpPower = 1.4F;
         santa.speed = 5;
-        santa.shield = 70;
+        santa.maxShield = 70;
+
         santa.bulletSpeed = 3;
         santa.buffDuration = 1.4F;
-
         knight.description = "Wants to save a princess";
         knight.name = "SEK";
         knight.speed = 10;
         knight.jumpPower = 1.6F;
         knight.bulletSpeed = 6;
-        knight.shield = 80;
+        knight.maxShield = 80;
         knight.buffDuration = 1.6F;
 
         myCharacters.Add(pumpkin);

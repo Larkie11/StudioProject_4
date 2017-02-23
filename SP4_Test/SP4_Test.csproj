@@ -81,7 +81,9 @@
     <Compile Include="Assets\Scripts\GrifBoss.cs" />
     <Compile Include="Assets\Scripts\GrifHit.cs" />
     <Compile Include="Assets\Scripts\GrifShield.cs" />
+    <Compile Include="Assets\Scripts\HealthBar.cs" />
     <Compile Include="Assets\Scripts\LightningAttack.cs" />
+    <Compile Include="Assets\Scripts\Loading.cs" />
     <Compile Include="Assets\Scripts\Lookat.cs" />
     <Compile Include="Assets\Scripts\MenuOnTouch.cs" />
     <Compile Include="Assets\Scripts\Mouseinscreen.cs" />

@@ -5,7 +5,7 @@ using System.Collections.Generic;
 public class GrifBoss : MonoBehaviour
 {
     int lightningtospawn;
-    public List<GameObject> myPlatforms;
+    public List<GameObject> myPlatforms = new List<GameObject>();
     bool playAttack;
     bool playNormal;
     bool playDef;
@@ -16,6 +16,8 @@ public class GrifBoss : MonoBehaviour
     SpriteRenderer sr;
     int animationState;
     Collider2D collide;
+    [SerializeField]
+    Canvas canvas;
     Animator ar;
     Vector3 target;
     private string lastClipName;
@@ -23,6 +25,8 @@ public class GrifBoss : MonoBehaviour
     public GameObject player;
     Skills skill;
     GameObject myshield;
+    bool hideCanvas;
+    float hideTimer;
     enum Skills
     {
         Lightning,
@@ -34,11 +38,10 @@ public class GrifBoss : MonoBehaviour
     void Start()
     {
         collide = GetComponent<Collider2D>();
-
-        myPlatforms = new List<GameObject>();
         myPlatforms.Clear();
-        health = 50;
-      
+        GlobalScript.GrifHealth = 50;
+        hideCanvas = true;
+        hideTimer = 0F;
         animationState = 0;
         playAttack = false;
         playNormal = false;
@@ -60,8 +63,10 @@ public class GrifBoss : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(health > 0 && collision.transform.tag == "Bullet")
-        health -= 2;
+        if (GlobalScript.GrifHealth > 0 && collision.transform.tag == "Bullet")
+            GlobalScript.GrifHealth -= 2;
+
+        hideTimer = 7F;
     }
     static T GetRandomEnum<T>()
     {
@@ -72,6 +77,21 @@ public class GrifBoss : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (hideCanvas)
+            canvas.enabled = false;
+        else
+            canvas.enabled = true;
+
+        if (hideTimer > 0)
+        {
+            hideTimer -= Time.deltaTime;
+            hideCanvas = false;
+        }
+        else if (hideTimer <= 0)
+        {
+            hideCanvas = true;
+        }
+
         transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, 0, 0);
 
         if(!player)
@@ -86,15 +106,15 @@ public class GrifBoss : MonoBehaviour
         if (!playAttack && !playNormal)
             transform.position += (player.transform.position - transform.position).normalized * 0.5F * Time.deltaTime;
        
-        if (health > 0)
+        if (GlobalScript.GrifHealth > 0)
         {
             if (skill == Skills.Lightning)
             {
                 myshield.SetActive(false);
-                if (health > 30)
+                if (GlobalScript.GrifHealth > 30)
                     lightningtospawn = 2;
 
-                else if (health < 30)
+                else if (GlobalScript.GrifHealth < 30)
                     lightningtospawn = 5;
 
                 if (GlobalScript.GrifLightningCD <= 0.5)
@@ -147,10 +167,10 @@ public class GrifBoss : MonoBehaviour
             {
                 myshield.SetActive(false);
 
-                if (health > 30)
+                if (GlobalScript.GrifHealth > 30)
                     lightningtospawn = 1;
 
-                else if (health < 30)
+                else if (GlobalScript.GrifHealth < 30)
                     lightningtospawn = 3;
 
                 if (GlobalScript.GrifNormal <= 0.5)

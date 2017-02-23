@@ -55,13 +55,13 @@ public class CharacterSelection : MonoBehaviour {
     public void Selected()
     {
         GlobalScript.CharacterType = selectionIndex;
-
+        gameObject.SetActive(false);
     }
     // Update is called once per frame
     void Update () {
         description.text = GlobalScript.myCharacters[selectionIndex].description 
             + '\n' + "Speed: " + GlobalScript.myCharacters[selectionIndex].speed + 
-            '\n' + "Shield Duration: " + GlobalScript.myCharacters[selectionIndex].shield + 
+            '\n' + "Shield Duration: " + GlobalScript.myCharacters[selectionIndex].maxShield + 
             '\n' + "Buff Duration: " + GlobalScript.myCharacters[selectionIndex].buffDuration
             + '\n' + "Bullet Speed: " + GlobalScript.myCharacters[selectionIndex].bulletSpeed;
         charName.text = GlobalScript.myCharacters[selectionIndex].name;

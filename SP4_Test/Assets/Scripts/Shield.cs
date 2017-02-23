@@ -16,21 +16,21 @@ public class Shield : MonoBehaviour
         // collisionEvents = new List<ParticleCollisionEvent>();
         
         SheildGo = GameObject.FindGameObjectWithTag("Shield");
-        ShieldDurability = GlobalScript.myCharacters[GlobalScript.CharacterType].shield;
+        GlobalScript.Shield = GlobalScript.myCharacters[GlobalScript.CharacterType].maxShield;
         SheildGo.SetActive(false);
     }
     void Update()
     {
-        if (Input.GetKey(KeyCode.Mouse1) && ShieldDurability > 0)
+        if (Input.GetKey(KeyCode.Mouse1) && GlobalScript.Shield > 0)
         {
             SheildGo.SetActive(true);
-            //ShieldDurability -= Time.deltaTime * 10;
+            GlobalScript.Shield -= Time.deltaTime * 10;
         }
         else
         {
-            if(ShieldDurability < 100)
+            if(GlobalScript.Shield < 100)
             {
-               // ShieldDurability += Time.deltaTime;
+                GlobalScript.Shield += Time.deltaTime;
             }
             SheildGo.SetActive(false);
         }
