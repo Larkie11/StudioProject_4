@@ -6,6 +6,7 @@ public class Attack : MonoBehaviour {
     bool left;
     bool right;
     Vector3 playerPos;
+    Vector3 direction;
     // Use this for initialization
     void Start () {
         player = GameObject.FindGameObjectWithTag("Player");
@@ -16,6 +17,7 @@ public class Attack : MonoBehaviour {
         else
             right = true;
         playerPos = player.transform.position;
+        direction = (playerPos - transform.position).normalized;
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -29,7 +31,7 @@ public class Attack : MonoBehaviour {
         float amtToMove = 5 * Time.deltaTime;
         // translate projectile in its forward direction:
        
-            transform.position += (playerPos - transform.position).normalized * amtToMove;
+            transform.position += direction * amtToMove;
         
     }
 }

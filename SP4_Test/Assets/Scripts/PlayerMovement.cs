@@ -94,6 +94,12 @@ public class PlayerMovement : MonoBehaviour
         //Debug.Log(isGrounded);
         transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, lockPos, lockPos);
         PlayerAnimation();
+
+        if (transform.position.y < -20)
+        {
+            Destroy(gameObject);
+            GlobalScript.isDead = true;
+        }
 #if UNITY_STANDALONE
 
         move = Input.GetAxis ("Horizontal");

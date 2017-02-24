@@ -34,7 +34,7 @@ public class Spike : MonoBehaviour {
         float spawnX = 0;
 
         spawnX = Random.Range(width, width2);
-        GameObject go = Instantiate(spike, new Vector3(spawnX, myPlatforms[spawnPointIndex].transform.position.y - 0.3F, 0), Quaternion.identity) as GameObject;
+        GameObject go = Instantiate(spike, new Vector3(spawnX, myPlatforms[spawnPointIndex].transform.position.y - 2F, 0), Quaternion.identity) as GameObject;
         spikecount++;
     }
 }

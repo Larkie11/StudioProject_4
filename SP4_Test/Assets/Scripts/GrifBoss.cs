@@ -45,6 +45,7 @@ public class GrifBoss : MonoBehaviour
         animationState = 0;
         playAttack = false;
         playNormal = false;
+        GlobalScript.isDead = false;
         myshield = GameObject.FindGameObjectWithTag("EnemyShield");
         myshield.SetActive(false);
         skill = GetRandomEnum<Skills>();

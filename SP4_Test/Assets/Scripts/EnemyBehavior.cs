@@ -41,7 +41,9 @@ public class EnemyBehavior : MonoBehaviour
     AnimationClip idleRight;
     [SerializeField]
     Image healthbar;
-    public List<GameObject> myPlatforms;
+    List<GameObject> myPlatforms = new List<GameObject>();
+    [SerializeField]
+    List<GameObject> enemyDrops = new List<GameObject>();
     float spawnX;
     float width;
     float width2;
@@ -66,7 +68,6 @@ public class EnemyBehavior : MonoBehaviour
     void Start()
     {
         nowCollide = null;
-        myPlatforms = new List<GameObject>();
         myPlatforms.Clear();
         currHealth = health;
         foreach (GameObject platforms in GameObject.FindGameObjectsWithTag("Platform"))
@@ -224,6 +225,19 @@ public class EnemyBehavior : MonoBehaviour
         }
         if (currHealth <= 0)
         {
+            string toDrop = "";
+            GameObject go2;
+            float random = Random.Range(0, enemyDrops.Count + 1);
+            if (random == 0)
+                toDrop = "Powerup-Shield";
+            if (random == 1)
+                toDrop = "Powerup-Coin";
+            else
+                toDrop = "";
+            Debug.Log(random + " " + toDrop);
+            if(toDrop != "")
+            go2= Instantiate(Resources.Load(toDrop), new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity) as GameObject;
+            GlobalScript.Score += 5;
             Destroy(gameObject);
             GlobalScript.enemyCount--;
             GlobalScript.howmanytokill++;
