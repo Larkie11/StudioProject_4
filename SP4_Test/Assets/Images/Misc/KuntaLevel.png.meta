@@ -1,0 +1,314 @@
+fileFormatVersion: 2
+guid: bfafea9fd4219314d849ab7ae014898f
+timeCreated: 1487904685
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: KuntaLevel_0
+    21300002: KuntaLevel_1
+    21300004: KuntaLevel_2
+    21300006: KuntaLevel_3
+    21300008: KuntaLevel_4
+    21300010: KuntaLevel_5
+    21300012: KuntaLevel_6
+    21300014: KuntaLevel_7
+    21300016: KuntaLevel_8
+    21300018: KuntaLevel_9
+    21300020: KuntaLevel_10
+    21300022: KuntaLevel_11
+    21300024: KuntaLevel_12
+    21300026: KuntaLevel_13
+    21300028: KuntaLevel_14
+    21300030: KuntaLevel_15
+    21300032: KuntaLevel_16
+    21300034: KuntaLevel_17
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: -1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: KuntaLevel_0
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 158
+        width: 90
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -45, y: 30}
+        - {x: -45, y: -30}
+        - {x: 45, y: -30}
+        - {x: 45, y: 30}
+    - name: KuntaLevel_1
+      rect:
+        serializedVersion: 2
+        x: 124
+        y: 158
+        width: 90
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -45, y: 30}
+        - {x: -45, y: -30}
+        - {x: 45, y: -30}
+        - {x: 45, y: 30}
+    - name: KuntaLevel_2
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 158
+        width: 90
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -45, y: 30}
+        - {x: -45, y: -30}
+        - {x: 45, y: -30}
+        - {x: 45, y: 30}
+    - name: KuntaLevel_3
+      rect:
+        serializedVersion: 2
+        x: 324
+        y: 158
+        width: 90
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -45, y: 30}
+        - {x: -45, y: -30}
+        - {x: 45, y: -30}
+        - {x: 45, y: 30}
+    - name: KuntaLevel_4
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 124
+        width: 48
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: KuntaLevel_5
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 124
+        width: 50
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: KuntaLevel_6
+      rect:
+        serializedVersion: 2
+        x: 151
+        y: 124
+        width: 90
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: KuntaLevel_7
+      rect:
+        serializedVersion: 2
+        x: 252
+        y: 124
+        width: 90
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: KuntaLevel_8
+      rect:
+        serializedVersion: 2
+        x: 351
+        y: 119
+        width: 90
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: KuntaLevel_9
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 121
+        width: 90
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: KuntaLevel_10
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 51
+        width: 22
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: KuntaLevel_11
+      rect:
+        serializedVersion: 2
+        x: 57
+        y: 51
+        width: 25
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: KuntaLevel_12
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 51
+        width: 23
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: KuntaLevel_13
+      rect:
+        serializedVersion: 2
+        x: 125
+        y: 51
+        width: 22
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: KuntaLevel_14
+      rect:
+        serializedVersion: 2
+        x: 158
+        y: 28
+        width: 90
+        height: 83
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -45, y: 41.5}
+        - {x: -45, y: 15.5}
+        - {x: -7, y: -31.5}
+        - {x: 21, y: -41.5}
+        - {x: 45, y: -41.5}
+        - {x: 45, y: 41.5}
+    - name: KuntaLevel_15
+      rect:
+        serializedVersion: 2
+        x: 259
+        y: 28
+        width: 90
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 30, y: 40}
+        - {x: -30, y: -1}
+        - {x: -45, y: -15}
+        - {x: -45, y: -40}
+        - {x: 45, y: -40}
+        - {x: 45, y: 40}
+    - name: KuntaLevel_16
+      rect:
+        serializedVersion: 2
+        x: 362
+        y: 28
+        width: 90
+        height: 83
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -45, y: 41.5}
+        - {x: -45, y: -41.5}
+        - {x: -15, y: -41.5}
+        - {x: 36, y: 3.5}
+        - {x: 45, y: 15.5}
+        - {x: 45, y: 41.5}
+    - name: KuntaLevel_17
+      rect:
+        serializedVersion: 2
+        x: 463
+        y: 28
+        width: 90
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -5, y: 32}
+        - {x: -34, y: 40}
+        - {x: -45, y: 40}
+        - {x: -45, y: -40}
+        - {x: 45, y: -40}
+        - {x: 45, y: -16}
+        - {x: 42, y: -7}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
