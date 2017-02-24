@@ -18,7 +18,10 @@ public class SetScreen : MonoBehaviour {
     private void Awake()
     {
         slider.value = PlayerPrefs.GetFloat("Volume");
-        fullScreen = Screen.fullScreen; 
+        if (PlayerPrefs.GetString("FS") == "true")
+            fullScreen = true;
+        else
+            fullScreen = false;
     }
     public void OnValueChange()
     {
@@ -37,11 +40,15 @@ public class SetScreen : MonoBehaviour {
     {
         if (currSelection > 0)
             currSelection--;
+        else if (currSelection <= 0)
+            currSelection = resolutions.Length;
     }
     public void NextScreenSize()
     {
         if (currSelection <= resolutions.Length)
             currSelection++;
+        else if (currSelection >resolutions.Length)
+            currSelection = 0;
     }
     public void SetFS()
     {
@@ -56,7 +63,7 @@ public class SetScreen : MonoBehaviour {
         Screen.SetResolution(resolutions[currSelection].width, resolutions[currSelection].height, fullScreen);
         PlayerPrefs.SetInt("Width", resolutions[currSelection].width);
         PlayerPrefs.SetInt("Height", resolutions[currSelection].height);
-        if(fullScreen == true)
+        if(fullScreen)
             PlayerPrefs.SetString("FS", "true");
         else
             PlayerPrefs.SetString("FS", "false");

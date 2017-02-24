@@ -28,7 +28,7 @@ public class Loading : MonoBehaviour {
         if (width != 0 && height != 0)
         {
             if(fs == "true")
-                Screen.SetResolution(width, height, false);
+                Screen.SetResolution(width, height, true);
             else if (fs == "false")
                 Screen.SetResolution(width, height, false);
 
@@ -50,6 +50,7 @@ public class Loading : MonoBehaviour {
         {
             Buttons[i].gameObject.SetActive(false);
         }
+        GlobalScript.enemyCount = 0;
        
         loadingScreenBG.enabled = true;
         progBar.gameObject.SetActive(true);

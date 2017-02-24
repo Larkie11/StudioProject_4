@@ -9,6 +9,7 @@ public class UnlockPortal : MonoBehaviour {
     GameObject canvas;
     GameObject player;
     float x, y = 0;
+    bool disabled = false;
 	// Use this for initialization
 	void Start () {
         ar = GetComponent<Animator>();
@@ -24,6 +25,7 @@ public class UnlockPortal : MonoBehaviour {
     public void DisableCanvas()
     {
         canvas.SetActive(false);
+        disabled = true;
     }
     // Update is called once per frame
     void Update () {
@@ -36,7 +38,7 @@ public class UnlockPortal : MonoBehaviour {
         {
             ar.speed = 1;
         }
-        if (GlobalScript.howmanytokill >= 5 && transform.GetComponent<BoxCollider2D>().bounds.Contains(player.transform.position))
+        if (GlobalScript.howmanytokill >= 1 && transform.GetComponent<BoxCollider2D>().bounds.Contains(player.transform.position) && !disabled)
         {
             canvas.SetActive(true);
             if (x < 1.5 || y < 1.5)
