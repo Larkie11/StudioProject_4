@@ -135,11 +135,11 @@ public class CrimsonBoss : MonoBehaviour
         {
             CrimsonAnimation = 2;
         }
-        if (Input.GetKeyDown(KeyCode.Keypad3))
+        if (Input.GetKeyDown(KeyCode.C))
         {
             crimsonState = CrimsonState.Attack1;
         }
-        if (Input.GetKeyDown(KeyCode.Keypad4))
+        if (Input.GetKeyDown(KeyCode.K))
         {
             crimsonState = CrimsonState.Attack2;
         }

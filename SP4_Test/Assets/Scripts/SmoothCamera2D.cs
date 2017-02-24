@@ -31,9 +31,8 @@
                 GlobalScript.go2 = Instantiate(Resources.Load("Player"), new Vector3(startingpoint.transform.position.x, startingpoint.transform.position.y, 0), Quaternion.identity) as GameObject;
             if (GlobalScript.CharacterType == 1)
                 GlobalScript.go2 = Instantiate(Resources.Load("Player"), new Vector3(startingpoint.transform.position.x, startingpoint.transform.position.y, 0), Quaternion.identity) as GameObject;
-          
+            GlobalScript.isDead = false;
         }
-        GlobalScript.isDead = false;
         canvas.SetActive(false);
     }
     void Update () 

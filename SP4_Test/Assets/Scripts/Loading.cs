@@ -51,6 +51,7 @@ public class Loading : MonoBehaviour {
             Buttons[i].gameObject.SetActive(false);
         }
         GlobalScript.enemyCount = 0;
+        GlobalScript.isDead = false;
        
         loadingScreenBG.enabled = true;
         progBar.gameObject.SetActive(true);
