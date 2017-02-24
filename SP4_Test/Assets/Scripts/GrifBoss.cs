@@ -64,7 +64,7 @@ public class GrifBoss : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (GlobalScript.GrifHealth > 0 && collision.transform.tag == "Bullet")
-            GlobalScript.GrifHealth -= 2;
+            GlobalScript.GrifHealth -= 50;
 
         hideTimer = 7F;
     }

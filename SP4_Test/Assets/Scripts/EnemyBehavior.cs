@@ -200,8 +200,8 @@ public class EnemyBehavior : MonoBehaviour
     {
         if (nowCollide != null)
         {
-            width = GameObject.Find(nowCollide).GetComponent<Collider2D>().bounds.min.x + 3.5F;
-            width2 = GameObject.Find(nowCollide).GetComponent<Collider2D>().bounds.max.x - 2;
+            width = GameObject.Find(nowCollide).GetComponent<BoxCollider2D>().bounds.min.x + 3.5F;
+            width2 = GameObject.Find(nowCollide).GetComponent<BoxCollider2D>().bounds.max.x - 2;
             spawnX = Random.Range(width2, width);
             target = new Vector3(spawnX, transform.position.y, transform.position.z);
             moving = true;

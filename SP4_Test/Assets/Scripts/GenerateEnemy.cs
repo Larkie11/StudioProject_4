@@ -45,8 +45,8 @@ public class GenerateEnemy : MonoBehaviour {
     {
             spawnPointIndex = Random.Range(0, myPlatforms.Count);
 
-            float width = myPlatforms[spawnPointIndex].GetComponent<Collider2D>().bounds.min.x + 2;
-            float width2 = myPlatforms[spawnPointIndex].GetComponent<Collider2D>().bounds.max.x - 2;
+            float width = myPlatforms[spawnPointIndex].GetComponent<BoxCollider2D>().bounds.min.x + 2;
+            float width2 = myPlatforms[spawnPointIndex].GetComponent<BoxCollider2D>().bounds.max.x - 2;
             float spawnX = 0;
 
             spawnX = Random.Range(width, width2);

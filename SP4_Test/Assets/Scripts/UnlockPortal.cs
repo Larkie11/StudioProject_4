@@ -7,6 +7,8 @@ public class UnlockPortal : MonoBehaviour {
     RectTransform panelRectTransform;
     [SerializeField]
     GameObject canvas;
+    [SerializeField]
+    int id = 0;
     GameObject player;
     float x, y = 0;
     bool disabled = false;
@@ -14,6 +16,8 @@ public class UnlockPortal : MonoBehaviour {
 	void Start () {
         ar = GetComponent<Animator>();
         ar.speed = 0;
+        disabled = false;
+
         canvas.SetActive(false);
         panelRectTransform = panelRectTransform.GetComponent<RectTransform>();
         panelRectTransform.localScale = new Vector3(x, y, 1);
@@ -31,23 +35,43 @@ public class UnlockPortal : MonoBehaviour {
     void Update () {
         if(player == null && !GlobalScript.isDead)
             player = GameObject.FindGameObjectWithTag("Player");
-        if (GlobalScript.howmanytokill < 5)
+        if (id == 0)
         {
-        }
-        else
-        {
-            ar.speed = 1;
-        }
-        if (GlobalScript.howmanytokill >= 1 && transform.GetComponent<BoxCollider2D>().bounds.Contains(player.transform.position) && !disabled)
-        {
-            canvas.SetActive(true);
-            if (x < 1.5 || y < 1.5)
+            if (GlobalScript.howmanytokill < 5)
             {
-                x += Time.deltaTime * 3;
-                y += Time.deltaTime * 3;
             }
-            panelRectTransform.localScale = new Vector3(x, y, 1);
+            else
+            {
+                ar.speed = 1;
+            }
+            if (GlobalScript.howmanytokill >= 1 && transform.GetComponent<BoxCollider2D>().bounds.Contains(player.transform.position) && !disabled)
+            {
+                canvas.SetActive(true);
+                if (x < 1.5 || y < 1.5)
+                {
+                    x += Time.deltaTime * 3;
+                    y += Time.deltaTime * 3;
+                }
+                panelRectTransform.localScale = new Vector3(x, y, 1);
+            }
+        }
+        if (id == 1)
+        {
+            if(GlobalScript.GrifHealth <= 0)
+            {
+                ar.speed = 1;
+            }
+            if (GlobalScript.GrifHealth <= 0 && transform.GetComponent<BoxCollider2D>().bounds.Contains(player.transform.position) && !disabled)
+            {
+                canvas.SetActive(true);
 
+                if (x < 1.5 || y < 1.5)
+                {
+                    x += Time.deltaTime * 3;
+                    y += Time.deltaTime * 3;
+                }
+                panelRectTransform.localScale = new Vector3(x, y, 1);
+            }
         }
     }
 }
