@@ -92,19 +92,20 @@ public class GrifBoss : MonoBehaviour
         }
 
         transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, 0, 0);
-
-        if(!player)
-            player = GameObject.FindGameObjectWithTag("Player");
-        if (transform.position.x > player.transform.position.x)
+        if (!GlobalScript.isDead)
         {
-            sr.flipX = false;
-        }
-        else
-            sr.flipX = true;
+            if (!player)
+                player = GameObject.FindGameObjectWithTag("Player");
+            if (transform.position.x > player.transform.position.x)
+            {
+                sr.flipX = false;
+            }
+            else
+                sr.flipX = true;
 
-        if (!playAttack && !playNormal)
-            transform.position += (player.transform.position - transform.position).normalized * 0.5F * Time.deltaTime;
-       
+            if (!playAttack && !playNormal)
+                transform.position += (player.transform.position - transform.position).normalized * 0.5F * Time.deltaTime;
+        }
         if (GlobalScript.GrifHealth > 0)
         {
             if (skill == Skills.Lightning)

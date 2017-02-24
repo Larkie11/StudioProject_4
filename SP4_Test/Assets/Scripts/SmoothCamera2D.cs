@@ -7,28 +7,47 @@
      private Vector3 velocity = Vector3.zero;
      public Transform target;
     GameObject startingpoint;
+    [SerializeField]
+    GameObject canvas;
     private void Start()
     {
         startingpoint = GameObject.FindGameObjectWithTag("StartingPoint");
-        if (!GlobalScript.RenderedPlayer && GlobalScript.go2 == null)
+        if (!GlobalScript.isDead)
         {
             if (GlobalScript.CharacterType == 0)
                 GlobalScript.go2 = Instantiate(Resources.Load("Player"), new Vector3(startingpoint.transform.position.x, startingpoint.transform.position.y, 0), Quaternion.identity) as GameObject;
             if (GlobalScript.CharacterType == 1)
                 GlobalScript.go2 = Instantiate(Resources.Load("Player"), new Vector3(startingpoint.transform.position.x, startingpoint.transform.position.y, 0), Quaternion.identity) as GameObject;
-            GlobalScript.RenderedPlayer = true;
         }
+        canvas.SetActive(false);
     }
-        // Update is called once per frame
-        // Update is called once per frame
-        void Update () 
+    // Update is called once per frame
+    // Update is called once per frame
+    public void RespawnPlayer()
+    {
+        if (GlobalScript.isDead)
+        {
+            if (GlobalScript.CharacterType == 0)
+                GlobalScript.go2 = Instantiate(Resources.Load("Player"), new Vector3(startingpoint.transform.position.x, startingpoint.transform.position.y, 0), Quaternion.identity) as GameObject;
+            if (GlobalScript.CharacterType == 1)
+                GlobalScript.go2 = Instantiate(Resources.Load("Player"), new Vector3(startingpoint.transform.position.x, startingpoint.transform.position.y, 0), Quaternion.identity) as GameObject;
+          
+        }
+        GlobalScript.isDead = false;
+        canvas.SetActive(false);
+    }
+    void Update () 
      {
-        
-           // if (GlobalScript.playerToRender == "Santa")
-              //  GlobalScript.go2 = Instantiate(Resources.Load("Player 2"), new Vector3(0, 0, 0), Quaternion.identity) as GameObject;
 
-            if (target == null && GlobalScript.go2 != null)
-                target = GlobalScript.go2.transform;
+        // if (GlobalScript.playerToRender == "Santa")
+        //  GlobalScript.go2 = Instantiate(Resources.Load("Player 2"), new Vector3(0, 0, 0), Quaternion.identity) as GameObject;
+        if (GlobalScript.isDead)
+        {
+            canvas.SetActive(true);
+        }
+
+        if (target == null && GlobalScript.go2 != null)
+            target = GlobalScript.go2.transform;
        
         if (target)
          {

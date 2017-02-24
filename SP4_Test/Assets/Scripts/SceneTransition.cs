@@ -28,8 +28,7 @@ public class SceneTransition : MonoBehaviour {
     }
     public void LoadWMBoss()
     {
-        SceneManager.LoadScene("wmboss");
-        GlobalScript.RenderedPlayer = false;
-        GlobalScript.go2 = null;
+        //SceneManager.LoadScene("wmboss");
+        
     }
 }

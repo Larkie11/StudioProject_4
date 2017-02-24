@@ -14,7 +14,7 @@ public class EnemyBehavior : MonoBehaviour
     GameObject firebreath;
     [SerializeField]
     int enemyType;
-
+    GameObject player;
     [SerializeField]
     string MoveLeftAnim;
     [SerializeField]
@@ -29,6 +29,7 @@ public class EnemyBehavior : MonoBehaviour
     [SerializeField]
     float speed;
     [SerializeField]
+    float maxAttackCD;
     float attackCD;
     [SerializeField]
     AnimationClip moveLeft;
@@ -91,38 +92,38 @@ public class EnemyBehavior : MonoBehaviour
     }
     void EnemyMovement()
     {
-        GameObject player = GameObject.FindGameObjectWithTag("Player");
         float distance = Vector3.Distance(transform.position, player.transform.position);
 
-        if (GlobalScript.playerStandingOn == nowCollide && distance < distanceToDetectPlayer)
+        if (distance < distanceToDetectPlayer)
         {
             if (distance < distanceToAttackPlayer)
             {
                 if (attackCD <= 0F && enemyType == 0)
                 {
                     Attack(player.transform.position, Attacks.FIREBALL);
-                    attackCD = 3F;
+                    attackCD = maxAttackCD;
                 }
             }
             if (attackCD > 0)
                 attackCD -= Time.deltaTime;
 
-            if (distance < distanceToDetectPlayer)
+            if (GlobalScript.playerStandingOn == nowCollide && distance < distanceToDetectPlayer)
             {
                 animator.enabled = true;
                 transform.position += (player.transform.position - transform.position).normalized * speed * Time.deltaTime;
-
-                if (player.transform.position.x > transform.position.x)
-                {
-                    animator.Play(moveRight.name);
-                }
-
-                else
-                {
-                    animator.Play(moveLeft.name);
-                }
             }
-        }
+            if (player.transform.position.x > transform.position.x)
+            {
+                animator.Play(moveRight.name);
+            }
+
+            else
+            {
+                animator.Play(moveLeft.name);
+            }
+        
+            }
+        
         else
         {
             if (timer >= 0)
@@ -210,6 +211,10 @@ public class EnemyBehavior : MonoBehaviour
     {
         if (nowCollide != null)
         {
+         
+            if(player == null && !GlobalScript.isDead)
+            player= GameObject.FindGameObjectWithTag("Player");
+
             EnemyMovement();
             if (healthbar.fillAmount < 0.5)
                 healthbar.color = Color.red;

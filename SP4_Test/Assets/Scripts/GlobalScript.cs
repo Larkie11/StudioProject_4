@@ -22,6 +22,7 @@ public class GlobalScript : MonoBehaviour {
     public static float Shield;
     public static float Volume = 0.5f;
     public static bool shieldisOn;
+    public static bool isDead = false;
 
     //CrimsonBoss
 

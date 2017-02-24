@@ -6,14 +6,14 @@ public class UnlockPortal : MonoBehaviour {
     [SerializeField]
     RectTransform panelRectTransform;
     [SerializeField]
-    Canvas canvas;
+    GameObject canvas;
     GameObject player;
     float x, y = 0;
 	// Use this for initialization
 	void Start () {
         ar = GetComponent<Animator>();
         ar.speed = 0;
-        canvas.enabled = false;
+        canvas.SetActive(false);
         panelRectTransform = panelRectTransform.GetComponent<RectTransform>();
         panelRectTransform.localScale = new Vector3(x, y, 1);
     }
@@ -23,11 +23,11 @@ public class UnlockPortal : MonoBehaviour {
     }
     public void DisableCanvas()
     {
-        canvas.enabled = false;
+        canvas.SetActive(false);
     }
     // Update is called once per frame
     void Update () {
-        if(player == null)
+        if(player == null && !GlobalScript.isDead)
             player = GameObject.FindGameObjectWithTag("Player");
         if (GlobalScript.howmanytokill < 5)
         {
@@ -38,8 +38,8 @@ public class UnlockPortal : MonoBehaviour {
         }
         if (GlobalScript.howmanytokill >= 5 && transform.GetComponent<BoxCollider2D>().bounds.Contains(player.transform.position))
         {
-            canvas.enabled = true;
-            if(x < 1.5 || y < 1.5)
+            canvas.SetActive(true);
+            if (x < 1.5 || y < 1.5)
             {
                 x += Time.deltaTime * 3;
                 y += Time.deltaTime * 3;

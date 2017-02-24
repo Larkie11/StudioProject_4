@@ -5,6 +5,7 @@ public class Attack : MonoBehaviour {
     GameObject player;
     bool left;
     bool right;
+    Vector3 playerPos;
     // Use this for initialization
     void Start () {
         player = GameObject.FindGameObjectWithTag("Player");
@@ -14,22 +15,21 @@ public class Attack : MonoBehaviour {
         }
         else
             right = true;
+        playerPos = player.transform.position;
     }
-
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        //Destroy(this.gameObject);
-        if(collision.gameObject.tag == "Shield")
-        Debug.Log(collision.gameObject.name);
+     
     }
     // Update is called once per frame
     void Update () {
+        if (GlobalScript.isDead)
+            Destroy(gameObject);
         // distance moved since last frame:
         float amtToMove = 5 * Time.deltaTime;
         // translate projectile in its forward direction:
-        if(left)
-            transform.Translate(Vector3.left * amtToMove);
-        else
-            transform.Translate(Vector3.right * amtToMove);
+       
+            transform.position += (playerPos - transform.position).normalized * amtToMove;
+        
     }
 }

@@ -1,0 +1,516 @@
+fileFormatVersion: 2
+guid: e995ef9ba10662643bd6fd78c00aa2c5
+timeCreated: 1487863828
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: PC Computer - MapleStory - Blue Cave 2 Tiles_0
+    21300002: PC Computer - MapleStory - Blue Cave 2 Tiles_1
+    21300004: PC Computer - MapleStory - Blue Cave 2 Tiles_2
+    21300006: PC Computer - MapleStory - Blue Cave 2 Tiles_3
+    21300008: PC Computer - MapleStory - Blue Cave 2 Tiles_4
+    21300010: PC Computer - MapleStory - Blue Cave 2 Tiles_5
+    21300012: PC Computer - MapleStory - Blue Cave 2 Tiles_6
+    21300014: PC Computer - MapleStory - Blue Cave 2 Tiles_7
+    21300016: PC Computer - MapleStory - Blue Cave 2 Tiles_8
+    21300018: PC Computer - MapleStory - Blue Cave 2 Tiles_9
+    21300020: PC Computer - MapleStory - Blue Cave 2 Tiles_10
+    21300022: PC Computer - MapleStory - Blue Cave 2 Tiles_11
+    21300024: PC Computer - MapleStory - Blue Cave 2 Tiles_12
+    21300026: PC Computer - MapleStory - Blue Cave 2 Tiles_13
+    21300028: PC Computer - MapleStory - Blue Cave 2 Tiles_14
+    21300030: PC Computer - MapleStory - Blue Cave 2 Tiles_15
+    21300032: PC Computer - MapleStory - Blue Cave 2 Tiles_16
+    21300034: PC Computer - MapleStory - Blue Cave 2 Tiles_17
+    21300036: PC Computer - MapleStory - Blue Cave 2 Tiles_18
+    21300038: PC Computer - MapleStory - Blue Cave 2 Tiles_19
+    21300040: PC Computer - MapleStory - Blue Cave 2 Tiles_20
+    21300042: PC Computer - MapleStory - Blue Cave 2 Tiles_21
+    21300044: PC Computer - MapleStory - Blue Cave 2 Tiles_22
+    21300046: PC Computer - MapleStory - Blue Cave 2 Tiles_23
+    21300048: PC Computer - MapleStory - Blue Cave 2 Tiles_24
+    21300050: PC Computer - MapleStory - Blue Cave 2 Tiles_25
+    21300052: PC Computer - MapleStory - Blue Cave 2 Tiles_26
+    21300054: PC Computer - MapleStory - Blue Cave 2 Tiles_27
+    21300056: PC Computer - MapleStory - Blue Cave 2 Tiles_28
+    21300058: PC Computer - MapleStory - Blue Cave 2 Tiles_29
+    21300060: PC Computer - MapleStory - Blue Cave 2 Tiles_30
+    21300062: PC Computer - MapleStory - Blue Cave 2 Tiles_31
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: -1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 10
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: PC Computer - MapleStory - Blue Cave 2 Tiles_0
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 393
+        width: 90
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -45, y: 30}
+        - {x: -45, y: -30}
+        - {x: 45, y: -30}
+        - {x: 45, y: 30}
+    - name: PC Computer - MapleStory - Blue Cave 2 Tiles_1
+      rect:
+        serializedVersion: 2
+        x: 105
+        y: 393
+        width: 90
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -45, y: 30}
+        - {x: -45, y: -30}
+        - {x: 45, y: -30}
+        - {x: 45, y: 30}
+    - name: PC Computer - MapleStory - Blue Cave 2 Tiles_2
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 393
+        width: 90
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -45, y: 30}
+        - {x: -45, y: -30}
+        - {x: 45, y: -30}
+        - {x: 45, y: 30}
+    - name: PC Computer - MapleStory - Blue Cave 2 Tiles_3
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 339
+        width: 40
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20, y: 16}
+        - {x: -20, y: -2}
+        - {x: -12, y: -13}
+        - {x: -7, y: -16}
+        - {x: 14, y: -16}
+        - {x: 19, y: -14}
+        - {x: 20, y: -9}
+        - {x: 20, y: 16}
+    - name: PC Computer - MapleStory - Blue Cave 2 Tiles_4
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 350
+        width: 43
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: PC Computer - MapleStory - Blue Cave 2 Tiles_5
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 295
+        width: 90
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: PC Computer - MapleStory - Blue Cave 2 Tiles_6
+      rect:
+        serializedVersion: 2
+        x: 109
+        y: 296
+        width: 90
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: PC Computer - MapleStory - Blue Cave 2 Tiles_7
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 284
+        width: 90
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -45, y: 19}
+        - {x: -45, y: -12}
+        - {x: -43, y: -19}
+        - {x: 32, y: -19}
+        - {x: 45, y: -6}
+        - {x: 45, y: 19}
+    - name: PC Computer - MapleStory - Blue Cave 2 Tiles_8
+      rect:
+        serializedVersion: 2
+        x: 323
+        y: 287
+        width: 90
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -45, y: 17.5}
+        - {x: -45, y: -17.5}
+        - {x: 43, y: -17.5}
+        - {x: 45, y: -10.5}
+        - {x: 45, y: 17.5}
+    - name: PC Computer - MapleStory - Blue Cave 2 Tiles_9
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 218
+        width: 22
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: PC Computer - MapleStory - Blue Cave 2 Tiles_10
+      rect:
+        serializedVersion: 2
+        x: 55
+        y: 218
+        width: 20
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: PC Computer - MapleStory - Blue Cave 2 Tiles_11
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 217
+        width: 23
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: PC Computer - MapleStory - Blue Cave 2 Tiles_12
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 217
+        width: 23
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: PC Computer - MapleStory - Blue Cave 2 Tiles_13
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 107
+        width: 90
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -45, y: 46}
+        - {x: -45, y: 10}
+        - {x: 7, y: -46}
+        - {x: 41, y: -46}
+        - {x: 45, y: -38}
+        - {x: 45, y: 46}
+    - name: PC Computer - MapleStory - Blue Cave 2 Tiles_14
+      rect:
+        serializedVersion: 2
+        x: 113
+        y: 107
+        width: 90
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -45, y: -3}
+        - {x: -45, y: -41}
+        - {x: 45, y: -41}
+        - {x: 45, y: 41}
+        - {x: 0, y: 41}
+        - {x: -31, y: 34}
+    - name: PC Computer - MapleStory - Blue Cave 2 Tiles_15
+      rect:
+        serializedVersion: 2
+        x: 223
+        y: 106
+        width: 90
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 40, y: 41}
+        - {x: -6, y: 14}
+        - {x: -45, y: -16}
+        - {x: -45, y: -41}
+        - {x: 45, y: -41}
+        - {x: 45, y: 41}
+    - name: PC Computer - MapleStory - Blue Cave 2 Tiles_16
+      rect:
+        serializedVersion: 2
+        x: 334
+        y: 100
+        width: 90
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -45, y: 47.5}
+        - {x: -45, y: -47.5}
+        - {x: -15, y: -47.5}
+        - {x: 21, y: -21.5}
+        - {x: 45, y: 26.5}
+        - {x: 45, y: 47.5}
+    - name: PC Computer - MapleStory - Blue Cave 2 Tiles_17
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 107
+        width: 90
+        height: 83
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -10, y: 41.5}
+        - {x: -45, y: 41.5}
+        - {x: -45, y: -41.5}
+        - {x: 45, y: -41.5}
+        - {x: 45, y: 3.5}
+        - {x: 10, y: 30.5}
+    - name: PC Computer - MapleStory - Blue Cave 2 Tiles_18
+      rect:
+        serializedVersion: 2
+        x: 566
+        y: 106
+        width: 90
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -36, y: 41}
+        - {x: -45, y: 41}
+        - {x: -45, y: -41}
+        - {x: 45, y: -41}
+        - {x: 45, y: -16}
+        - {x: 7, y: 15}
+    - name: PC Computer - MapleStory - Blue Cave 2 Tiles_19
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 47
+        width: 24
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: PC Computer - MapleStory - Blue Cave 2 Tiles_20
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 47
+        width: 28
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: PC Computer - MapleStory - Blue Cave 2 Tiles_21
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 50
+        width: 9
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: PC Computer - MapleStory - Blue Cave 2 Tiles_22
+      rect:
+        serializedVersion: 2
+        x: 78
+        y: 47
+        width: 10
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: PC Computer - MapleStory - Blue Cave 2 Tiles_23
+      rect:
+        serializedVersion: 2
+        x: 93
+        y: 50
+        width: 33
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: PC Computer - MapleStory - Blue Cave 2 Tiles_24
+      rect:
+        serializedVersion: 2
+        x: 173
+        y: 38
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -19, y: 24}
+        - {x: -24, y: 23}
+        - {x: -24, y: -23}
+        - {x: -19, y: -24}
+        - {x: 14, y: -24}
+        - {x: 24, y: -17}
+        - {x: 24, y: 22}
+        - {x: 20, y: 24}
+    - name: PC Computer - MapleStory - Blue Cave 2 Tiles_25
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 31
+        width: 33
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: PC Computer - MapleStory - Blue Cave 2 Tiles_26
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 31
+        width: 47
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: PC Computer - MapleStory - Blue Cave 2 Tiles_27
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 31
+        width: 4
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: PC Computer - MapleStory - Blue Cave 2 Tiles_28
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 31
+        width: 7
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: PC Computer - MapleStory - Blue Cave 2 Tiles_29
+      rect:
+        serializedVersion: 2
+        x: 115
+        y: 31
+        width: 12
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: PC Computer - MapleStory - Blue Cave 2 Tiles_30
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 31
+        width: 28
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: PC Computer - MapleStory - Blue Cave 2 Tiles_31
+      rect:
+        serializedVersion: 2
+        x: 177
+        y: 10
+        width: 38
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

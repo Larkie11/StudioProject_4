@@ -73,10 +73,16 @@ public class PlayerMovement : MonoBehaviour
             else
             {
                 Destroy(gameObject);
+                GlobalScript.isDead = true;
             }
 
             Debug.Log(collision);
            // Destroy(gameObject);
+        }
+
+        if(collision.transform.tag == "Spike")
+        {
+            myBody.AddForce(new Vector2(GetComponent<Rigidbody2D>().velocity.x, jumpPower));
         }
 
 
