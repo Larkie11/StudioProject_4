@@ -41,6 +41,7 @@ public class Zakboss : MonoBehaviour
         animationstate = 0;
         anim = GetComponent<Animator>();
           attackingskills = GetRandomEnum<Attacks>();
+          GlobalScript.isDead = false;
     }
 
 

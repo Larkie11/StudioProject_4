@@ -35,7 +35,7 @@ public class UnlockPortal : MonoBehaviour {
     void Update () {
         if(player == null && !GlobalScript.isDead)
             player = GameObject.FindGameObjectWithTag("Player");
-        if (id == 0)
+        if (id == 0 || id ==2)
         {
             if (GlobalScript.howmanytokill < 5)
             {
