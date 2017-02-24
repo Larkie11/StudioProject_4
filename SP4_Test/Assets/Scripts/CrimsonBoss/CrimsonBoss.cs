@@ -68,7 +68,7 @@ public class CrimsonBoss : MonoBehaviour
     {
         if (GlobalScript.CrimsonHealth > 0 && collision.transform.tag == "Bullet")
         {
-            GlobalScript.CrimsonHealth--;
+            GlobalScript.CrimsonHealth -= 5;
         }
         if (collision.transform.tag == "Platform" || collision.transform.tag == "Boundary")
         {
