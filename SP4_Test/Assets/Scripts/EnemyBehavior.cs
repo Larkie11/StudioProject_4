@@ -41,6 +41,9 @@ public class EnemyBehavior : MonoBehaviour
     AnimationClip idleRight;
     [SerializeField]
     Image healthbar;
+    [SerializeField]
+    AudioClip dyingSound;
+    AudioSource audioEff;
     List<GameObject> myPlatforms = new List<GameObject>();
     [SerializeField]
     List<GameObject> enemyDrops = new List<GameObject>();
@@ -69,6 +72,8 @@ public class EnemyBehavior : MonoBehaviour
     {
         nowCollide = null;
         myPlatforms.Clear();
+        attackCD = maxAttackCD * 0.5F;
+        audioEff = GameObject.FindGameObjectWithTag("SFX").GetComponent<AudioSource>();
         currHealth = health;
         foreach (GameObject platforms in GameObject.FindGameObjectsWithTag("Platform"))
         {
@@ -211,11 +216,11 @@ public class EnemyBehavior : MonoBehaviour
     void Update()
     {
         if (nowCollide != null)
-        {
-         
+        { 
             if(player == null && !GlobalScript.isDead)
             player= GameObject.FindGameObjectWithTag("Player");
 
+            if(!GlobalScript.isDead)
             EnemyMovement();
             if (healthbar.fillAmount < 0.5)
                 healthbar.color = Color.red;
@@ -225,6 +230,7 @@ public class EnemyBehavior : MonoBehaviour
         }
         if (currHealth <= 0)
         {
+            audioEff.PlayOneShot(dyingSound);
             string toDrop = "";
             GameObject go2;
             float random = Random.Range(0, enemyDrops.Count + 1);

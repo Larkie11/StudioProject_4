@@ -13,11 +13,17 @@ public class SetScreen : MonoBehaviour {
     Text fs;
     [SerializeField]
     Slider slider;
+    [SerializeField]
+    Slider fxslider;
+    [SerializeField]
+    GameObject testingSound;
+    public AudioClip impact;
     bool fullScreen;
     // Use this for initialization
     private void Awake()
     {
         slider.value = PlayerPrefs.GetFloat("Volume");
+        fxslider.value = PlayerPrefs.GetFloat("Vol");
         if (PlayerPrefs.GetString("FS") == "true")
             fullScreen = true;
         else
@@ -27,7 +33,12 @@ public class SetScreen : MonoBehaviour {
     {
         PlayerPrefs.SetFloat("Volume", slider.value);
     }
-	void Start () {
+    public void OnFXVolumeChange()
+    {
+        PlayerPrefs.SetFloat("Vol", fxslider.value);
+        testingSound.GetComponent<AudioSource>().PlayOneShot(impact);
+    }
+    void Start () {
         text = text.GetComponent<Text>();
         resolutions = Screen.resolutions;
         foreach (Resolution res in resolutions)

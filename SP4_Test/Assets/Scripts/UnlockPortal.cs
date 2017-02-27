@@ -32,63 +32,67 @@ public class UnlockPortal : MonoBehaviour {
         disabled = true;
     }
     // Update is called once per frame
-    void Update () {
-        if(player == null && !GlobalScript.isDead)
+    void Update()
+    {
+        if (player == null && !GlobalScript.isDead)
             player = GameObject.FindGameObjectWithTag("Player");
-        if (id == 0 || id ==2)
+        if (!GlobalScript.isDead)
         {
-            if (GlobalScript.howmanytokill < 5)
+            if (id == 0 || id == 2)
             {
-            }
-            else
-            {
-                ar.speed = 1;
-            }
-            if (GlobalScript.howmanytokill >= 1 && transform.GetComponent<BoxCollider2D>().bounds.Contains(player.transform.position) && !disabled)
-            {
-                canvas.SetActive(true);
-                if (x < 1.5 || y < 1.5)
+                if (GlobalScript.howmanytokill < 5)
                 {
-                    x += Time.deltaTime * 3;
-                    y += Time.deltaTime * 3;
                 }
-                panelRectTransform.localScale = new Vector3(x, y, 1);
+                else
+                {
+                    ar.speed = 1;
+                }
+                if (GlobalScript.howmanytokill >= 1 && transform.GetComponent<BoxCollider2D>().bounds.Contains(player.transform.position) && !disabled)
+                {
+                    canvas.SetActive(true);
+                    if (x < 1.5 || y < 1.5)
+                    {
+                        x += Time.deltaTime * 3;
+                        y += Time.deltaTime * 3;
+                    }
+                    panelRectTransform.localScale = new Vector3(x, y, 1);
+                }
             }
-        }
-        if (id == 1)
-        {
-            if(GlobalScript.GrifHealth <= 0)
+            if (id == 1)
             {
-                ar.speed = 1;
-            }
-            if (GlobalScript.GrifHealth <= 0 && transform.GetComponent<BoxCollider2D>().bounds.Contains(player.transform.position) && !disabled)
-            {
-                canvas.SetActive(true);
+                if (GlobalScript.GrifHealth <= 0)
+                {
+                    ar.speed = 1;
+                }
+                if (GlobalScript.GrifHealth <= 0 && transform.GetComponent<BoxCollider2D>().bounds.Contains(player.transform.position) && !disabled)
+                {
+                    canvas.SetActive(true);
 
-                if (x < 1.5 || y < 1.5)
-                {
-                    x += Time.deltaTime * 3;
-                    y += Time.deltaTime * 3;
+                    if (x < 1.5 || y < 1.5)
+                    {
+                        x += Time.deltaTime * 3;
+                        y += Time.deltaTime * 3;
+                    }
+                    panelRectTransform.localScale = new Vector3(x, y, 1);
                 }
-                panelRectTransform.localScale = new Vector3(x, y, 1);
             }
-        }
-        if (id == 3)
-        {
-            if (GlobalScript.CrimsonHealth <= 0)
+            if (id == 3)
             {
-                ar.speed = 1;
-            }
-            if (GlobalScript.CrimsonHealth <= 0 && transform.GetComponent<BoxCollider2D>().bounds.Contains(player.transform.position) && !disabled)
-            {
-                canvas.SetActive(true);
+                if (GlobalScript.CrimsonHealth <= 0)
+                {
+                    ar.speed = 1;
+                }
+                if (GlobalScript.CrimsonHealth <= 0 && transform.GetComponent<BoxCollider2D>().bounds.Contains(player.transform.position) && !disabled)
+                {
+                    canvas.SetActive(true);
 
-                if (x < 1.5 || y < 1.5)
-                {
-                    x += Time.deltaTime * 3;
-                    y += Time.deltaTime * 3;
+                    if (x < 1.5 || y < 1.5)
+                    {
+                        x += Time.deltaTime * 3;
+                        y += Time.deltaTime * 3;
+                    }
+                    panelRectTransform.localScale = new Vector3(x, y, 1);
                 }
-                panelRectTransform.localScale = new Vector3(x, y, 1);
             }
         }
     }
