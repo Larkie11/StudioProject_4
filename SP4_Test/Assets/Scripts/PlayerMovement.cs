@@ -71,8 +71,8 @@ public class PlayerMovement : MonoBehaviour
             }
             else
             {
-                Destroy(gameObject);
-                GlobalScript.isDead = true;
+                //Destroy(gameObject);
+                //GlobalScript.isDead = true;
                 Instantiate(Resources.Load("Dead"), new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
             }
 
@@ -82,7 +82,7 @@ public class PlayerMovement : MonoBehaviour
 
         if(collision.transform.tag == "Spike")
         {
-            myBody.AddForce(new Vector2(GetComponent<Rigidbody2D>().velocity.x, jumpPower));
+            myBody.AddForce(new Vector2(GetComponent<Rigidbody2D>().velocity.x * -1000, GetComponent<Rigidbody2D>().velocity.y));
         }
 
 

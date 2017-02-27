@@ -20,6 +20,8 @@ public class CrimsonBoss : MonoBehaviour
 
     private int DamageTaken;
 
+    private bool b_attackCount1;
+
     private Vector2 directionToPlayer;
     public GameObject player;
 
@@ -29,6 +31,8 @@ public class CrimsonBoss : MonoBehaviour
     public float speed = 10.0f;
 
     private int randState;
+
+    private int attack1countleft;
 
     SpriteRenderer Sr;
 
@@ -53,6 +57,9 @@ public class CrimsonBoss : MonoBehaviour
         attack2Interval = 30;
         directionCounter = 0;
         changeDirectionInterval = Random.Range(1, 10) * 60;
+        DamageTaken = 15;
+        attack1countleft = 7;
+        b_attackCount1 = true;
 
         randomDirection = new Vector2(Random.Range(-100, -100),Random.Range(-100, 100));
         bossDirection = randomDirection.normalized;
@@ -77,10 +84,10 @@ public class CrimsonBoss : MonoBehaviour
             GlobalScript.CrimsonHealth -= 5;
             DamageTaken += 5;
         }
-        if (collision.transform.tag == "Platform" || collision.transform.tag == "Boundary")
-        {
-            bossDirection *= -1;
-        }
+        //if (collision.transform.tag == "Platform" || collision.transform.tag == "Boundary")
+        //{
+        //    //bossDirection *= -1;
+        //}
     }
 	// Update is called once per frame
 	void Update()
@@ -102,13 +109,16 @@ public class CrimsonBoss : MonoBehaviour
 
     void FacingPlayer()
     {
-        if (transform.position.x > player.transform.position.x)
+        if (player != null)
         {
-            Sr.flipX = false;
-        }
-        else
-        {
-            Sr.flipX = true;
+            if (transform.position.x > player.transform.position.x)
+            {
+                Sr.flipX = false;
+            }
+            else
+            {
+                Sr.flipX = true;
+            }
         }
     }
 
@@ -130,7 +140,7 @@ public class CrimsonBoss : MonoBehaviour
 
     void ConditionToChaneState()
     {
-        if (DamageTaken > 25)
+        if (DamageTaken > 15)
         {
             if(GlobalScript.CrimsonHealth > 200)
             {
@@ -149,14 +159,19 @@ public class CrimsonBoss : MonoBehaviour
         {
             crimsonState = CrimsonState.FLY;
             CrimsonAnimation = 1;
+            randState = 0;
         }
         if (randState == 2)
         {
             crimsonState = CrimsonState.Attack1;
+            b_attackCount1 = true;
+            attack1countleft = 7;
+            randState = 0;
         }
         if (randState == 3)
         {
             crimsonState = CrimsonState.Attack2;
+            randState = 0;
         }
 
     }
@@ -174,16 +189,16 @@ public class CrimsonBoss : MonoBehaviour
         if (crimsonState == CrimsonState.FLY)
         {
             bossMove();
+            CrimsonAnimation = 1;
         }
         if (crimsonState == CrimsonState.Attack1)
-        {
+        {                
             bossAttack1();
             bossAttack1IntervalScale();
             if (GlobalScript.CrimsonHealth < 200)
             {
                 bossMove();
             }
-
         }
         if (crimsonState == CrimsonState.Attack2)
         {
@@ -231,10 +246,17 @@ public class CrimsonBoss : MonoBehaviour
     {
         CrimsonAnimation = 4;
         attack1Counter++;
-        if(attack1Counter > attack1Interval)
+
+        if (attack1Counter > attack1Interval)
         {
             Instantiate(Resources.Load("CrimsonAttack_1"), new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
             attack1Counter = 0;
+            attack1countleft--;
+            Debug.Log(attack1countleft);
+            if(attack1countleft <= 0)
+            {
+                crimsonState = CrimsonState.FLY;
+            }
         }
     }
 
@@ -280,9 +302,9 @@ public class CrimsonBoss : MonoBehaviour
         directionCounter++;
         if (directionCounter > changeDirectionInterval)
         {
-            int randNum = Random.Range(1, 5);
+            int randNum = Random.Range(1, 10);
             //Debug.Log(randNum);
-            if (randNum < 3)
+            if (randNum < 2)
             {
                 Vector2 position = transform.position;
                 Vector2 playerPosition;
@@ -304,5 +326,4 @@ public class CrimsonBoss : MonoBehaviour
         //gameObject.transform.position += new Vector3(1, 0   ,0);
     }
     
-
 }

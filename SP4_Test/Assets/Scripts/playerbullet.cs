@@ -78,12 +78,7 @@ public class playerbullet : MonoBehaviour {
         if (hitsmthing.gameObject.tag != "Player")
         {
             Destroy(gameObject);
-
-        }
-        if (hitsmthing.gameObject.tag == "Player")
-        {
-            Destroy(gameObject);
-
+            Instantiate(Resources.Load("hitted"), new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
         }
     }
 }

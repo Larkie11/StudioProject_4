@@ -16,9 +16,11 @@ public class CrimsonBossAttack1 : MonoBehaviour {
         rb = GetComponent<Rigidbody2D>();
         Vector2 position = transform.position;
         Vector2 playerPosition;
-        playerPosition = player.transform.position;
-        rb.velocity = (playerPosition - position).normalized;
-        
+        if(player != null)
+        {
+            playerPosition = player.transform.position;
+            rb.velocity = (playerPosition - position).normalized;
+        }
 	}
 	
 	// Update is called once per frame
