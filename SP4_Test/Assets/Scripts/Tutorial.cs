@@ -57,14 +57,14 @@ public class Tutorial : MonoBehaviour {
     // Update is called once per frame
     void Update () {
         shieldBar.enabled = showShieldBar;
-        if(player == null)
+        if(player == null && !GlobalScript.isDead)
         {
             player = GameObject.FindGameObjectWithTag("Player");
             Debug.Log(player.name);
         }
         for (int i = 0; i < triggers.Count; i++)
         {
-            if (triggers[i].GetComponent<BoxCollider2D>().bounds.Contains(player.transform.position))
+            if (triggers[i].GetComponent<BoxCollider2D>().bounds.Contains(player.transform.position) && !GlobalScript.isDead)
             {
                 if (onplatform == "PC")
                     text.text = pc[i];
