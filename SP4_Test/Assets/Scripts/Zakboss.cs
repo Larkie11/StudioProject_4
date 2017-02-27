@@ -37,7 +37,7 @@ public class Zakboss : MonoBehaviour
         GlobalScript.Zakenragemode = false;
         collider = GetComponent<Collider2D>();
         skill1duration = 10f;
-        GlobalScript.Zakhp = 100;
+        GlobalScript.Zakhp = 1;
         animationstate = 0;
         anim = GetComponent<Animator>();
           attackingskills = GetRandomEnum<Attacks>();

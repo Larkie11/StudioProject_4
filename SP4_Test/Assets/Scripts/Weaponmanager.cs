@@ -28,7 +28,7 @@ public class Weaponmanager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(ammocounter);
+        //Debug.Log(ammocounter);
         weaponcd -= Time.deltaTime;
         if (ammocounter <= 0 && noammo == false)
         {

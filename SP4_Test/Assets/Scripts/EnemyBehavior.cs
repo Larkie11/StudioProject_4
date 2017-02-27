@@ -51,6 +51,7 @@ public class EnemyBehavior : MonoBehaviour
     float width;
     float width2;
     string nowCollide;
+    string toDrop;
     enum States
     {
         IDLE,
@@ -73,6 +74,7 @@ public class EnemyBehavior : MonoBehaviour
         nowCollide = null;
         myPlatforms.Clear();
         attackCD = maxAttackCD * 0.5F;
+        toDrop = "";
         audioEff = GameObject.FindGameObjectWithTag("SFX").GetComponent<AudioSource>();
         currHealth = health;
         foreach (GameObject platforms in GameObject.FindGameObjectsWithTag("Platform"))
@@ -198,7 +200,7 @@ public class EnemyBehavior : MonoBehaviour
         {
             currHealth -= 2;
             UpdateHealthBar();
-            Debug.Log(currHealth + "     " + healthbar.fillAmount);
+            //Debug.Log(currHealth + "     " + healthbar.fillAmount);
         }
     }
     void GenerateNextWP()
@@ -231,18 +233,25 @@ public class EnemyBehavior : MonoBehaviour
         if (currHealth <= 0)
         {
             audioEff.PlayOneShot(dyingSound);
-            string toDrop = "";
+            float random = Random.Range(0, enemyDrops.Count);
+
             GameObject go2;
-            float random = Random.Range(0, enemyDrops.Count + 1);
+
             if (random == 0)
-                toDrop = "Powerup-Shield";
-            if (random == 1)
                 toDrop = "Powerup-Coin";
+            else if (random == 1)
+                toDrop = "Powerup-Shield";
+            else if (random == 2)
+                toDrop = "weaponpickup";
             else
-                toDrop = "";
-            Debug.Log(random + " " + toDrop);
-            if(toDrop != "")
-            go2= Instantiate(Resources.Load(toDrop), new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity) as GameObject;
+                toDrop = "Powerup-Coin";
+
+            Debug.Log(random);
+
+            Debug.Log(toDrop);
+
+            if (toDrop != "")
+                go2 = Instantiate(Resources.Load(toDrop), new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity) as GameObject;
             GlobalScript.Score += 5;
             Destroy(gameObject);
             GlobalScript.enemyCount--;
