@@ -21,20 +21,41 @@ public class Shield : MonoBehaviour
     }
     void Update()
     {
-        if (Input.GetKey(KeyCode.Mouse1) && GlobalScript.Shield > 0)
-        {
-            SheildGo.SetActive(true);
-            GlobalScript.shieldisOn = true;
-            GlobalScript.Shield -= Time.deltaTime * 10;
-        }
-        else
-        {
-            if(GlobalScript.Shield < GlobalScript.myCharacters[GlobalScript.CharacterType].maxShield)
+    #if UNITY_STANDALONE
+            if (Input.GetKey(KeyCode.Mouse1) && GlobalScript.Shield > 0)
             {
-                GlobalScript.shieldisOn = false;
-                GlobalScript.Shield += Time.deltaTime;
+                SheildGo.SetActive(true);
+                GlobalScript.shieldisOn = true;
+                GlobalScript.Shield -= Time.deltaTime * 10;
             }
-            SheildGo.SetActive(false);
-        }
+            else
+            {
+                if(GlobalScript.Shield < GlobalScript.myCharacters[GlobalScript.CharacterType].maxShield)
+                {
+                    GlobalScript.shieldisOn = false;
+                    GlobalScript.Shield += Time.deltaTime;
+                }
+                SheildGo.SetActive(false);
+            }
+    #endif 
+
+    #if UNITY_ANDROID
+            if (Input.GetKey(KeyCode.Mouse1) && GlobalScript.Shield > 0)
+            {
+                SheildGo.SetActive(true);
+                GlobalScript.shieldisOn = true;
+                GlobalScript.Shield -= Time.deltaTime * 10;
+            }
+            else
+            {
+                if (GlobalScript.Shield < GlobalScript.myCharacters[GlobalScript.CharacterType].maxShield)
+                {
+                    GlobalScript.shieldisOn = false;
+                    GlobalScript.Shield += Time.deltaTime;
+                }
+                SheildGo.SetActive(false);
+            }
+    #endif
+
     }
 }

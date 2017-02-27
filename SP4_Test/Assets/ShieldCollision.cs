@@ -13,6 +13,7 @@ public class ShieldCollision : MonoBehaviour {
     {
         //Debug.Log(collision);
        Destroy(collision.gameObject);
+       GlobalScript.Shield -= 5;
     }
     // Update is called once per frame
     void Update () {

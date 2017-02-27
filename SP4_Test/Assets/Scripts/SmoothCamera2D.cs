@@ -17,7 +17,11 @@
             if (GlobalScript.CharacterType == 0)
                 GlobalScript.go2 = Instantiate(Resources.Load("Player"), new Vector3(startingpoint.transform.position.x, startingpoint.transform.position.y, 0), Quaternion.identity) as GameObject;
             if (GlobalScript.CharacterType == 1)
-                GlobalScript.go2 = Instantiate(Resources.Load("Player"), new Vector3(startingpoint.transform.position.x, startingpoint.transform.position.y, 0), Quaternion.identity) as GameObject;
+                GlobalScript.go2 = Instantiate(Resources.Load("Player2"), new Vector3(startingpoint.transform.position.x, startingpoint.transform.position.y, 0), Quaternion.identity) as GameObject;
+            if (GlobalScript.CharacterType == 2)
+                GlobalScript.go2 = Instantiate(Resources.Load("Player3"), new Vector3(startingpoint.transform.position.x, startingpoint.transform.position.y, 0), Quaternion.identity) as GameObject;
+            if (GlobalScript.CharacterType == 3)
+                GlobalScript.go2 = Instantiate(Resources.Load("Player4"), new Vector3(startingpoint.transform.position.x, startingpoint.transform.position.y, 0), Quaternion.identity) as GameObject;
         }
         canvas.SetActive(false);
     }
@@ -30,7 +34,11 @@
             if (GlobalScript.CharacterType == 0)
                 GlobalScript.go2 = Instantiate(Resources.Load("Player"), new Vector3(startingpoint.transform.position.x, startingpoint.transform.position.y, 0), Quaternion.identity) as GameObject;
             if (GlobalScript.CharacterType == 1)
-                GlobalScript.go2 = Instantiate(Resources.Load("Player"), new Vector3(startingpoint.transform.position.x, startingpoint.transform.position.y, 0), Quaternion.identity) as GameObject;
+                GlobalScript.go2 = Instantiate(Resources.Load("Player2"), new Vector3(startingpoint.transform.position.x, startingpoint.transform.position.y, 0), Quaternion.identity) as GameObject;
+            if (GlobalScript.CharacterType == 2)
+                GlobalScript.go2 = Instantiate(Resources.Load("Player3"), new Vector3(startingpoint.transform.position.x, startingpoint.transform.position.y, 0), Quaternion.identity) as GameObject;
+            if (GlobalScript.CharacterType == 3)
+                GlobalScript.go2 = Instantiate(Resources.Load("Player4"), new Vector3(startingpoint.transform.position.x, startingpoint.transform.position.y, 0), Quaternion.identity) as GameObject;
             GlobalScript.isDead = false;
         }
         canvas.SetActive(false);

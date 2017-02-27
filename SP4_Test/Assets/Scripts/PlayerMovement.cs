@@ -35,7 +35,6 @@ public class PlayerMovement : MonoBehaviour
 
     void Start()
     {
-
         anim = GetComponent<Animator>();
         Speed = GlobalScript.myCharacters[GlobalScript.CharacterType].speed;
 
@@ -74,6 +73,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 Destroy(gameObject);
                 GlobalScript.isDead = true;
+                Instantiate(Resources.Load("Dead"), new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
             }
 
             Debug.Log(collision);
@@ -126,15 +126,6 @@ public class PlayerMovement : MonoBehaviour
 #endif
 
 #if UNITY_ANDROID
-
-        //Shooting
-        if (Input.touchCount>0)
-                     {
-                         //if (Input.GetTouch(0).phase == TouchPhase.Ended)
-                         //{
-                         //    Fire();
-                         //}
-                     }
 
         move = CrossPlatformInputManager.GetAxis("Horizontal");
         GetComponent<Rigidbody2D>().velocity = new Vector2(move * Speed, GetComponent<Rigidbody2D>().velocity.y);
