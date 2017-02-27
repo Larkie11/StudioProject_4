@@ -132,8 +132,8 @@ public class PlayerMovement : MonoBehaviour
 
         jump = CrossPlatformInputManager.GetAxis("Vertical");
 
-		bool isBoosting = CrossPlatformInputManager.GetButtonDown("Boost");
-        bool isJumping = CrossPlatformInputManager.GetButtonDown("Jump");
+
+
 
         Debug.Log(jump);
 

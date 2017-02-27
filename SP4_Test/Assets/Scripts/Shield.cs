@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityStandardAssets.CrossPlatformInput;
 
 public class Shield : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class Shield : MonoBehaviour
     //public GameObject GO;
     public GameObject SheildGo;
     public float ShieldDurability;
+    private bool HoldingButtonDown;
 
     void Start()
     {
@@ -40,7 +42,20 @@ public class Shield : MonoBehaviour
     #endif 
 
     #if UNITY_ANDROID
-            if (Input.GetKey(KeyCode.Mouse1) && GlobalScript.Shield > 0)
+
+        bool isShielded = CrossPlatformInputManager.GetButtonDown("Shield");
+        bool isShieldedUpYet = CrossPlatformInputManager.GetButtonUp("Shield");
+
+        if(isShielded)
+        {
+            HoldingButtonDown = true;
+        }
+        if(isShieldedUpYet)
+        {
+            HoldingButtonDown = false;
+        }
+
+        if (HoldingButtonDown && GlobalScript.Shield > 0)
             {
                 SheildGo.SetActive(true);
                 GlobalScript.shieldisOn = true;
