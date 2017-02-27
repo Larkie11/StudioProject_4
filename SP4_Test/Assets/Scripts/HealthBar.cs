@@ -29,13 +29,31 @@ public class HealthBar : MonoBehaviour {
 
         if (healthbarid == 2)
         {
-            content.fillAmount = Map(GlobalScript.CrimsonHealth, 0, 250, 0, 1);
-            if (content.fillAmount <= 0.3F)
+            content.fillAmount = Map(GlobalScript.CrimsonHealth, 0, 300, 0, 1);
+            if (content.fillAmount <= 0.25F)
             {
                 content.color = Color.red;
             }
+            else if (content.fillAmount > 0.25F && content.fillAmount < 0.6F)
+            {
+                content.color = Color.yellow;
+            }
             else
                 content.color = Color.green;
+
+            //if (GlobalScript.CrimsonHealth > 150)
+            //{
+
+            //}
+            //else if (GlobalScript.CrimsonHealth > 75 && GlobalScript.CrimsonHealth < 150)
+            //{
+
+            //}
+            //else if (GlobalScript.CrimsonHealth < 75)
+            //{
+
+            //}
+
         }
 
         if (healthbarid == 1)

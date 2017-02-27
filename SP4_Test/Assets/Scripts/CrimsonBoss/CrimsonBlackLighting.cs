@@ -3,7 +3,7 @@ using System.Collections;
 
 public class CrimsonBlackLighting : MonoBehaviour {
 
-    public float speed = 1f;
+    public float speed = 3f;
     private Vector2 direction;
     public GameObject player;
     public float lifeTime = 3.0f;
@@ -28,6 +28,20 @@ public class CrimsonBlackLighting : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
     {
+        if(GlobalScript.CrimsonHealth > 200)
+        {
+            speed = 1;
+        }
+        else if (GlobalScript.CrimsonHealth > 75 && GlobalScript.CrimsonHealth < 200)
+        {
+            speed = 3;
+        }
+        else if (GlobalScript.CrimsonHealth < 75)
+        {
+            speed = 5;
+        }
+
+
         transform.Translate(direction * speed * Time.deltaTime);
         lifeTime -= Time.deltaTime;
         if(lifeTime < 0)

@@ -24,6 +24,19 @@ public class CrimsonBossAttack1 : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
     {
+        if (GlobalScript.CrimsonHealth > 200)
+        {
+            speed = 10;
+        }
+        else if (GlobalScript.CrimsonHealth > 75 && GlobalScript.CrimsonHealth < 200)
+        {
+            speed = 15;
+        }
+        else if (GlobalScript.CrimsonHealth < 75)
+        {
+            speed = 20;
+        }
+
         transform.Translate(rb.velocity * speed * Time.deltaTime);
 	}
 

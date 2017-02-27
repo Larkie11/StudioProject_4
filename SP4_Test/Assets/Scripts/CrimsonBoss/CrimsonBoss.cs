@@ -18,6 +18,8 @@ public class CrimsonBoss : MonoBehaviour
     private int directionCounter;
     private int changeDirectionInterval;
 
+    private int DamageTaken;
+
     private Vector2 directionToPlayer;
     public GameObject player;
 
@@ -26,12 +28,15 @@ public class CrimsonBoss : MonoBehaviour
 
     public float speed = 10.0f;
 
+    private int randState;
+
     SpriteRenderer Sr;
 
     enum CrimsonState
     {
         IDLE,
         FLY,
+        HURT,
         Attack1,
         Attack2
     }
@@ -41,11 +46,11 @@ public class CrimsonBoss : MonoBehaviour
     {
         anim = GetComponent<Animator>();
         CrimsonAnimation = 0;
-        GlobalScript.CrimsonHealth = 250;
+        GlobalScript.CrimsonHealth = 300;
         attack1Counter = 0;
-        attack1Interval =30;
+        attack1Interval = 60;
         attack2Counter = 0;
-        attack2Interval =30;
+        attack2Interval = 30;
         directionCounter = 0;
         changeDirectionInterval = Random.Range(1, 10) * 60;
 
@@ -68,23 +73,35 @@ public class CrimsonBoss : MonoBehaviour
     {
         if (GlobalScript.CrimsonHealth > 0 && collision.transform.tag == "Bullet")
         {
+            ouch();
             GlobalScript.CrimsonHealth -= 5;
+            DamageTaken += 5;
         }
         if (collision.transform.tag == "Platform" || collision.transform.tag == "Boundary")
         {
             bossDirection *= -1;
         }
-        Debug.Log(collision.transform.tag);
     }
 	// Update is called once per frame
-	void Update ()
+	void Update()
     {
+        StateChange();
+        CrimsonStateInfo();
+        Death();
+        ConditionToChaneState();
+
         if(player==null)
         {
             player = GameObject.FindGameObjectWithTag("Player");
         }
 
+        FacingPlayer();
 
+        anim.SetInteger("CrimsonAnimationState", CrimsonAnimation);
+	}
+
+    void FacingPlayer()
+    {
         if (transform.position.x > player.transform.position.x)
         {
             Sr.flipX = false;
@@ -93,23 +110,10 @@ public class CrimsonBoss : MonoBehaviour
         {
             Sr.flipX = true;
         }
+    }
 
-        if (crimsonState == CrimsonState.IDLE)
-        {
-            CrimsonAnimation = 0;
-        }
-        if (crimsonState == CrimsonState.FLY)
-        {
-            bossMove();
-        }
-        if (crimsonState == CrimsonState.Attack1)
-        {
-            bossAttack1();
-        }
-        if(crimsonState == CrimsonState.Attack2)
-        {
-            bossAttack2();
-        }
+    void Death()
+    {
         if (GlobalScript.CrimsonHealth == 0)
         {
             CrimsonAnimation = 5;
@@ -122,6 +126,73 @@ public class CrimsonBoss : MonoBehaviour
         {
             frame++;
         }
+    }
+
+    void ConditionToChaneState()
+    {
+        if (DamageTaken > 25)
+        {
+            if(GlobalScript.CrimsonHealth > 200)
+            {
+                randState = Random.Range(0, 4);
+            }
+            else
+            {
+                randState = Random.Range(2, 4);
+            }
+            Debug.Log("DamageTaken " + DamageTaken + "   RandState " + randState);
+
+            DamageTaken = 0;
+        }
+
+        if (randState == 1)
+        {
+            crimsonState = CrimsonState.FLY;
+            CrimsonAnimation = 1;
+        }
+        if (randState == 2)
+        {
+            crimsonState = CrimsonState.Attack1;
+        }
+        if (randState == 3)
+        {
+            crimsonState = CrimsonState.Attack2;
+        }
+
+    }
+
+    void CrimsonStateInfo()
+    {
+        if (crimsonState == CrimsonState.IDLE)
+        {
+            CrimsonAnimation = 0;
+        }
+        if (crimsonState == CrimsonState.HURT)
+        {
+            CrimsonAnimation = 2;
+        }
+        if (crimsonState == CrimsonState.FLY)
+        {
+            bossMove();
+        }
+        if (crimsonState == CrimsonState.Attack1)
+        {
+            bossAttack1();
+            bossAttack1IntervalScale();
+            if (GlobalScript.CrimsonHealth < 200)
+            {
+                bossMove();
+            }
+
+        }
+        if (crimsonState == CrimsonState.Attack2)
+        {
+            bossAttack2();
+        }
+    }
+
+    void StateChange()
+    {
 
         if (Input.GetKeyDown(KeyCode.Keypad0))
         {
@@ -130,16 +201,17 @@ public class CrimsonBoss : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Keypad1))
         {
             crimsonState = CrimsonState.FLY;
+            CrimsonAnimation = 1;
         }
         if (Input.GetKeyDown(KeyCode.Keypad2))
         {
-            CrimsonAnimation = 2;
+            ouch();
         }
-        if (Input.GetKeyDown(KeyCode.C))
+        if (Input.GetKeyDown(KeyCode.Keypad3))
         {
             crimsonState = CrimsonState.Attack1;
         }
-        if (Input.GetKeyDown(KeyCode.K))
+        if (Input.GetKeyDown(KeyCode.Keypad4))
         {
             crimsonState = CrimsonState.Attack2;
         }
@@ -147,8 +219,13 @@ public class CrimsonBoss : MonoBehaviour
         {
             CrimsonAnimation = 5;
         }
-        anim.SetInteger("CrimsonAnimationState", CrimsonAnimation);
-	}
+    }
+
+    void ouch()
+    {
+        CrimsonAnimation = 2;
+        Debug.Log("OUCH");
+    }
 
     void bossAttack1()
     {
@@ -158,6 +235,22 @@ public class CrimsonBoss : MonoBehaviour
         {
             Instantiate(Resources.Load("CrimsonAttack_1"), new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
             attack1Counter = 0;
+        }
+    }
+
+    void bossAttack1IntervalScale()
+    {
+        if (GlobalScript.CrimsonHealth > 200)
+        {
+            attack1Interval = 60;
+        }
+        else if (GlobalScript.CrimsonHealth > 75 && GlobalScript.CrimsonHealth < 200)
+        {
+            attack1Interval = 40;
+        }
+        else if (GlobalScript.CrimsonHealth < 75)
+        {
+            attack1Interval = 20;
         }
     }
 
@@ -184,31 +277,29 @@ public class CrimsonBoss : MonoBehaviour
 
     void bossMove()
     {
-        CrimsonAnimation = 1;
         directionCounter++;
         if (directionCounter > changeDirectionInterval)
         {
             int randNum = Random.Range(1, 5);
-            Debug.Log(randNum);
-            if (randNum < 4)
+            //Debug.Log(randNum);
+            if (randNum < 3)
             {
                 Vector2 position = transform.position;
                 Vector2 playerPosition;
                 playerPosition = player.transform.position;
                 bossDirection = (playerPosition - position).normalized;
-                changeDirectionInterval = Random.Range(1, 10) * 60;
+                changeDirectionInterval = Random.Range(1, 10)    * 60;
                 directionCounter = 0;
             }
             else
             {
-                randomDirection = new Vector2(Random.Range(-100, -100), Random.Range(-100, 100));
+                randomDirection = new Vector2(Random.Range(-10,10), Random.Range(-10, 10));
                 bossDirection = randomDirection.normalized;
                 changeDirectionInterval = Random.Range(1, 10) * 60;
                 directionCounter = 0;
             }
             
         }
-
         transform.Translate(bossDirection * speed * Time.deltaTime);
         //gameObject.transform.position += new Vector3(1, 0   ,0);
     }
