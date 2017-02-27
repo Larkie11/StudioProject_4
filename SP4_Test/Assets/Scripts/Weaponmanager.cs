@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Weaponmanager : MonoBehaviour {
+public class Weaponmanager : MonoBehaviour
+{
 
     public GameObject activeweapon;
     public GameObject defaultweapon;
@@ -12,45 +13,91 @@ public class Weaponmanager : MonoBehaviour {
     float ammocounter;
     bool noammo = false;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start()
+    {
         wpn = activeweapon.GetComponent<Weapon>();
         ammocounter = activeweapon.GetComponent<Weapon>().ammocout;
-     
+
         GetComponent<SpriteRenderer>().sprite = wpn.sprite;
         joybutton = GameObject.Find("MobileJoystick");
         weaponcd = wpn.cooldown;
 
-	}
-	
-	// Update is called once per frame
-	void Update () {
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        Debug.Log(ammocounter);
         weaponcd -= Time.deltaTime;
-        if (ammocounter == 0 && noammo == false)
+        if (ammocounter <= 0 && noammo == false)
         {
             noammo = true;
             Changetodefaultweapon();
         }
 
 # if UNITY_STANDALONE
-    	if(Input.GetKeyDown(KeyCode.Mouse0)&&weaponcd<=0)
-    {
+        if (Input.GetKeyDown(KeyCode.Mouse0) && weaponcd <= 0)
+        {
+           
+            if (wpn.weapontype == Weapon.Types.PISTOL)
+            {
+                weaponcd = wpn.cooldown;
+
+     
+                // Debug.Log("shooting"+ammocounter);
+
+                Vector3 rotation = transform.parent.localScale.x == 1 ? Vector3.zero : Vector3.forward * 1;
+                GameObject projectile = (GameObject)Instantiate(wpn.projectile, transform.position + activeweapon.transform.GetChild(0).localPosition *
+                    transform.parent.localScale.x, Quaternion.Euler(rotation));
+                ammocounter--;
+               
+                
 
 
-        weaponcd = wpn.cooldown;
-       // Debug.Log("shooting"+ammocounter);
-         
-        Vector3 rotation = transform.parent.localScale.x == 1 ? Vector3.zero : Vector3.forward * 1;
-        GameObject projectile = (GameObject)Instantiate(wpn.projectile, transform.position + activeweapon.transform.GetChild(0).localPosition *
-            transform.parent.localScale.x, Quaternion.Euler(rotation));
-        ammocounter--;
-        //Debug.Log(ammocount);
-        //projectile.GetComponent<Rigidbody2D>().velocity = transform.parent.localScale.x * Vector2.up * wpn.projectilespeed;
-          //  projectile.velocity = transform.TransformDirection (Vector3.forward * speed);
+            }
+        }
+        if (Input.GetButton("Fire1") &&  weaponcd <= 0)
+        {
+             if (wpn.weapontype == Weapon.Types.MACHINE)
+            {
+                weaponcd = wpn.cooldown;
+                // Debug.Log("shooting"+ammocounter);
 
-        //Vector2 position = transform.position;
-        //position = new Vector2(position.x + speed * Time.deltaTime, position.y);
-        //transform.position = position;
+                Vector3 rotation = transform.parent.localScale.x == 1 ? Vector3.zero : Vector3.forward * 1;
+                GameObject projectile = (GameObject)Instantiate(wpn.projectile, transform.position + activeweapon.transform.GetChild(0).localPosition *
+                    transform.parent.localScale.x, Quaternion.Euler(rotation));
+                ammocounter--;
+
+
+            }
+        }
+        if (Input.GetKeyDown(KeyCode.Mouse0) && weaponcd <= 0)
+        {
+             if (wpn.weapontype == Weapon.Types.SHOTGUN)
+            {
+                weaponcd = wpn.cooldown;
+                for (int i = 0; i < wpn.pelletammo; i++)
+                {
+                    var pelletrotation = transform.rotation;
+                    pelletrotation.x += Random.Range(-10f, 10f);
+                    pelletrotation.z += Random.Range(-10f, 10f);
+                    Vector3 rotation = transform.parent.localScale.x == 1 ? Vector3.zero : Vector3.forward * 1;
+                    //rotation.x += pelletrotation.x;
+                    //rotation.y += pelletrotation.y;
+                    rotation.z += pelletrotation.z;
+                    GameObject projectile = (GameObject)Instantiate(wpn.projectile, transform.position + activeweapon.transform.GetChild(0).localPosition *
+                        transform.parent.localScale.x, Quaternion.Euler(rotation));
+                    ammocounter--;
+                   
+
+                }
+
+            }
+        
+
+
+
 
         }
 
@@ -66,26 +113,59 @@ public class Weaponmanager : MonoBehaviour {
             }
             else if (!(joybutton.GetComponent<Collider2D>().bounds.Contains(Input.GetTouch(i).position)))
             {
-              if(Input.GetTouch(i).phase==TouchPhase.Ended&&weaponcd<=0)
-                 {
+                if (wpn.weapontype == Weapon.Types.PISTOL)
+                {
+                    if (Input.GetTouch(i).phase == TouchPhase.Ended && weaponcd <= 0) 
+                  {
+              
 
 
-        weaponcd = wpn.cooldown;
-      
+                        weaponcd = wpn.cooldown;
 
-                  Vector3 rotation = transform.parent.localScale.x == 1 ? Vector3.zero : Vector3.forward * 1;
-                  GameObject projectile = (GameObject)Instantiate(wpn.projectile, transform.position + activeweapon.transform.GetChild(0).localPosition *
-                      transform.parent.localScale.x, Quaternion.Euler(rotation));
-                  ammocounter--;
-                  //Debug.Log(ammocount);
-                  //projectile.GetComponent<Rigidbody2D>().velocity = transform.parent.localScale.x * Vector2.up * wpn.projectilespeed;
-                  //  projectile.velocity = transform.TransformDirection (Vector3.forward * speed);
 
-                  //Vector2 position = transform.position;
-                  //position = new Vector2(position.x + speed * Time.deltaTime, position.y);
-                  //transform.position = position;
+                        Vector3 rotation = transform.parent.localScale.x == 1 ? Vector3.zero : Vector3.forward * 1;
+                        GameObject projectile = (GameObject)Instantiate(wpn.projectile, transform.position + activeweapon.transform.GetChild(0).localPosition *
+                            transform.parent.localScale.x, Quaternion.Euler(rotation));
+                        ammocounter--;
 
-              }
+                    }
+                }
+                if (wpn.weapontype == Weapon.Types.MACHINE)
+                {
+                    if (Input.GetTouch(i).phase == TouchPhase.Moved && weaponcd <= 0)
+                    {
+
+
+
+                        weaponcd = wpn.cooldown;
+
+
+                        Vector3 rotation = transform.parent.localScale.x == 1 ? Vector3.zero : Vector3.forward * 1;
+                        GameObject projectile = (GameObject)Instantiate(wpn.projectile, transform.position + activeweapon.transform.GetChild(0).localPosition *
+                            transform.parent.localScale.x, Quaternion.Euler(rotation));
+                        ammocounter--;
+
+                    }
+                }
+
+                if (wpn.weapontype == Weapon.Types.PISTOL)
+                {
+                    if (Input.GetTouch(i).phase == TouchPhase.Ended && weaponcd <= 0)
+                    {
+
+
+
+                        weaponcd = wpn.cooldown;
+
+
+                        Vector3 rotation = transform.parent.localScale.x == 1 ? Vector3.zero : Vector3.forward * 1;
+                        GameObject projectile = (GameObject)Instantiate(wpn.projectile, transform.position + activeweapon.transform.GetChild(0).localPosition *
+                            transform.parent.localScale.x, Quaternion.Euler(rotation));
+                        ammocounter--;
+
+                    }
+                }
+
 
 
             }
@@ -98,24 +178,32 @@ public class Weaponmanager : MonoBehaviour {
 
     void Changetodefaultweapon()
     {
-        
+
         noammo = false;
 
-        ///change to ak
-        ///
 
-        Updateweapon( defaultweapon);
+        weaponcd = 0;
+        Updateweapon(defaultweapon);
         Debug.Log("turningtodefault");
     }
     public void Updateweapon(GameObject weaponhere)
     {
         Debug.Log("newweapon");
-       
+        weaponcd = 0;
 
         activeweapon = weaponhere;
         wpn = activeweapon.GetComponent<Weapon>();
 
         GetComponent<SpriteRenderer>().sprite = wpn.sprite;
-        ammocounter = activeweapon.GetComponent<Weapon>().ammocout;
-	}
+        if(wpn.weapontype==Weapon.Types.SHOTGUN)
+        {
+            ammocounter = (activeweapon.GetComponent<Weapon>().pelletammo)*5;
+       
+        }
+        else
+        {
+            ammocounter = activeweapon.GetComponent<Weapon>().ammocout;
+        }
+ 
+    }
 }

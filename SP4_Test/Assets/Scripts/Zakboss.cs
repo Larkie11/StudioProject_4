@@ -69,7 +69,7 @@ public class Zakboss : MonoBehaviour
     {
         if (GlobalScript.Zakhp > 0 && collision.transform.tag == "Bullet")
         {
-            GlobalScript.Zakhp -= 10;
+            GlobalScript.Zakhp -= 5;
         }
 
 
@@ -85,21 +85,21 @@ public class Zakboss : MonoBehaviour
     void Update()
     {
         Debug.Log(attackingskills);
-      //  Debug.Log(skill1duration);
+        //  Debug.Log(skill1duration);
         rocktimer1 += Time.deltaTime;
         skill1duration += Time.deltaTime;
-        if(skill1duration>=20)
+        if (skill1duration >= 20)
         {
             skill1duration = 0;
             attackingskills = GetRandomEnum<Attacks>();
         }
         //Debug.Log(rockspawntimer2);
         //Debug.Log(rocktimer2);
-        
+
         rocktimer2 += Time.deltaTime;
 
-    
-        if(attackingskills==Attacks.Rollingrocks)
+
+        if (attackingskills == Attacks.Rollingrocks)
         {
             animationstate = 2;
             if (rocktimer1 >= rockspawntimer1)
@@ -107,7 +107,7 @@ public class Zakboss : MonoBehaviour
                 rockspawntimer1 = randomtimer(rockspawntimer1);
                 Rollingrockskill1(); //called once 
                 rocktimer1 = 0;
-             
+
 
             }
             if (rocktimer2 >= rockspawntimer2)
@@ -119,43 +119,43 @@ public class Zakboss : MonoBehaviour
 
             }
         }
-        if(GlobalScript.Zakhp<=0)
+        if (GlobalScript.Zakhp <= 0)
         {
             animationstate = 10;
 
             Destroy(gameObject, 3f);
         }
-      if(GlobalScript.Zakhp<30)
-      {
-          GlobalScript.Zakenragemode = true;
-          //he mad !!
+        if (GlobalScript.Zakhp < 30)
+        {
+            GlobalScript.Zakenragemode = true;
+            //he mad !!
 
-      }
+        }
         if (Input.GetKey(KeyCode.P))
         {
             attackingskills = Attacks.Fireballshield;
             fireballspawntimer = 0;
         }
-     
+
         if (attackingskills == Attacks.Fireballshield)
         {
-         
+
             animationstate = 1;
             fireballspawntimer += Time.deltaTime;
             //Debug.Log(fireballspawntimer);
-            
+
             if (GlobalScript.fireballcounter < 6)
             {
-                if(fireballspawntimer>3)
+                if (fireballspawntimer > 3)
                 {
                     fireballspawntimer = 0;
                     Fireballskill();
                 }
-            
-            
-          
+
+
+
             }
-           
+
 
         }
         anim.SetInteger("animationstate", animationstate);

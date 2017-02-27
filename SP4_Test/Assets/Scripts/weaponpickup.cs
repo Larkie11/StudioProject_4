@@ -23,7 +23,7 @@ public class weaponpickup : MonoBehaviour {
         if (other.tag == "Player")
         {
             other.transform.Find("weaponslot").GetComponent<Weaponmanager>().Updateweapon(weaponhere);
-            //Destroy(gameObject );
+            Destroy(gameObject );
         }
             
     }

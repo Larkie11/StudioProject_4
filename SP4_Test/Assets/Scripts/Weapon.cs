@@ -8,8 +8,13 @@ public class Weapon : MonoBehaviour
     public GameObject projectile;
     //public float projectilespeed;
     public float cooldown;
+    public int pelletammo;
     public float ammocout=10;
-
+    public enum  Types
+    {
+        PISTOL, SHOTGUN , MACHINE
+    }
+    public Types weapontype;
     void Start()
     {
   
