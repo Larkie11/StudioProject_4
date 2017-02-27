@@ -220,7 +220,7 @@ public class EnemyBehavior : MonoBehaviour
             if(player == null && !GlobalScript.isDead)
             player= GameObject.FindGameObjectWithTag("Player");
 
-            if(!GlobalScript.isDead)
+            if(player != null)
             EnemyMovement();
             if (healthbar.fillAmount < 0.5)
                 healthbar.color = Color.red;

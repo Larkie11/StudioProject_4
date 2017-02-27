@@ -62,9 +62,10 @@ public class Tutorial : MonoBehaviour {
             player = GameObject.FindGameObjectWithTag("Player");
             Debug.Log(player.name);
         }
+        if(!GlobalScript.isDead)
         for (int i = 0; i < triggers.Count; i++)
         {
-            if (triggers[i].GetComponent<BoxCollider2D>().bounds.Contains(player.transform.position) && !GlobalScript.isDead)
+            if (triggers[i].GetComponent<BoxCollider2D>().bounds.Contains(player.transform.position))
             {
                 if (onplatform == "PC")
                     text.text = pc[i];
