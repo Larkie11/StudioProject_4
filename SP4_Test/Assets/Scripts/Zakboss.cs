@@ -3,13 +3,15 @@ using System.Collections;
 
 public class Zakboss : MonoBehaviour
 {
-
+    float randomrockside;
+            
  
     float fireballspawntimer = 0;
     public GameObject rockposition1;
     public GameObject rockposition2;
     float skill1duration;
     public int randommintime=1;
+    bool enraged = false;
     public int randommaxtime = 3;
     bool fireballmaxedspawn = false;
     Collider2D collider;
@@ -20,6 +22,7 @@ public class Zakboss : MonoBehaviour
     private int rockspawntimer2 = 1;
     Animator anim;
     Attacks attackingskills;
+    Attacks tempatk;
     enum Attacks
     {
         //Firepillar,
@@ -36,8 +39,9 @@ public class Zakboss : MonoBehaviour
         randommaxtime = 10;
         GlobalScript.Zakenragemode = false;
         collider = GetComponent<Collider2D>();
+        randomrockside = 1;
         skill1duration = 10f;
-        GlobalScript.Zakhp = 1;
+        GlobalScript.Zakhp = 100;
         animationstate = 0;
         anim = GetComponent<Animator>();
           attackingskills = GetRandomEnum<Attacks>();
@@ -58,8 +62,13 @@ public class Zakboss : MonoBehaviour
     void Fireballskill()
     {
 
-
-        Instantiate(Resources.Load("fireball1"), new Vector2(transform.position.x + 20F, transform.position.y), Quaternion.identity);
+        //transform.Translate(new Vector2(10f, 0));
+       Instantiate(Resources.Load("fireball1"), new Vector2(transform.position.x + 6.5F, transform.position.y), Quaternion.identity);
+        if(GlobalScript.Zakenragemode==true)
+        {
+            Instantiate(Resources.Load("fireball1"), new Vector2(transform.position.x + 14f, transform.position.y), Quaternion.identity);
+        }
+          
         GlobalScript.fireballcounter += 1;
 
     }
@@ -69,7 +78,7 @@ public class Zakboss : MonoBehaviour
     {
         if (GlobalScript.Zakhp > 0 && collision.transform.tag == "Bullet")
         {
-            GlobalScript.Zakhp -= 5;
+            GlobalScript.Zakhp -= 10;
         }
 
 
@@ -84,14 +93,30 @@ public class Zakboss : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(GlobalScript.Zakhp<30&&enraged==false)
+        {
+            attackingskills =Attacks.Fireballshield;
+            enraged = true;
+
+        }
         Debug.Log(attackingskills);
-        //  Debug.Log(skill1duration);
+        Debug.Log(GlobalScript.Zakenragemode);
+      //  Debug.Log(attackingskills);
+          //Debug.Log(skill1duration);
         rocktimer1 += Time.deltaTime;
         skill1duration += Time.deltaTime;
-        if (skill1duration >= 20)
+        if (skill1duration >= 10)
         {
+            Debug.Log("chaniginatk");
             skill1duration = 0;
-            attackingskills = GetRandomEnum<Attacks>();
+            if (GlobalScript.Zakhp > 0)
+                tempatk = attackingskills;
+        
+            if(tempatk==attackingskills)
+            {
+                attackingskills = GetRandomEnum<Attacks>();
+            }
+
         }
         //Debug.Log(rockspawntimer2);
         //Debug.Log(rocktimer2);
@@ -102,22 +127,32 @@ public class Zakboss : MonoBehaviour
         if (attackingskills == Attacks.Rollingrocks)
         {
             animationstate = 2;
-            if (rocktimer1 >= rockspawntimer1)
+          
+            if(randomrockside==1)
             {
-                rockspawntimer1 = randomtimer(rockspawntimer1);
-                Rollingrockskill1(); //called once 
-                rocktimer1 = 0;
+                if (rocktimer1 >= rockspawntimer1)
+                {
+                    randomrockside = Random.Range(1, 3);
+                    rockspawntimer1 = randomtimer(rockspawntimer1);
+                    Rollingrockskill1(); //called once 
+                    rocktimer1 = 0;
 
 
+                }
             }
-            if (rocktimer2 >= rockspawntimer2)
+            else if (randomrockside==2)
             {
-                rockspawntimer2 = randomtimer(rockspawntimer2);
-                Rollingrockskill2(); //called once 
-                rocktimer2 = 0;
+                if (rocktimer2 >= rockspawntimer2)
+                {
+                    randomrockside = Random.Range(1, 3);
+                    rockspawntimer2 = randomtimer(rockspawntimer2);
+                    Rollingrockskill2(); //called once 
+                    rocktimer2 = 0;
 
 
+                }
             }
+       
         }
         if (GlobalScript.Zakhp <= 0)
         {
@@ -144,9 +179,9 @@ public class Zakboss : MonoBehaviour
             fireballspawntimer += Time.deltaTime;
             //Debug.Log(fireballspawntimer);
 
-            if (GlobalScript.fireballcounter < 6)
+            if (GlobalScript.fireballcounter < 9)
             {
-                if (fireballspawntimer > 3)
+                if (fireballspawntimer > 1)
                 {
                     fireballspawntimer = 0;
                     Fireballskill();
@@ -159,7 +194,8 @@ public class Zakboss : MonoBehaviour
 
         }
         anim.SetInteger("animationstate", animationstate);
-
+        Debug.Log(randomrockside);
+         
     }
 
     static T GetRandomEnum<T>()

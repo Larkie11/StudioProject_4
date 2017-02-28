@@ -21,7 +21,8 @@ public class fireball : MonoBehaviour {
         anim1 = GetComponent<Animator>();
         zakumpos = GameObject.Find("zakidle1").transform.position;
         fireballanimationstate = 0;
-        
+        //enrage
+       // transform.Translate(new Vector2(10f, 0));
        
         // instantiate 4xfirebal
 	}
@@ -38,8 +39,9 @@ public class fireball : MonoBehaviour {
 	
         /// rotation of the balls 
         /// 
-      // transform.Translate(new Vector2(0.05f, 0));
-        transform.RotateAround(zakumpos, zAxis, 100 * Time.deltaTime);
+    
+        transform.RotateAround(zakumpos, zAxis, 160 * Time.deltaTime);
+
         if(fireballhp<=0)
         {
             fireballanimationstate = 1;
