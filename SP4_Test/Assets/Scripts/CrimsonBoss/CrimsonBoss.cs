@@ -161,7 +161,7 @@ public class CrimsonBoss : MonoBehaviour
         {
             crimsonState = CrimsonState.Attack1;
             b_attackCount1 = true;
-            attack1countleft = 7;
+            attack1countleft = 20;
             randState = 0;
         }
         if (randState == 3)

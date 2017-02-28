@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 3cf0abeee90f8514ea163e1da66beb60
-timeCreated: 1488254853
+timeCreated: 1488267273
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -9,7 +9,7 @@ TextureImporter:
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
-    enableMipMap: 1
+    enableMipMap: 0
     linearTexture: 0
     correctGamma: 0
     fadeOut: 0
@@ -56,23 +56,23 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 4
-        y: 48
-        width: 42
-        height: 25
+        y: 50
+        width: 37
+        height: 23
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
     - name: JumpPad_1
       rect:
         serializedVersion: 2
-        x: 4
-        y: 8
+        x: 2
+        y: 9
         width: 42
-        height: 14
+        height: 23
       alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 3, y: 0, z: 2, w: 0}
       outline: []
     outline: []
   spritePackingTag: 

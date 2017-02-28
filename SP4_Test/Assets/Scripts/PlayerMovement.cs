@@ -47,7 +47,13 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
-   
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.transform.tag == "BouncePad")
+        {
+            myBody.AddForce(new Vector2(GetComponent<Rigidbody2D>().velocity.x, 2500));
+        }
+    }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -83,11 +89,7 @@ public class PlayerMovement : MonoBehaviour
             myBody.AddForce(new Vector2(GetComponent<Rigidbody2D>().velocity.x * -1000, GetComponent<Rigidbody2D>().velocity.y));
         }
 
-        if (collision.transform.tag == "BouncePad")
-        {
-            myBody.AddForce(new Vector2(GetComponent<Rigidbody2D>().velocity.x, 2500));
-        }
-
+     
 
     }
 
