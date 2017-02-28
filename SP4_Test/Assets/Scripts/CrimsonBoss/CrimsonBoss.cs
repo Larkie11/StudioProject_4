@@ -34,6 +34,13 @@ public class CrimsonBoss : MonoBehaviour
 
     private int attack1countleft;
 
+    public AudioClip Attack1;
+    public AudioClip BlackLighting;
+
+    private AudioSource source;
+    private float volLowRange = .5f;
+    private float volHighRange = 1.0f;
+
     SpriteRenderer Sr;
 
     enum CrimsonState
@@ -60,7 +67,7 @@ public class CrimsonBoss : MonoBehaviour
         DamageTaken = 15;
         attack1countleft = 20;
         b_attackCount1 = true;
-
+        source = GetComponent<AudioSource>();
         randomDirection = new Vector2(Random.Range(-100, -100),Random.Range(-100, 100));
         bossDirection = randomDirection.normalized;
 
@@ -245,6 +252,7 @@ public class CrimsonBoss : MonoBehaviour
 
         if (attack1Counter > attack1Interval)
         {
+            source.PlayOneShot(Attack1, 5);
             Instantiate(Resources.Load("CrimsonAttack_1"), new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
             attack1Counter = 0;
             attack1countleft--;
@@ -274,9 +282,13 @@ public class CrimsonBoss : MonoBehaviour
 
     void bossAttack2()
     {
+        attack2Counter++;
         CrimsonAnimation = 3;
         if (GlobalScript.CrimsonLightingEffect < 10)
-        CreateAttack2();
+        {
+            CreateAttack2();
+        }
+        
     }
 
     void CreateAttack2()
@@ -289,8 +301,14 @@ public class CrimsonBoss : MonoBehaviour
 
         spawnX = Random.Range(width, width2);
         Vector2 a = new Vector2(spawnX, myPlatforms[spawnPointIndex].transform.position.y + 2);
-        GlobalScript.CrimsonLightingEffect++;
-        GameObject go = Instantiate(Resources.Load("AttackEffects"), new Vector2(spawnX, myPlatforms[spawnPointIndex].transform.position.y + 2), Quaternion.identity) as GameObject;
+
+        if (attack2Counter > attack2Interval)
+        {
+            source.PlayOneShot(BlackLighting, 5);
+            attack2Counter = 0;
+            GlobalScript.CrimsonLightingEffect++;
+            GameObject go = Instantiate(Resources.Load("AttackEffects"), new Vector2(spawnX, myPlatforms[spawnPointIndex].transform.position.y + 2), Quaternion.identity) as GameObject;
+        }
     }
 
     void bossMove()
