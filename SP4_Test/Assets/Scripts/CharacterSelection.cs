@@ -59,10 +59,10 @@ public class CharacterSelection : MonoBehaviour {
     // Update is called once per frame
     void Update () {
         description.text = GlobalScript.myCharacters[selectionIndex].description 
-            + '\n' + "Speed: " + GlobalScript.myCharacters[selectionIndex].speed + 
+            + '\n' + "Speed: " + GlobalScript.myCharacters[selectionIndex].speed + '\n'
+            + "Jump Power: " + GlobalScript.myCharacters[selectionIndex].jumpPower +
             '\n' + "Shield Duration: " + GlobalScript.myCharacters[selectionIndex].maxShield + 
-            '\n' + "Buff Duration: " + GlobalScript.myCharacters[selectionIndex].buffDuration
-            + '\n' + "Bullet Speed: " + GlobalScript.myCharacters[selectionIndex].bulletSpeed;
+            '\n' ;
         charName.text = GlobalScript.myCharacters[selectionIndex].name;
     }
 }

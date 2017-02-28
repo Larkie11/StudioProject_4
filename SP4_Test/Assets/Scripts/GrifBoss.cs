@@ -27,6 +27,12 @@ public class GrifBoss : MonoBehaviour
     GameObject myshield;
     bool hideCanvas;
     float hideTimer;
+    [SerializeField]
+    AudioClip roar;
+    [SerializeField]
+    AudioClip shield;
+
+    AudioSource audioEff;
     enum Skills
     {
         Lightning,
@@ -40,12 +46,14 @@ public class GrifBoss : MonoBehaviour
         collide = GetComponent<Collider2D>();
         myPlatforms.Clear();
         GlobalScript.GrifHealth = 400;
+        audioEff = GameObject.FindGameObjectWithTag("SFX").GetComponent<AudioSource>();
         hideCanvas = true;
         hideTimer = 0F;
         animationState = 0;
         playAttack = false;
         playNormal = false;
         GlobalScript.isDead = false;
+        canvas.enabled = true;
         myshield = GameObject.FindGameObjectWithTag("EnemyShield");
         myshield.SetActive(false);
         skill = GetRandomEnum<Skills>();
@@ -64,9 +72,7 @@ public class GrifBoss : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (GlobalScript.GrifHealth > 0 && collision.transform.tag == "Bullet")
-            GlobalScript.GrifHealth -= 50;
-
-        hideTimer = 7F;
+            GlobalScript.GrifHealth -= 3;
     }
     static T GetRandomEnum<T>()
     {
@@ -76,22 +82,7 @@ public class GrifBoss : MonoBehaviour
     }
     // Update is called once per frame
     void Update()
-    {
-        if (hideCanvas)
-            canvas.enabled = false;
-        else
-            canvas.enabled = true;
-
-        if (hideTimer > 0)
-        {
-            hideTimer -= Time.deltaTime;
-            hideCanvas = false;
-        }
-        else if (hideTimer <= 0)
-        {
-            hideCanvas = true;
-        }
-
+    { 
         transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, 0, 0);
         if (!GlobalScript.isDead)
         {
@@ -122,6 +113,8 @@ public class GrifBoss : MonoBehaviour
                 {
                     if (!playAttack)
                     {
+                        audioEff.PlayOneShot(roar);
+
                         for (int i = 0; i < lightningtospawn; i++)
                         {
                             target = new Vector3(Random.Range(myPlatforms[hi].GetComponent<Collider2D>().bounds.min.x + 4, myPlatforms[hi].GetComponent<Collider2D>().bounds.max.x - 2), -13F, transform.position.z);
@@ -155,13 +148,14 @@ public class GrifBoss : MonoBehaviour
                 {
                     skill = GetRandomEnum<Skills>();
                     myshield.SetActive(false);
-                    GlobalScript.GrifDefense = 3F;
+                    GlobalScript.GrifDefense = 2F;
                     collide.enabled = true;
                 }
-                else if (GlobalScript.GrifDefense <= 2F)
+                else if (GlobalScript.GrifDefense <= 1F)
                 {
                     collide.enabled = false;
                     myshield.SetActive(true);
+                    audioEff.PlayOneShot(shield);
                 }
             }
             if (skill == Skills.Normal)
@@ -178,6 +172,7 @@ public class GrifBoss : MonoBehaviour
                 {
                     if (!playNormal)
                     {
+                        audioEff.PlayOneShot(roar);
                         if (transform.position.x > player.transform.position.x)
                         {
                             GlobalScript.flipAttack = true;
@@ -214,6 +209,8 @@ public class GrifBoss : MonoBehaviour
                 animationState = 16;
             else
                 animationState = 15;
+
+            canvas.enabled = false;
         }
         ar.SetInteger("State", animationState);
     }

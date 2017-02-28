@@ -47,6 +47,8 @@ public class EnemyBehavior : MonoBehaviour
     List<GameObject> myPlatforms = new List<GameObject>();
     [SerializeField]
     List<GameObject> enemyDrops = new List<GameObject>();
+    [SerializeField]
+    AudioClip hurtSound;
     float spawnX;
     float width;
     float width2;
@@ -198,6 +200,7 @@ public class EnemyBehavior : MonoBehaviour
 
         if (collision.transform.tag == "Bullet" && health > 0)
         {
+            audioEff.PlayOneShot(hurtSound);
             currHealth -= 2;
             UpdateHealthBar();
             //Debug.Log(currHealth + "     " + healthbar.fillAmount);

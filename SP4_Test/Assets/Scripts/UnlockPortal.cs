@@ -47,7 +47,7 @@ public class UnlockPortal : MonoBehaviour {
                 {
                     ar.speed = 1;
                 }
-                if (GlobalScript.howmanytokill >= 1 && transform.GetComponent<BoxCollider2D>().bounds.Contains(player.transform.position) && !disabled)
+                if (GlobalScript.howmanytokill >= 5 && transform.GetComponent<BoxCollider2D>().bounds.Contains(player.transform.position) && !disabled)
                 {
                     canvas.SetActive(true);
                     if (x < 1.5 || y < 1.5)

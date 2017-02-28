@@ -2,10 +2,12 @@
 using System.Collections;
 
 public class PowerupShield : MonoBehaviour {
-
-	// Use this for initialization
-	void Start () {
-	
+    [SerializeField]
+    AudioClip shield;
+    AudioSource audioEff;
+    // Use this for initialization
+    void Start () {
+        audioEff = GameObject.FindGameObjectWithTag("SFX").GetComponent<AudioSource>();
 	}
 	
 	// Update is called once per frame
@@ -17,7 +19,8 @@ public class PowerupShield : MonoBehaviour {
     {
         if (collision.tag == "Player")
         {
-            GlobalScript.Shield += 20;
+            audioEff.PlayOneShot(shield);
+            GlobalScript.Shield += 5;
             Destroy(gameObject);
         }
     }

@@ -9,7 +9,7 @@ public class MenuOnTouch : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     GameObject onTouch;
 	// Use this for initialization
 	void Start () {
-        Debug.Log("Pointer Test: Point Down");
+
 
     }
 

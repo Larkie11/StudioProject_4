@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 public class GlobalScript : MonoBehaviour {
 
-    public static int CharacterType = 1;
+    public static int CharacterType = 0;
     public static string playerStandingOn;
     //For griffon boss
     public static float GrifLightningCD = 1;
@@ -59,31 +59,27 @@ public class GlobalScript : MonoBehaviour {
         pumpkin.description = "A pumpking character";
         pumpkin.speed = 8;
         pumpkin.maxShield = 60;
-        pumpkin.bulletSpeed = 5;
-        pumpkin.jumpPower = 1.2F;
+        pumpkin.jumpPower = 1700F;
         pumpkin.buffDuration = 0.5F;
 
         robot.description = "From the future";
         robot.name = "EEK";
-        robot.speed = 7;
+        robot.speed = 9;
         robot.maxShield = 100;
-        robot.jumpPower = 2F;
-        robot.bulletSpeed = 10;
+        robot.jumpPower = 1750F;
         robot.buffDuration = 0.4F;
 
         santa.description = "He loves children";
         santa.name = "KEK";
-        santa.jumpPower = 1.4F;
-        santa.speed = 5;
-        santa.maxShield = 70;
-
-        santa.bulletSpeed = 3;
+        santa.jumpPower = 1600F;
+        santa.speed = 7;
+        santa.maxShield = 130;
         santa.buffDuration = 1.4F;
+
         knight.description = "Wants to save a princess";
         knight.name = "SEK";
-        knight.speed = 10;
-        knight.jumpPower = 1.6F;
-        knight.bulletSpeed = 6;
+        knight.speed = 8;
+        knight.jumpPower = 1800F;
         knight.maxShield = 80;
         knight.buffDuration = 1.6F;
 

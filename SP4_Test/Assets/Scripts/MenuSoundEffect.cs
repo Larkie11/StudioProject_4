@@ -8,7 +8,6 @@ public class MenuSoundEffect : MonoBehaviour {
     // Use this for initialization
     void Start () {
         currAudio = GetComponent<AudioSource>();
-        Debug.Log(selection.name);
     }
 	
 	// Update is called once per frame
