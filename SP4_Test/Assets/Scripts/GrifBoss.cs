@@ -65,14 +65,13 @@ public class GrifBoss : MonoBehaviour
         ar = GetComponent<Animator>();
 
         hi = Random.Range(0, myPlatforms.Count);
-        lightningtospawn = 2;
 
 
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (GlobalScript.GrifHealth > 0 && collision.transform.tag == "Bullet")
-            GlobalScript.GrifHealth -= 3;
+            GlobalScript.GrifHealth -= 5;
     }
     static T GetRandomEnum<T>()
     {
@@ -98,24 +97,27 @@ public class GrifBoss : MonoBehaviour
             if (!playAttack && !playNormal)
                 transform.position += (player.transform.position - transform.position).normalized * 0.5F * Time.deltaTime;
         }
+        if (GlobalScript.GrifHealth > 250)
+            lightningtospawn = 2;
+
+        if (GlobalScript.GrifHealth < 250)
+            lightningtospawn = 5;
+
         if (GlobalScript.GrifHealth > 0)
         {
             if (skill == Skills.Lightning)
             {
                 myshield.SetActive(false);
-                if (GlobalScript.GrifHealth > 30)
-                    lightningtospawn = 2;
+             
 
-                else if (GlobalScript.GrifHealth < 30)
-                    lightningtospawn = 5;
-
+                Debug.Log(lightningtospawn + " " + GlobalScript.GrifHealth);
                 if (GlobalScript.GrifLightningCD <= 0.5)
                 {
                     if (!playAttack)
                     {
                         audioEff.PlayOneShot(roar);
 
-                        for (int i = 0; i < lightningtospawn; i++)
+                        for (int i = 0; i <= lightningtospawn; i++)
                         {
                             target = new Vector3(Random.Range(myPlatforms[hi].GetComponent<Collider2D>().bounds.min.x + 4, myPlatforms[hi].GetComponent<Collider2D>().bounds.max.x - 2), -13F, transform.position.z);
                             Instantiate(Resources.Load("LightningTrigger"), target, Quaternion.identity);
@@ -162,11 +164,6 @@ public class GrifBoss : MonoBehaviour
             {
                 myshield.SetActive(false);
 
-                if (GlobalScript.GrifHealth > 30)
-                    lightningtospawn = 1;
-
-                else if (GlobalScript.GrifHealth < 30)
-                    lightningtospawn = 3;
 
                 if (GlobalScript.GrifNormal <= 0.5)
                 {

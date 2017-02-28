@@ -236,7 +236,7 @@ public class EnemyBehavior : MonoBehaviour
         if (currHealth <= 0)
         {
             audioEff.PlayOneShot(dyingSound);
-            float random = Random.Range(0, enemyDrops.Count);
+            float random = Random.Range(0, enemyDrops.Count+1);
 
             GameObject go2;
 
@@ -247,7 +247,7 @@ public class EnemyBehavior : MonoBehaviour
             else if (random == 2)
                 toDrop = "weaponpickup";
             else
-                toDrop = "Powerup-Coin";
+                toDrop = "";
 
             Debug.Log(random);
 
