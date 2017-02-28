@@ -78,7 +78,7 @@ public class Zakboss : MonoBehaviour
     {
         if (GlobalScript.Zakhp > 0 && collision.transform.tag == "Bullet")
         {
-            GlobalScript.Zakhp -= 10;
+            GlobalScript.Zakhp -= 2;
         }
 
 
@@ -95,6 +95,7 @@ public class Zakboss : MonoBehaviour
     {
         if(GlobalScript.Zakhp<30&&enraged==false)
         {
+            skill1duration = 10;
             attackingskills =Attacks.Fireballshield;
             enraged = true;
 
