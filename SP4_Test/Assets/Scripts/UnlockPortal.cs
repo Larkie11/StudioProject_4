@@ -77,6 +77,12 @@ public class UnlockPortal : MonoBehaviour {
                     }
                     panelRectTransform.localScale = new Vector3(x, y, 1);
                 }
+                if(!transform.GetComponent<BoxCollider2D>().bounds.Contains(player.transform.position))
+                {
+                    canvas.SetActive(false);
+                    x = 0F;
+                    y = 0F;
+                }
             }
             if (id == 1)
             {
