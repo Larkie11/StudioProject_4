@@ -105,6 +105,7 @@ public class Weaponmanager : MonoBehaviour
 
 #if UNITY_ANDROID
 
+        
         for (var i = 0; i < Input.touchCount; i++)
         {
             if ((joybutton.GetComponent<Collider2D>().bounds.Contains(Input.GetTouch(i).position)))
@@ -113,8 +114,10 @@ public class Weaponmanager : MonoBehaviour
             }
             else if (!(joybutton.GetComponent<Collider2D>().bounds.Contains(Input.GetTouch(i).position)))
             {
+            
                 if (wpn.weapontype == Weapon.Types.PISTOL)
                 {
+                
                     if (Input.GetTouch(i).phase == TouchPhase.Ended && weaponcd <= 0) 
                   {
               
@@ -148,7 +151,7 @@ public class Weaponmanager : MonoBehaviour
                     }
                 }
 
-                if (wpn.weapontype == Weapon.Types.PISTOL)
+                if (wpn.weapontype == Weapon.Types.SHOTGUN)
                 {
                     if (Input.GetTouch(i).phase == TouchPhase.Ended && weaponcd <= 0)
                     {
@@ -156,12 +159,21 @@ public class Weaponmanager : MonoBehaviour
 
 
                         weaponcd = wpn.cooldown;
+                        for (int a = 0; a < wpn.pelletammo; a++)
+                        {
+                            var pelletrotation = transform.rotation;
+                            pelletrotation.x += Random.Range(-20f, 20f);
+                            pelletrotation.z += Random.Range(-20f, 20f);
+                            Vector3 rotation = transform.parent.localScale.x == 1 ? Vector3.zero : Vector3.forward * 1;
+                            //rotation.x += pelletrotation.x;
+                            //rotation.y += pelletrotation.y;
+                            rotation.z += pelletrotation.z;
+                            GameObject projectile = (GameObject)Instantiate(wpn.projectile, transform.position + activeweapon.transform.GetChild(0).localPosition *
+                                transform.parent.localScale.x, Quaternion.Euler(rotation));
+                            ammocounter--;
 
 
-                        Vector3 rotation = transform.parent.localScale.x == 1 ? Vector3.zero : Vector3.forward * 1;
-                        GameObject projectile = (GameObject)Instantiate(wpn.projectile, transform.position + activeweapon.transform.GetChild(0).localPosition *
-                            transform.parent.localScale.x, Quaternion.Euler(rotation));
-                        ammocounter--;
+                        }
 
                     }
                 }
