@@ -58,6 +58,26 @@ public class UnlockPortal : MonoBehaviour {
                     panelRectTransform.localScale = new Vector3(x, y, 1);
                 }
             }
+            if (id == 10)
+            {
+                if (GlobalScript.howmanytokill < 1)
+                {
+                }
+                else
+                {
+                    ar.speed = 1;
+                }
+                if (GlobalScript.howmanytokill >= 1 && transform.GetComponent<BoxCollider2D>().bounds.Contains(player.transform.position) && !disabled)
+                {
+                    canvas.SetActive(true);
+                    if (x < 1.5 || y < 1.5)
+                    {
+                        x += Time.deltaTime * 3;
+                        y += Time.deltaTime * 3;
+                    }
+                    panelRectTransform.localScale = new Vector3(x, y, 1);
+                }
+            }
             if (id == 1)
             {
                 if (GlobalScript.GrifHealth <= 0)

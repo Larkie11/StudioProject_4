@@ -19,10 +19,12 @@ public class SetScreen : MonoBehaviour {
     GameObject testingSound;
     public AudioClip impact;
     bool fullScreen;
+    float prevVol;
     // Use this for initialization
     private void Awake()
     {
         slider.value = PlayerPrefs.GetFloat("Volume");
+        prevVol = PlayerPrefs.GetFloat("Vol");
         fxslider.value = PlayerPrefs.GetFloat("Vol");
         if (PlayerPrefs.GetString("FS") == "true")
             fullScreen = true;
@@ -36,6 +38,7 @@ public class SetScreen : MonoBehaviour {
     public void OnFXVolumeChange()
     {
         PlayerPrefs.SetFloat("Vol", fxslider.value);
+        if(fxslider.value != prevVol)
         testingSound.GetComponent<AudioSource>().PlayOneShot(impact);
     }
     void Start () {
