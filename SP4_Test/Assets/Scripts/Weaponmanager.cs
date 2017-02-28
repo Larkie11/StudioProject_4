@@ -80,8 +80,8 @@ public class Weaponmanager : MonoBehaviour
                 for (int i = 0; i < wpn.pelletammo; i++)
                 {
                     var pelletrotation = transform.rotation;
-                    pelletrotation.x += Random.Range(-10f, 10f);
-                    pelletrotation.z += Random.Range(-10f, 10f);
+                    pelletrotation.x += Random.Range(-20f, 20f);
+                    pelletrotation.z += Random.Range(-20f, 20f);
                     Vector3 rotation = transform.parent.localScale.x == 1 ? Vector3.zero : Vector3.forward * 1;
                     //rotation.x += pelletrotation.x;
                     //rotation.y += pelletrotation.y;

@@ -58,7 +58,7 @@ public class CrimsonBoss : MonoBehaviour
         directionCounter = 0;
         changeDirectionInterval = Random.Range(1, 10) * 60;
         DamageTaken = 15;
-        attack1countleft = 7;
+        attack1countleft = 20;
         b_attackCount1 = true;
 
         randomDirection = new Vector2(Random.Range(-100, -100),Random.Range(-100, 100));
@@ -84,10 +84,6 @@ public class CrimsonBoss : MonoBehaviour
             GlobalScript.CrimsonHealth -= 5;
             DamageTaken += 5;
         }
-        //if (collision.transform.tag == "Platform" || collision.transform.tag == "Boundary")
-        //{
-        //    //bossDirection *= -1;
-        //}
     }
 	// Update is called once per frame
 	void Update()
@@ -294,7 +290,7 @@ public class CrimsonBoss : MonoBehaviour
         spawnX = Random.Range(width, width2);
         Vector2 a = new Vector2(spawnX, myPlatforms[spawnPointIndex].transform.position.y + 2);
         GlobalScript.CrimsonLightingEffect++;
-        GameObject go = Instantiate(Resources.Load("AttackEffects"), new Vector2(spawnX, myPlatforms[spawnPointIndex].transform.position.y -12), Quaternion.identity) as GameObject;
+        GameObject go = Instantiate(Resources.Load("AttackEffects"), new Vector2(spawnX, myPlatforms[spawnPointIndex].transform.position.y + 2), Quaternion.identity) as GameObject;
     }
 
     void bossMove()

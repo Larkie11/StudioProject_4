@@ -28,11 +28,6 @@ public class PlayerMovement : MonoBehaviour
 
     SpriteRenderer Sr;
     Animator anim;
-
- 
-
-
-
     void Start()
     {
         anim = GetComponent<Animator>();
@@ -51,6 +46,8 @@ public class PlayerMovement : MonoBehaviour
         Sr = this.GetComponent<SpriteRenderer>();
 
     }
+
+   
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -84,6 +81,11 @@ public class PlayerMovement : MonoBehaviour
         if(collision.transform.tag == "Spike")
         {
             myBody.AddForce(new Vector2(GetComponent<Rigidbody2D>().velocity.x * -1000, GetComponent<Rigidbody2D>().velocity.y));
+        }
+
+        if (collision.transform.tag == "BouncePad")
+        {
+            myBody.AddForce(new Vector2(GetComponent<Rigidbody2D>().velocity.x, 2500));
         }
 
 
