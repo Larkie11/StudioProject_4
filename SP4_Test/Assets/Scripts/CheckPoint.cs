@@ -3,7 +3,7 @@ using System.Collections;
 
 public class CheckPoint : MonoBehaviour {
 
-    Vector2 TeleporterPos;
+    public GameObject checkpointlocation;
 
 	// Use this for initialization
 	void Start () 
@@ -19,9 +19,12 @@ public class CheckPoint : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.gameObject.tag == "player")
+        Debug.Log(other.gameObject.tag);
+        if(other.gameObject.tag == "Player")
         {
-            TeleporterPos = GameObject.Find("TeleportLocation").transform.position;
+            Debug.Log("Check");
+            checkpointlocation.transform.position = transform.position;
+            Destroy(gameObject);
         }
     }
 

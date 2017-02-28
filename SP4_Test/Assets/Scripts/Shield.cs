@@ -35,7 +35,7 @@ public class Shield : MonoBehaviour
                 if(GlobalScript.Shield < GlobalScript.myCharacters[GlobalScript.CharacterType].maxShield)
                 {
                     GlobalScript.shieldisOn = false;
-                    GlobalScript.Shield += Time.deltaTime;
+                    GlobalScript.Shield += Time.deltaTime * 5;
                 }
                 SheildGo.SetActive(false);
             }
