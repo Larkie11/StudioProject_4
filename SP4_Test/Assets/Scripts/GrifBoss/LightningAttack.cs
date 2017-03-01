@@ -4,13 +4,14 @@ using System.Collections;
 public class LightningAttack : MonoBehaviour {
 
     float position;
+    [SerializeField]
     float destroy;
     bool moveDown;
+   
 	// Use this for initialization
 	void Start () {
         position = 12F;
         moveDown = true;
-        destroy = 2F;
 	}
     private void OnCollisionEnter2D(Collision2D collision)
     {
