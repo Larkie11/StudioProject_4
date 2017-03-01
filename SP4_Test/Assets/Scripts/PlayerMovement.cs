@@ -95,7 +95,7 @@ public class PlayerMovement : MonoBehaviour
                 Instantiate(Resources.Load("Dead"), new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
             }
 
-            Debug.Log(collision);
+            //Debug.Log(collision);
            // Destroy(gameObject);
         }
 

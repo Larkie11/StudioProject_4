@@ -54,27 +54,31 @@ public class CrimsonBlackLighting : MonoBehaviour {
     private void OnCollisionEnter2D(Collision2D collision)
     {
         Destroy(gameObject);
+        Debug.Log(collision);
+        if (GlobalScript.shieldisOn && collision.gameObject.tag == "Player")
+        {
+            randNum = Random.Range(0, 3);
+            if (randNum == 0)
+            {
+                toDrop = "Powerup-Shield";
+            }
+            else if (randNum == 1)
+            {
+                toDrop = "weaponpickup";
+            }
+            else if (randNum == 2)
+            {
+                toDrop = "Powerup-Coin";
+            }
+            else
+            {
+                toDrop = "";
+            }
 
-        randNum = Random.Range(0, 10);
-        if (randNum == 0)
-        {
-            toDrop = "Powerup-Shield";
-        }
-        else if (randNum == 1)
-        {
-            toDrop = "weaponpickup";
-        }
-        else if (randNum == 2)
-        {
-            toDrop = "Powerup-Coin";
-        }
-        else
-        {
-            toDrop = "";
-        }
-        if (toDrop != "")
-        {
-            GameObject go = Instantiate(Resources.Load(toDrop), new Vector3(transform.position.x, transform.position.y - 4, transform.position.z), Quaternion.identity) as GameObject;
+            if (toDrop != "")
+            {
+                GameObject go = Instantiate(Resources.Load(toDrop), new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity) as GameObject;
+            }
         }
     }
 }
