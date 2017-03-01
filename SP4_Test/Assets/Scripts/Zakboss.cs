@@ -23,6 +23,16 @@ public class Zakboss : MonoBehaviour
     Animator anim;
     Attacks attackingskills;
     Attacks tempatk;
+
+
+    public AudioClip rock1;
+    public AudioClip fireshiled1;
+
+    AudioSource audioEff;
+
+    private float volLowRange = .5f;
+    private float volHighRange = 1.0f;
+
     enum Attacks
     {
         //Firepillar,
@@ -35,6 +45,7 @@ public class Zakboss : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        audioEff = GameObject.FindGameObjectWithTag("SFX").GetComponent<AudioSource>();
         randommintime = 1;
         randommaxtime = 10;
         GlobalScript.Zakenragemode = false;
@@ -51,17 +62,19 @@ public class Zakboss : MonoBehaviour
 
     void Rollingrockskill1()
     {
+        audioEff.PlayOneShot(rock1);
         Instantiate(Resources.Load("ballball"), rockposition1.transform.position, Quaternion.identity);
         
     }
     void Rollingrockskill2()
     {
+        audioEff.PlayOneShot(rock1);
         Instantiate(Resources.Load("ballball"), rockposition2.transform.position, Quaternion.identity);
 
     }
     void Fireballskill()
     {
-
+        audioEff.PlayOneShot(fireshiled1);
         //transform.Translate(new Vector2(10f, 0));
        Instantiate(Resources.Load("fireball1"), new Vector2(transform.position.x + 6.5F, transform.position.y), Quaternion.identity);
         if(GlobalScript.Zakenragemode==true)
@@ -95,6 +108,7 @@ public class Zakboss : MonoBehaviour
     {
         if(GlobalScript.Zakhp<30&&enraged==false)
         {
+            animationstate = 3;
             skill1duration = 10;
             attackingskills =Attacks.Fireballshield;
             enraged = true;

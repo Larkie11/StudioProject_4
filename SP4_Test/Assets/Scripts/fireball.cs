@@ -15,9 +15,9 @@ public class fireball : MonoBehaviour {
 	void Start () {
         blowuptimer = 0;
         if (GlobalScript.Zakenragemode == false)
-        fireballhp = 30;
+        fireballhp = 20;
         if (GlobalScript.Zakenragemode == true)
-            fireballhp = 50;
+            fireballhp = 30;
         anim1 = GetComponent<Animator>();
         zakumpos = GameObject.Find("zakidle1").transform.position;
         fireballanimationstate = 0;

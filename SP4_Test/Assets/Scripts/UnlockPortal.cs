@@ -74,6 +74,28 @@ public class UnlockPortal : MonoBehaviour {
                     panelRectTransform.localScale = new Vector3(x, y, 1);
                 }
             }
+            if (id == 25)
+            {
+                if (GlobalScript.keypickup ==false)
+                {
+                }
+                else
+                {
+                    clearedcanvas.SetActive(true);
+                    ar.speed = 1;
+                }
+                if (transform.GetComponent<BoxCollider2D>().bounds.Contains(player.transform.position) && !disabled&& GlobalScript.keypickup==true)
+                {
+                    canvas.SetActive(true);
+                    if (x < 1.5 || y < 1.5)
+                    {
+                        x += Time.deltaTime * 3;
+                        y += Time.deltaTime * 3;
+                    }
+                    panelRectTransform.localScale = new Vector3(x, y, 1);
+                }
+                
+            }
             if (id == 10)
             {
                 if (GlobalScript.howmanytokill < 1)
@@ -94,7 +116,7 @@ public class UnlockPortal : MonoBehaviour {
                     }
                     panelRectTransform.localScale = new Vector3(x, y, 1);
                 }
-                
+
             }
             if (id == 1)
             {
@@ -145,7 +167,7 @@ public class UnlockPortal : MonoBehaviour {
                     panelRectTransform.localScale = new Vector3(x, y, 1);
                 }
             }
-            if (id == 6)
+            if (id == 26)
             {
                 if (GlobalScript.Zakhp <= 0)
                 {

@@ -52,8 +52,13 @@ public class PlayerMovement : MonoBehaviour
         {
             myBody.AddForce(new Vector2(GetComponent<Rigidbody2D>().velocity.x, 2500));
         }
+        if (other.transform.tag == "key")
+        {
+            other.gameObject.SetActive(false);
+            GlobalScript.keypickup = true;
+        }
     }
-
+   
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if(collision.transform.tag == "Platform")
