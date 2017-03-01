@@ -4,12 +4,18 @@ using System.Collections;
 public class AutoDestroyAnimation : MonoBehaviour {
     [SerializeField]
     AudioClip warning;
+    [SerializeField]
+    int id;
     AudioSource audioEff;
     float destroy;
 	// Use this for initialization
 	void Start () {
-        audioEff = GameObject.FindGameObjectWithTag("SFX").GetComponent<AudioSource>();
-        audioEff.PlayOneShot(warning);
+        if (id == 0)
+        {
+            audioEff = GameObject.FindGameObjectWithTag("SFX").GetComponent<AudioSource>();
+            audioEff.PlayOneShot(warning);
+        }
+
         destroy = 2F;
 	}
 	

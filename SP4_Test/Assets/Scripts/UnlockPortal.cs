@@ -8,19 +8,27 @@ public class UnlockPortal : MonoBehaviour {
     [SerializeField]
     GameObject canvas;
     [SerializeField]
+    GameObject clearedcanvas;
+    [SerializeField]
     int id = 0;
+    [SerializeField]
+    AudioClip cleared;
+    AudioSource audioEff;
     GameObject player;
     float x, y = 0;
     bool disabled = false;
+    bool playCleared;
 	// Use this for initialization
 	void Start () {
         ar = GetComponent<Animator>();
         ar.speed = 0;
         disabled = false;
-
+        clearedcanvas.SetActive(false);
         canvas.SetActive(false);
+        audioEff = GameObject.FindGameObjectWithTag("SFX").GetComponent<AudioSource>();
         panelRectTransform = panelRectTransform.GetComponent<RectTransform>();
         panelRectTransform.localScale = new Vector3(x, y, 1);
+        playCleared = false;
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -46,6 +54,7 @@ public class UnlockPortal : MonoBehaviour {
                 else
                 {
                     ar.speed = 1;
+                    clearedcanvas.SetActive(true);
                 }
                 if (GlobalScript.howmanytokill >= 5 && transform.GetComponent<BoxCollider2D>().bounds.Contains(player.transform.position) && !disabled)
                 {
@@ -89,6 +98,12 @@ public class UnlockPortal : MonoBehaviour {
                 if (GlobalScript.GrifHealth <= 0)
                 {
                     ar.speed = 1;
+                    clearedcanvas.SetActive(true);
+                    if (!playCleared)
+                    {
+                        audioEff.PlayOneShot(cleared);
+                        playCleared = true;
+                    }
                 }
                 if (GlobalScript.GrifHealth <= 0 && transform.GetComponent<BoxCollider2D>().bounds.Contains(player.transform.position) && !disabled)
                 {
@@ -107,6 +122,13 @@ public class UnlockPortal : MonoBehaviour {
                 if (GlobalScript.CrimsonHealth <= 0)
                 {
                     ar.speed = 1;
+                    clearedcanvas.SetActive(true);
+
+                    if (!playCleared)
+                    {
+                        audioEff.PlayOneShot(cleared);
+                        playCleared = true;
+                    }
                 }
                 if (GlobalScript.CrimsonHealth <= 0 && transform.GetComponent<BoxCollider2D>().bounds.Contains(player.transform.position) && !disabled)
                 {
@@ -125,6 +147,13 @@ public class UnlockPortal : MonoBehaviour {
                 if (GlobalScript.Zakhp <= 0)
                 {
                     ar.speed = 1;
+                    clearedcanvas.SetActive(true);
+
+                    if (!playCleared)
+                    {
+                        audioEff.PlayOneShot(cleared);
+                        playCleared = true;
+                    }
                 }
                 if (GlobalScript.Zakhp <= 0 && transform.GetComponent<BoxCollider2D>().bounds.Contains(player.transform.position) && !disabled)
                 {
