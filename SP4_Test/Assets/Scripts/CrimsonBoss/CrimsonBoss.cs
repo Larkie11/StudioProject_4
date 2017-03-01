@@ -99,7 +99,6 @@ public class CrimsonBoss : MonoBehaviour
         CrimsonStateInfo();
         Death();
         ConditionToChaneState();
-
         if(player==null)
         {
             player = GameObject.FindGameObjectWithTag("Player");
@@ -324,14 +323,14 @@ public class CrimsonBoss : MonoBehaviour
                 Vector2 playerPosition;
                 playerPosition = player.transform.position;
                 bossDirection = (playerPosition - position).normalized;
-                changeDirectionInterval = Random.Range(1, 10)    * 60;
+                changeDirectionInterval = Random.Range(1,3)    * 60;
                 directionCounter = 0;
             }
             else
             {
                 randomDirection = new Vector2(Random.Range(-10,10), Random.Range(-10, 10));
                 bossDirection = randomDirection.normalized;
-                changeDirectionInterval = Random.Range(1, 10) * 60;
+                changeDirectionInterval = Random.Range(1,3) * 60;
                 directionCounter = 0;
             }
             

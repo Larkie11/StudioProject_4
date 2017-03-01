@@ -7,6 +7,9 @@ public class playerbullet : MonoBehaviour {
  public   float speed=5f;
  private Vector2 direction;
 
+ AudioSource audioEff;
+ public AudioClip BulletEnd;
+
  GameObject joybutton;
 
 
@@ -14,7 +17,7 @@ public class playerbullet : MonoBehaviour {
  {
      joybutton = GameObject.Find("MobileJoystick");
 
-
+     audioEff = GameObject.FindGameObjectWithTag("SFX").GetComponent<AudioSource>();
         #if UNITY_STANDALONE
         Vector2 position = transform.position;
 
@@ -72,12 +75,9 @@ public class playerbullet : MonoBehaviour {
 
     // delte self   
     void OnCollisionEnter2D(Collision2D hitsmthing)
-    {
-       
-
-      
+    {      
             Destroy(gameObject);
             Instantiate(Resources.Load("hitted"), new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
-        
+            audioEff.PlayOneShot(BulletEnd);
     }
 }
