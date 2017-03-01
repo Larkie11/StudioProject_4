@@ -65,7 +65,7 @@ public class Zakboss : MonoBehaviour
    
         randomrockside = 1;
         skill1duration = 10f;
-        GlobalScript.Zakhp = 100;
+        GlobalScript.Zakhp = 200;
         animationstate = 0;
         anim = GetComponent<Animator>();
           attackingskills = GetRandomEnum<Attacks>();
@@ -106,7 +106,7 @@ public class Zakboss : MonoBehaviour
     {
         if (GlobalScript.Zakhp > 0 && collision.transform.tag == "Bullet")
         {
-            GlobalScript.Zakhp -= 2;
+            GlobalScript.Zakhp -= 5;
         }
 
 

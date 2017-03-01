@@ -44,6 +44,7 @@ public class PlayerMovement : MonoBehaviour
         Speed = GlobalScript.myCharacters[GlobalScript.CharacterType].speed;
         jumpPower = GlobalScript.myCharacters[GlobalScript.CharacterType].jumpPower;
         audioEff = GameObject.FindGameObjectWithTag("SFX").GetComponent<AudioSource>();
+        GlobalScript.howmanytokill = 0;
 #if UNITY_ANDROID
                       Debug.Log("Android");
 #endif
@@ -101,7 +102,7 @@ public class PlayerMovement : MonoBehaviour
 
         if(collision.transform.tag == "Spike")
         {
-            myBody.AddForce(new Vector2(GetComponent<Rigidbody2D>().velocity.x * -1000, GetComponent<Rigidbody2D>().velocity.y));
+            myBody.AddForce(new Vector2(GetComponent<Rigidbody2D>().velocity.x, 1500));
         }
 
      

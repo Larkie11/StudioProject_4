@@ -99,8 +99,8 @@ public class CrimsonBoss : MonoBehaviour
         if (GlobalScript.CrimsonHealth > 0 && collision.transform.tag == "Bullet")
         {
             ouch();
-            GlobalScript.CrimsonHealth -= 5;
-            DamageTaken += 5;
+            GlobalScript.CrimsonHealth -= 20;
+            DamageTaken += 20;
         }
     }
 	// Update is called once per frame
@@ -110,7 +110,7 @@ public class CrimsonBoss : MonoBehaviour
         CrimsonStateInfo();
         Death();
         ConditionToChaneState();
-        if(player==null)
+        if(player==null && !GlobalScript.isDead)
         {
             player = GameObject.FindGameObjectWithTag("Player");
         }

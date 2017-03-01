@@ -149,12 +149,6 @@ public class UnlockPortal : MonoBehaviour {
                 {
                     ar.speed = 1;
                     clearedcanvas.SetActive(true);
-
-                    if (!playCleared)
-                    {
-                        audioEff.PlayOneShot(cleared);
-                        playCleared = true;
-                    }
                 }
                 if (GlobalScript.BoxCounter == 3 && transform.GetComponent<BoxCollider2D>().bounds.Contains(player.transform.position) && !disabled)
                 {

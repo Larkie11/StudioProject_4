@@ -14,14 +14,20 @@ public class CrimsonBossAttack1 : MonoBehaviour {
 	// Use this for initialization
 	void Start () 
     {
-        player = GameObject.FindGameObjectWithTag("Player");
         rb = GetComponent<Rigidbody2D>();
+
         Vector2 position = transform.position;
-        Vector2 playerPosition;
-        if(player != null)
+
+
+        if (!GlobalScript.isDead)
         {
-            playerPosition = player.transform.position;
-            rb.velocity = (playerPosition - position).normalized;
+            player = GameObject.FindGameObjectWithTag("Player");
+            Vector2 playerPosition;
+            if (player != null)
+            {
+                playerPosition = player.transform.position;
+                rb.velocity = (playerPosition - position).normalized;
+            }
         }
 	}
 	

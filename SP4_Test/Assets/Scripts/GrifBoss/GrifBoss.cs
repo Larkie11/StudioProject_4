@@ -88,7 +88,7 @@ public class GrifBoss : MonoBehaviour
     {
         if (GlobalScript.GrifHealth > 0 && collision.transform.tag == "Bullet")
         {
-            GlobalScript.GrifHealth -= 5;
+            GlobalScript.GrifHealth -= 20;
             audioEff.PlayOneShot(hurt);
         }
     }

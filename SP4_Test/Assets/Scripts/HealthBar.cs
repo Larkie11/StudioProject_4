@@ -18,7 +18,7 @@ public class HealthBar : MonoBehaviour {
     {
         if (healthbarid == 3)
         {
-            content.fillAmount = Map(GlobalScript.Zakhp, 0, 100, 0, 1);
+            content.fillAmount = Map(GlobalScript.Zakhp, 0, 200, 0, 1);
             if (content.fillAmount <= 0.3F)
             {
                 content.color = Color.red;

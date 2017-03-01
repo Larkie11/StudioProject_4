@@ -38,6 +38,7 @@ public class FacebookCheck: MonoBehaviour {
     }
 	// Use this for initialization
 	void Start () {
+ 
         text.text = "You have cleared the game! Your score was " + GlobalScript.Score +"!";
 #if UNITY_STANDALONE
         sharebutton.SetActive(false);

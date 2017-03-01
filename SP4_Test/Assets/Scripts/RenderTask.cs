@@ -16,11 +16,19 @@ public class RenderTask : MonoBehaviour {
 	void Update () 
     {
         if(id == 0)
-        text.text = "Kill enemies " + GlobalScript.howmanytokill.ToString() +" / 5";
+        text.text = "Kill enemies: " + GlobalScript.howmanytokill.ToString() +" / 5";
 
         if(id == 16)
         {
-            text.text = "Collect Box " + GlobalScript.BoxCounter.ToString() +" / 3";
+            text.text = "Collect Box: " + GlobalScript.BoxCounter.ToString() +" / 3";
+        }
+
+        if (id == 25)
+        {
+            if(!GlobalScript.keypickup)
+                text.text = "Collect Key: " + "0/1";
+            if (GlobalScript.keypickup)
+                text.text = "Collect Key: " + "1/1";
         }
     }
 }

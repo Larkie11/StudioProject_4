@@ -29,7 +29,7 @@ public class Tutorial : MonoBehaviour {
     string[] android = new string[] 
     { "Use joystick to move", "Swipe up to jump",
         "Press anywhere on the screen to fire a bullet",
-        "Release to fire", "Right click to use shield",
+        "Release to fire", "Hold button to use shield, it is shown at the bottom and will decrease/increase",
         "Enemy will chase you when on same platform, they might also drop items",
          "This portal is the one that leads to another map, after clearing the task of each level"
 

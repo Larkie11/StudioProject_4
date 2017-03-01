@@ -77,7 +77,6 @@ public class Loading : MonoBehaviour {
         yield return new WaitForSeconds(1);
         ao = SceneManager.LoadSceneAsync(levelName);
         ao.allowSceneActivation = false;
-        loadingText.text = loadingText.text + (int)(ao.progress * 100) + " % ";
         while (!ao.isDone)
         {
             progBar.value = ao.progress;
