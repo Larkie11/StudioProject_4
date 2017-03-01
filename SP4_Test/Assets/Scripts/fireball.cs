@@ -14,7 +14,7 @@ public class fireball : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         blowuptimer = 0;
-        if (GlobalScript.Zakenragemode == false)
+        if (GlobalScript.Zakenragemode == false)        
         fireballhp = 20;
         if (GlobalScript.Zakenragemode == true)
             fireballhp = 30;
@@ -22,7 +22,8 @@ public class fireball : MonoBehaviour {
         zakumpos = GameObject.Find("zakidle1").transform.position;
         fireballanimationstate = 0;
         //enrage
-       // transform.Translate(new Vector2(10f, 0));
+        if(GlobalScript.Zakenragemode)
+        transform.Translate(new Vector2(7f, 0));
        
         // instantiate 4xfirebal
 	}
@@ -45,10 +46,16 @@ public class fireball : MonoBehaviour {
         if(fireballhp<=0)
         {
             fireballanimationstate = 1;
-            
+          
             blowuptimer += Time.deltaTime;
             if(blowuptimer>1)
             {
+           
+                float temprand = Random.Range(1, 101);
+                Debug.Log(temprand);
+                if (temprand < 30)
+                    Instantiate(Resources.Load("weaponpickup"), new Vector3(transform.position.x, -10.7093f, transform.position.z), Quaternion.identity);
+
                 Destroy(gameObject);
                 GlobalScript.fireballcounter -= 1;
             }

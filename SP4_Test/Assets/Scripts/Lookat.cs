@@ -3,7 +3,8 @@ using System.Collections;
 
 public class Lookat : MonoBehaviour
 {
-    public float speed = 5.0f;
+    [SerializeField]
+    float speed = 5.0f;
     GameObject joybutton;
     // Use this for initialization
     void Start()

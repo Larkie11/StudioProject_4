@@ -4,9 +4,11 @@ using System.Collections;
 public class bulletmove : MonoBehaviour
 {
 
-    public float tempspeed = 15.0f;
+    [SerializeField]
+    float tempspeed = 15.0f;
     Vector2 mouseinput;
-    public LayerMask tohit;
+    [SerializeField]
+    LayerMask tohit;
 
     Rigidbody2D rb;
     // Use this for initialization

@@ -4,10 +4,14 @@ using System.Collections;
 public class spawnspike : MonoBehaviour
 {
 
-    public GameObject spikespawnpos;
-    public string spawnobject;
-    public int randmintime = 3;
-    public int randmaxtime = 5;
+    [SerializeField]
+    GameObject spikespawnpos;
+    [SerializeField]
+    string spawnobject;
+    [SerializeField]
+    int randmintime = 3;
+    [SerializeField]
+    int randmaxtime = 5;
     private float spiketimer;
     private int spikespawntimer = 1;
     // Use this for initialization

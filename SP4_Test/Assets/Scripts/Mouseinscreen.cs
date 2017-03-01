@@ -7,7 +7,8 @@ public class Mouseinscreen : MonoBehaviour
 
     bool onjoystick = false;
     bool touch1onjoy = false;
-    public float MouseSensitivity = 0.1f;
+    [SerializeField]
+    float MouseSensitivity = 0.1f;
 
     GameObject joybutton;
 

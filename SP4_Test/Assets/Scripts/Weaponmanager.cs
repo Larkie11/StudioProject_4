@@ -4,11 +4,14 @@ using System.Collections;
 public class Weaponmanager : MonoBehaviour
 {
 
-    public GameObject activeweapon;
-    public GameObject defaultweapon;
+    [SerializeField]
+    GameObject activeweapon;
+    [SerializeField]
+    GameObject defaultweapon;
     Weapon wpn;
     float weaponcd;
-    public float speed = 5;
+    [SerializeField]
+    float speed = 5;
     GameObject joybutton;
     float ammocounter;
     bool noammo = false;

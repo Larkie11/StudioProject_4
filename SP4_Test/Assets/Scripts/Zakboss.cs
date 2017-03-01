@@ -4,17 +4,24 @@ using System.Collections;
 public class Zakboss : MonoBehaviour
 {
     float randomrockside;
-            
- 
+
+    [SerializeField]
+    Canvas canvas;
+
     float fireballspawntimer = 0;
-    public GameObject rockposition1;
-    public GameObject rockposition2;
+
+    [SerializeField]
+    GameObject rockposition1;
+    [SerializeField]
+    GameObject rockposition2;
     float skill1duration;
-    public int randommintime=1;
+    [SerializeField]
+    int randommintime = 1;
     bool enraged = false;
-    public int randommaxtime = 3;
+    [SerializeField]
+    int randommaxtime = 3;
     bool fireballmaxedspawn = false;
-    Collider2D collider;
+
     int animationstate;
     private float rocktimer1;
     private int rockspawntimer1=1;
@@ -24,9 +31,13 @@ public class Zakboss : MonoBehaviour
     Attacks attackingskills;
     Attacks tempatk;
 
+    GameObject rockskill;
+    GameObject fireskill;
 
-    public AudioClip rock1;
-    public AudioClip fireshiled1;
+    [SerializeField]
+    AudioClip rock1;
+    [SerializeField]
+    AudioClip fireshiled1;
 
     AudioSource audioEff;
 
@@ -45,11 +56,13 @@ public class Zakboss : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        canvas.enabled = true;
+
         audioEff = GameObject.FindGameObjectWithTag("SFX").GetComponent<AudioSource>();
         randommintime = 1;
         randommaxtime = 10;
         GlobalScript.Zakenragemode = false;
-        collider = GetComponent<Collider2D>();
+   
         randomrockside = 1;
         skill1duration = 10f;
         GlobalScript.Zakhp = 100;
@@ -64,19 +77,21 @@ public class Zakboss : MonoBehaviour
     {
         audioEff.PlayOneShot(rock1);
         Instantiate(Resources.Load("ballball"), rockposition1.transform.position, Quaternion.identity);
-        
+        Instantiate(Resources.Load("zakrockskill"), new Vector3(transform.position.x , transform.position.y+5f, transform.position.z), Quaternion.identity);
+
     }
     void Rollingrockskill2()
     {
         audioEff.PlayOneShot(rock1);
         Instantiate(Resources.Load("ballball"), rockposition2.transform.position, Quaternion.identity);
-
+        Instantiate(Resources.Load("zakrockskill"), new Vector3(transform.position.x, transform.position.y + 5f, transform.position.z), Quaternion.identity);
     }
     void Fireballskill()
     {
         audioEff.PlayOneShot(fireshiled1);
         //transform.Translate(new Vector2(10f, 0));
        Instantiate(Resources.Load("fireball1"), new Vector2(transform.position.x + 6.5F, transform.position.y), Quaternion.identity);
+       Instantiate(Resources.Load("zakfireskill"), new Vector3(transform.position.x, transform.position.y + 5f, transform.position.z), Quaternion.identity);
         if(GlobalScript.Zakenragemode==true)
         {
             Instantiate(Resources.Load("fireball1"), new Vector2(transform.position.x + 14f, transform.position.y), Quaternion.identity);
@@ -106,7 +121,7 @@ public class Zakboss : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(GlobalScript.Zakhp<30&&enraged==false)
+        if(GlobalScript.Zakhp<50&&enraged==false)
         {
             animationstate = 3;
             skill1duration = 10;
@@ -114,21 +129,22 @@ public class Zakboss : MonoBehaviour
             enraged = true;
 
         }
-        Debug.Log(attackingskills);
-        Debug.Log(GlobalScript.Zakenragemode);
+
+     
       //  Debug.Log(attackingskills);
           //Debug.Log(skill1duration);
         rocktimer1 += Time.deltaTime;
         skill1duration += Time.deltaTime;
         if (skill1duration >= 10)
         {
-            Debug.Log("chaniginatk");
+         
             skill1duration = 0;
             if (GlobalScript.Zakhp > 0)
                 tempatk = attackingskills;
         
             if(tempatk==attackingskills)
             {
+                
                 attackingskills = GetRandomEnum<Attacks>();
             }
 
@@ -172,6 +188,7 @@ public class Zakboss : MonoBehaviour
         if (GlobalScript.Zakhp <= 0)
         {
             animationstate = 10;
+            canvas.enabled = false;
 
             Destroy(gameObject, 3f);
         }
@@ -209,7 +226,7 @@ public class Zakboss : MonoBehaviour
 
         }
         anim.SetInteger("animationstate", animationstate);
-        Debug.Log(randomrockside);
+
          
     }
 

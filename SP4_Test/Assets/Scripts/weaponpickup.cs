@@ -3,8 +3,10 @@ using System.Collections;
 public class weaponpickup : MonoBehaviour {
 
 
-    public GameObject[] weapons;
-    public GameObject weaponhere;
+    [SerializeField]
+    GameObject[] weapons;
+    [SerializeField]    
+    GameObject weaponhere;
 	// Use this for initialization
 	void Start () {
         weaponhere = weapons[Random.Range(0, weapons.Length)];

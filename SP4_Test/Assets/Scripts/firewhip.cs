@@ -4,8 +4,10 @@ using System.Collections;
 public class firewhip : MonoBehaviour {
 
 	// Use this for initialization
-    public int whiptype;
-    public int firewhipcount = 3;
+    [SerializeField]
+    int whiptype;
+    [SerializeField]
+    int firewhipcount = 3;
     Vector2 aroundposition;
 
 

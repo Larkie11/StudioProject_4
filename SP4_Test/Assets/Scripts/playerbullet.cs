@@ -3,12 +3,14 @@ using System.Collections;
 
 public class playerbullet : MonoBehaviour {
 
-    
- public   float speed=5f;
+
+    [SerializeField]
+    float speed = 5f;
  private Vector2 direction;
 
  AudioSource audioEff;
- public AudioClip BulletEnd;
+ [SerializeField]
+    AudioClip BulletEnd;
 
  GameObject joybutton;
 
