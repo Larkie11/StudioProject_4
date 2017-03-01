@@ -37,7 +37,7 @@ public class CrimsonBoss : MonoBehaviour
     public AudioClip Attack1;
     public AudioClip BlackLighting;
 
-    private AudioSource source;
+    AudioSource audioEff;
     private float volLowRange = .5f;
     private float volHighRange = 1.0f;
 
@@ -56,6 +56,7 @@ public class CrimsonBoss : MonoBehaviour
 	void Start () 
     {
         anim = GetComponent<Animator>();
+        audioEff = GameObject.FindGameObjectWithTag("SFX").GetComponent<AudioSource>();
         CrimsonAnimation = 0;
         GlobalScript.CrimsonHealth = 300;
         attack1Counter = 0;
@@ -67,7 +68,6 @@ public class CrimsonBoss : MonoBehaviour
         DamageTaken = 15;
         attack1countleft = 20;
         b_attackCount1 = true;
-        source = GetComponent<AudioSource>();
         randomDirection = new Vector2(Random.Range(-100, -100),Random.Range(-100, 100));
         bossDirection = randomDirection.normalized;
 
@@ -252,7 +252,7 @@ public class CrimsonBoss : MonoBehaviour
 
         if (attack1Counter > attack1Interval)
         {
-            source.PlayOneShot(Attack1, 5);
+            audioEff.PlayOneShot(Attack1);
             Instantiate(Resources.Load("CrimsonAttack_1"), new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
             attack1Counter = 0;
             attack1countleft--;
@@ -304,7 +304,7 @@ public class CrimsonBoss : MonoBehaviour
 
         if (attack2Counter > attack2Interval)
         {
-            source.PlayOneShot(BlackLighting, 5);
+            audioEff.PlayOneShot(BlackLighting);
             attack2Counter = 0;
             GlobalScript.CrimsonLightingEffect++;
             GameObject go = Instantiate(Resources.Load("AttackEffects"), new Vector2(spawnX, myPlatforms[spawnPointIndex].transform.position.y + 2), Quaternion.identity) as GameObject;
