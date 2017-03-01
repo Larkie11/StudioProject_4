@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 
 public class CrimsonBoss : MonoBehaviour 
 {
@@ -23,25 +24,35 @@ public class CrimsonBoss : MonoBehaviour
     private bool b_attackCount1;
 
     private Vector2 directionToPlayer;
-    public GameObject player;
 
-    public static int spawnPointIndex;
-    public List<GameObject> myPlatforms;
+    GameObject player;
 
-    public float speed = 10.0f;
+    [SerializeField]
+    int spawnPointIndex;
+
+    [SerializeField]
+    List<GameObject> myPlatforms;
+
+    [SerializeField]
+    float speed = 10.0f;
 
     private int randState;
 
     private int attack1countleft;
 
-    public AudioClip Attack1;
-    public AudioClip BlackLighting;
+    [SerializeField]
+    AudioClip Attack1;
+    [SerializeField]
+    AudioClip BlackLighting;
 
     AudioSource audioEff;
-    private float volLowRange = .5f;
-    private float volHighRange = 1.0f;
 
     SpriteRenderer Sr;
+
+    [SerializeField]
+    Canvas canvas;
+
+    
 
     enum CrimsonState
     {
@@ -53,8 +64,9 @@ public class CrimsonBoss : MonoBehaviour
     }
 
 	// Use this for initialization
-	void Start () 
+	void Start ()
     {
+        canvas.enabled = true;
         anim = GetComponent<Animator>();
         audioEff = GameObject.FindGameObjectWithTag("SFX").GetComponent<AudioSource>();
         CrimsonAnimation = 0;
@@ -80,7 +92,6 @@ public class CrimsonBoss : MonoBehaviour
         }
         Sr = this.GetComponent<SpriteRenderer>();
 
-        Debug.Log("CrimsonBossScript");
 	}
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -132,6 +143,7 @@ public class CrimsonBoss : MonoBehaviour
             if (frame >= 60)
             {
                 gameObject.SetActive(false);
+                canvas.enabled = false;
             }
         }
         if (frame < 60 && GlobalScript.CrimsonHealth == 0)
@@ -152,7 +164,7 @@ public class CrimsonBoss : MonoBehaviour
             {
                 randState = Random.Range(2, 4);
             }
-            Debug.Log("DamageTaken " + DamageTaken + "   RandState " + randState);
+            //Debug.Log("DamageTaken " + DamageTaken + "   RandState " + randState);
 
             DamageTaken = 0;
         }
@@ -241,7 +253,7 @@ public class CrimsonBoss : MonoBehaviour
     void ouch()
     {
         CrimsonAnimation = 2;
-        Debug.Log("OUCH");
+        //Debug.Log("OUCH");
     }
 
     void bossAttack1()
@@ -255,7 +267,7 @@ public class CrimsonBoss : MonoBehaviour
             Instantiate(Resources.Load("CrimsonAttack_1"), new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
             attack1Counter = 0;
             attack1countleft--;
-            Debug.Log(attack1countleft);
+            //Debug.Log(attack1countleft);
             if(attack1countleft <= 0)
             {
                 crimsonState = CrimsonState.FLY;
@@ -271,11 +283,11 @@ public class CrimsonBoss : MonoBehaviour
         }
         else if (GlobalScript.CrimsonHealth > 75 && GlobalScript.CrimsonHealth < 200)
         {
-            attack1Interval = 40;
+            attack1Interval = 50;
         }
         else if (GlobalScript.CrimsonHealth < 75)
         {
-            attack1Interval = 20;
+            attack1Interval = 40;
         }
     }
 
@@ -306,7 +318,7 @@ public class CrimsonBoss : MonoBehaviour
             audioEff.PlayOneShot(BlackLighting);
             attack2Counter = 0;
             GlobalScript.CrimsonLightingEffect++;
-            GameObject go = Instantiate(Resources.Load("AttackEffects"), new Vector2(spawnX, myPlatforms[spawnPointIndex].transform.position.y + 2), Quaternion.identity) as GameObject;
+            GameObject go = Instantiate(Resources.Load("AttackEffects"), new Vector2(spawnX, myPlatforms[spawnPointIndex].transform.position.y + 4), Quaternion.identity) as GameObject;
         }
     }
 
@@ -317,7 +329,7 @@ public class CrimsonBoss : MonoBehaviour
         {
             int randNum = Random.Range(1, 10);
             //Debug.Log(randNum);
-            if (randNum < 2)
+            if (randNum < 3)
             {
                 Vector2 position = transform.position;
                 Vector2 playerPosition;

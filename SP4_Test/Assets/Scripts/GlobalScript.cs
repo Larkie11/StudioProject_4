@@ -26,6 +26,9 @@ public class GlobalScript : MonoBehaviour {
     public static bool isDead = false;
     public static bool keypickup = false;
 
+
+    //Kunta Level
+    public static int BoxCounter;
     //CrimsonBoss
 
     public static int CrimsonHealth;

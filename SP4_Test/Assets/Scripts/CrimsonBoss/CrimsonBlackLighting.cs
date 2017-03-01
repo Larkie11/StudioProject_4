@@ -3,11 +3,12 @@ using System.Collections;
 
 public class CrimsonBlackLighting : MonoBehaviour {
 
-    public float speed = 3f;
+    float speed = 3f;
     private Vector2 direction;
-    public GameObject player;
-    public float lifeTime = 3.0f;
-
+    GameObject player;
+    float lifeTime = 3.0f;
+    private int randNum;
+    string toDrop;
 	// Use this for initialization
 	void Start () 
     {
@@ -47,9 +48,33 @@ public class CrimsonBlackLighting : MonoBehaviour {
         if(lifeTime < 0)
         {
             Destroy(gameObject);
-
             GlobalScript.CrimsonLightingEffect--;
         }
-        
 	}
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        Destroy(gameObject);
+
+        randNum = Random.Range(0, 10);
+        if (randNum == 0)
+        {
+            toDrop = "Powerup-Shield";
+        }
+        else if (randNum == 1)
+        {
+            toDrop = "weaponpickup";
+        }
+        else if (randNum == 2)
+        {
+            toDrop = "Powerup-Coin";
+        }
+        else
+        {
+            toDrop = "";
+        }
+        if (toDrop != "")
+        {
+            GameObject go = Instantiate(Resources.Load(toDrop), new Vector3(transform.position.x, transform.position.y - 4, transform.position.z), Quaternion.identity) as GameObject;
+        }
+    }
 }

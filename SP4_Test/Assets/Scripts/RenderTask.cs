@@ -13,9 +13,14 @@ public class RenderTask : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void Update () 
+    {
         if(id == 0)
         text.text = "Kill enemies " + GlobalScript.howmanytokill.ToString() +" / 5";
 
+        if(id == 16)
+        {
+            text.text = "Collect Box " + GlobalScript.BoxCounter.ToString() +" / 3";
+        }
     }
 }

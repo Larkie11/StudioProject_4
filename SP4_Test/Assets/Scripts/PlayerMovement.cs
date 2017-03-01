@@ -5,26 +5,34 @@ using UnityStandardAssets.CrossPlatformInput;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float Speed = 0f;
+    [SerializeField]
+    float Speed = 0f;
     private float move = 0f;
     private float jump = 0f;
-    public float jumpPower = 5;
-    public float boostMultiplier = 2;
+    [SerializeField]
+    float jumpPower = 5;
+    [SerializeField]
+    float boostMultiplier = 2;
     Rigidbody2D myBody;
     bool isGrounded = false;
     bool inair = false;
-    public Transform top_left;
-    public Transform bottom_right;
+    [SerializeField]
+    Transform top_left;
+    [SerializeField]
+    Transform bottom_right;
     //What layer is consider a ground
-    public LayerMask WhatIsGround;
+    [SerializeField]
+    LayerMask WhatIsGround;
 
     float lockPos = 0;
 
     [SerializeField]
     GameObject firebreath;
 
-    public GameObject bulletPrefab;
-    public Transform bulletSpawn;
+    [SerializeField]
+    GameObject bulletPrefab;
+    [SerializeField]
+    Transform bulletSpawn;
 
     SpriteRenderer Sr;
     Animator anim;

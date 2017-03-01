@@ -8,8 +8,10 @@ public class Shield : MonoBehaviour
     //public ParticleSystem part;
     //public List<ParticleCollisionEvent> collisionEvents;
     //public GameObject GO;
-    public GameObject SheildGo;
-    public float ShieldDurability;
+    [SerializeField]
+    GameObject SheildGo;
+    [SerializeField]
+    float ShieldDurability;
     private bool HoldingButtonDown;
 
     void Start()
