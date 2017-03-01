@@ -43,7 +43,7 @@ public class PlayerMovement : MonoBehaviour
         anim = GetComponent<Animator>();
         Speed = GlobalScript.myCharacters[GlobalScript.CharacterType].speed;
         jumpPower = GlobalScript.myCharacters[GlobalScript.CharacterType].jumpPower;
-
+        audioEff = GameObject.FindGameObjectWithTag("SFX").GetComponent<AudioSource>();
 #if UNITY_ANDROID
                       Debug.Log("Android");
 #endif
@@ -90,7 +90,7 @@ public class PlayerMovement : MonoBehaviour
             }
             else
             {
-                //Destroy(gameObject);
+                Destroy(gameObject);
                 GlobalScript.isDead = true;
                 Instantiate(Resources.Load("Dead"), new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
             }
@@ -117,8 +117,10 @@ public class PlayerMovement : MonoBehaviour
 
         if (transform.position.y < -20)
         {
+            Debug.Log("AAAA");
             Destroy(gameObject);
             GlobalScript.isDead = true;
+            Instantiate(Resources.Load("Dead"), new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
         }
 #if UNITY_STANDALONE
 
