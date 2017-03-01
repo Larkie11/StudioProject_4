@@ -33,7 +33,9 @@ public class PlayerMovement : MonoBehaviour
     GameObject bulletPrefab;
     [SerializeField]
     Transform bulletSpawn;
-
+    AudioSource audioEff;
+    [SerializeField]
+    AudioClip keysound;
     SpriteRenderer Sr;
     Animator anim;
     void Start()
@@ -63,6 +65,7 @@ public class PlayerMovement : MonoBehaviour
         if (other.transform.tag == "key")
         {
             other.gameObject.SetActive(false);
+            audioEff.PlayOneShot(keysound);
             GlobalScript.keypickup = true;
         }
     }
@@ -88,7 +91,7 @@ public class PlayerMovement : MonoBehaviour
             else
             {
                 //Destroy(gameObject);
-                //GlobalScript.isDead = true;
+                GlobalScript.isDead = true;
                 Instantiate(Resources.Load("Dead"), new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
             }
 
