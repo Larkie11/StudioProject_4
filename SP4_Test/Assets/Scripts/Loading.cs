@@ -44,6 +44,10 @@ public class Loading : MonoBehaviour {
 	void Update () {
 	
 	}
+    public void Quit()
+    {
+        Application.Quit();
+    }
     public void LoadingScreen(string LevelName)
     {
         for(int i = 0; i < Buttons.Count; i++)

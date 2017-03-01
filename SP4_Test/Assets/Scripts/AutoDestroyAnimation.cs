@@ -22,7 +22,6 @@ public class AutoDestroyAnimation : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         destroy -= Time.deltaTime;
-        Debug.Log(destroy);
 
         if (destroy <= 0)
         {

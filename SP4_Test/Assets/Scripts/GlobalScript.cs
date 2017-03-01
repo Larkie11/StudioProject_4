@@ -63,21 +63,21 @@ public class GlobalScript : MonoBehaviour {
         pumpkin.buffDuration = 0.5F;
 
         robot.description = "From the future";
-        robot.name = "EEK";
+        robot.name = "KEK";
         robot.speed = 9;
         robot.maxShield = 100;
         robot.jumpPower = 1750F;
         robot.buffDuration = 0.4F;
 
         santa.description = "He loves children";
-        santa.name = "KEK";
+        santa.name = "SEK";
         santa.jumpPower = 1600F;
         santa.speed = 7;
         santa.maxShield = 130;
         santa.buffDuration = 1.4F;
 
         knight.description = "Wants to save a princess";
-        knight.name = "SEK";
+        knight.name = "EEK";
         knight.speed = 8;
         knight.jumpPower = 1800F;
         knight.maxShield = 80;

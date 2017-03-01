@@ -44,7 +44,6 @@ public class PlayerMovement : MonoBehaviour
 
         myBody = this.GetComponent<Rigidbody2D>();
         Sr = this.GetComponent<SpriteRenderer>();
-
     }
 
     void OnTriggerEnter2D(Collider2D other)

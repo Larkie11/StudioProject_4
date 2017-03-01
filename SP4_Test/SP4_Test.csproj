@@ -61,6 +61,12 @@
     <Reference Include="UnityEditor">
       <HintPath>Library\UnityAssemblies\UnityEditor.dll</HintPath>
     </Reference>
+    <Reference Include="Facebook.Unity">
+      <HintPath>Assets\FacebookSDK\Plugins\Facebook.Unity.dll</HintPath>
+    </Reference>
+    <Reference Include="Facebook.Unity.Settings">
+      <HintPath>Assets\FacebookSDK\Plugins\Settings\Facebook.Unity.Settings.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="SP4_Test.Plugins.csproj">
@@ -69,9 +75,25 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\AnimCheck.cs" />
+    <Compile Include="Assets\FacebookSDK\Examples\Scripts\ConsoleBase.cs" />
+    <Compile Include="Assets\FacebookSDK\Examples\Scripts\LogView.cs" />
+    <Compile Include="Assets\FacebookSDK\Examples\Scripts\MenuBase.cs" />
+    <Compile Include="Assets\FacebookSDK\Examples\Scripts\SubMenus\AccessTokenMenu.cs" />
+    <Compile Include="Assets\FacebookSDK\Examples\Scripts\SubMenus\AppEvents.cs" />
+    <Compile Include="Assets\FacebookSDK\Examples\Scripts\SubMenus\AppInvites.cs" />
+    <Compile Include="Assets\FacebookSDK\Examples\Scripts\SubMenus\AppLinks.cs" />
+    <Compile Include="Assets\FacebookSDK\Examples\Scripts\SubMenus\AppRequests.cs" />
+    <Compile Include="Assets\FacebookSDK\Examples\Scripts\SubMenus\DialogShare.cs" />
+    <Compile Include="Assets\FacebookSDK\Examples\Scripts\SubMenus\GameGroups.cs" />
+    <Compile Include="Assets\FacebookSDK\Examples\Scripts\SubMenus\GraphRequest.cs" />
+    <Compile Include="Assets\FacebookSDK\Examples\Scripts\SubMenus\MainMenu.cs" />
+    <Compile Include="Assets\FacebookSDK\Examples\Scripts\SubMenus\Pay.cs" />
     <Compile Include="Assets\Scripts\Attack.cs" />
     <Compile Include="Assets\Scripts\AutoDestroy.cs" />
+    <Compile Include="Assets\Scripts\AutoDestroyAnimation.cs" />
     <Compile Include="Assets\Scripts\CharacterSelection.cs" />
+    <Compile Include="Assets\Scripts\CheckPoint.cs" />
     <Compile Include="Assets\Scripts\CompletePlayerController.cs" />
     <Compile Include="Assets\Scripts\CrimsonBoss\CrimsonAttackEffect.cs" />
     <Compile Include="Assets\Scripts\CrimsonBoss\CrimsonBlackLighting.cs" />
@@ -80,32 +102,38 @@
     <Compile Include="Assets\Scripts\Destroy.cs" />
     <Compile Include="Assets\Scripts\DestroyRock.cs" />
     <Compile Include="Assets\Scripts\EnemyBehavior.cs" />
+    <Compile Include="Assets\Scripts\FacebookCheck.cs" />
     <Compile Include="Assets\Scripts\FadeInOrOut.cs" />
     <Compile Include="Assets\Scripts\GenerateEnemy.cs" />
     <Compile Include="Assets\Scripts\GenerateLightning.cs" />
     <Compile Include="Assets\Scripts\GlobalScript.cs" />
-    <Compile Include="Assets\Scripts\GrifBoss.cs" />
-    <Compile Include="Assets\Scripts\GrifHit.cs" />
-    <Compile Include="Assets\Scripts\GrifShield.cs" />
+    <Compile Include="Assets\Scripts\GrifBoss\GrifBoss.cs" />
+    <Compile Include="Assets\Scripts\GrifBoss\GrifHit.cs" />
+    <Compile Include="Assets\Scripts\GrifBoss\GrifShield.cs" />
+    <Compile Include="Assets\Scripts\GrifBoss\LightningAttack.cs" />
     <Compile Include="Assets\Scripts\HealthBar.cs" />
-    <Compile Include="Assets\Scripts\LightningAttack.cs" />
     <Compile Include="Assets\Scripts\Loading.cs" />
     <Compile Include="Assets\Scripts\Lookat.cs" />
     <Compile Include="Assets\Scripts\MenuOnTouch.cs" />
+    <Compile Include="Assets\Scripts\MenuSoundEffect.cs" />
     <Compile Include="Assets\Scripts\Mouseinscreen.cs" />
     <Compile Include="Assets\Scripts\ParticleCollision.cs" />
     <Compile Include="Assets\Scripts\PlayerMovement.cs" />
     <Compile Include="Assets\Scripts\PopUpPanels.cs" />
     <Compile Include="Assets\Scripts\PowerupCoin.cs" />
     <Compile Include="Assets\Scripts\PowerupShield.cs" />
+    <Compile Include="Assets\Scripts\RenderTask.cs" />
     <Compile Include="Assets\Scripts\RockSpawn.cs" />
+    <Compile Include="Assets\Scripts\SFXVolume.cs" />
     <Compile Include="Assets\Scripts\SceneTransition.cs" />
     <Compile Include="Assets\Scripts\SetScreen.cs" />
     <Compile Include="Assets\Scripts\Shield.cs" />
+    <Compile Include="Assets\Scripts\ShieldCollision.cs" />
     <Compile Include="Assets\Scripts\ShowScore.cs" />
     <Compile Include="Assets\Scripts\SmoothCamera2D.cs" />
     <Compile Include="Assets\Scripts\Spike.cs" />
     <Compile Include="Assets\Scripts\SpikeMovement.cs" />
+    <Compile Include="Assets\Scripts\Teleporter.cs" />
     <Compile Include="Assets\Scripts\Tutorial.cs" />
     <Compile Include="Assets\Scripts\UnlockPortal.cs" />
     <Compile Include="Assets\Scripts\Volume.cs" />
@@ -115,14 +143,18 @@
     <Compile Include="Assets\Scripts\Zakboss.cs" />
     <Compile Include="Assets\Scripts\bulletmove.cs" />
     <Compile Include="Assets\Scripts\fireball.cs" />
+    <Compile Include="Assets\Scripts\firespin.cs" />
+    <Compile Include="Assets\Scripts\firewhip.cs" />
     <Compile Include="Assets\Scripts\playerbullet.cs" />
     <Compile Include="Assets\Scripts\spawnspike.cs" />
+    <Compile Include="Assets\Scripts\spikespin.cs" />
     <Compile Include="Assets\Scripts\weaponpickup.cs" />
-    <Compile Include="Assets\ShieldCollision.cs" />
     <Compile Include="Assets\Spin.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\FacebookSDK\link.xml" />
     <None Include="Assets\Fit All Screen Size\ReadMe.txt" />
+    <None Include="Assets\Plugins\Android\AndroidManifest.xml" />
     <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
     <None Include="Assets\Standard Assets\ParticleSystems\ParticleSystemsGuidelines.txt" />
     <None Include="Assets\Standard Assets\ParticleSystems\Shaders\PriorityParticleAdd.shader" />

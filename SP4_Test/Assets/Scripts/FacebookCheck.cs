@@ -5,7 +5,10 @@ using System.Collections.Generic;
 using UnityEngine.UI;
 
 public class FacebookCheck: MonoBehaviour {
-
+    [SerializeField]
+    GameObject sharebutton;
+    [SerializeField]
+    Text text;
     private void Awake()
     {
         if(!FB.IsInitialized)
@@ -35,8 +38,12 @@ public class FacebookCheck: MonoBehaviour {
     }
 	// Use this for initialization
 	void Start () {
-	}
-	public void Share()
+        text.text = "You have cleared the game! Your score was " + GlobalScript.Score +"!";
+#if UNITY_STANDALONE
+        sharebutton.SetActive(false);
+#endif
+    }
+    public void Share()
     {
         FB.ShareLink(contentTitle: "Let's play", contentURL: new System.Uri("http://www.youtube.com"), contentDescription: "I reached a score of " + GlobalScript.Score + "!",callback:OnShare);
     }

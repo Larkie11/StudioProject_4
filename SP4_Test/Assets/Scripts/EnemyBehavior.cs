@@ -90,7 +90,6 @@ public class EnemyBehavior : MonoBehaviour
         moving = false;
         animator = GetComponent<Animator>();
         healthbar = transform.GetChild(0).GetChild(0).GetChild(0).GetChild(0).GetComponentInChildren<Image>();
-        Debug.Log(healthbar.name);
     }
     void UpdateHealthBar()
     {
@@ -248,10 +247,6 @@ public class EnemyBehavior : MonoBehaviour
                 toDrop = "weaponpickup";
             else
                 toDrop = "";
-
-            Debug.Log(random);
-
-            Debug.Log(toDrop);
 
             if (toDrop != "")
                 go2 = Instantiate(Resources.Load(toDrop), new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity) as GameObject;

@@ -44,6 +44,13 @@ public class UnlockPortal : MonoBehaviour {
     {
         if (player == null && !GlobalScript.isDead)
             player = GameObject.FindGameObjectWithTag("Player");
+        if(player!=null)
+        if (!transform.GetComponent<BoxCollider2D>().bounds.Contains(player.transform.position))
+        {
+            canvas.SetActive(false);
+            x = 0F;
+            y = 0F;
+        }
         if (!GlobalScript.isDead)
         {
             if (id == 0 || id == 2)
@@ -74,6 +81,7 @@ public class UnlockPortal : MonoBehaviour {
                 }
                 else
                 {
+                    clearedcanvas.SetActive(true);
                     ar.speed = 1;
                 }
                 if (GlobalScript.howmanytokill >= 1 && transform.GetComponent<BoxCollider2D>().bounds.Contains(player.transform.position) && !disabled)
@@ -86,12 +94,7 @@ public class UnlockPortal : MonoBehaviour {
                     }
                     panelRectTransform.localScale = new Vector3(x, y, 1);
                 }
-                if(!transform.GetComponent<BoxCollider2D>().bounds.Contains(player.transform.position))
-                {
-                    canvas.SetActive(false);
-                    x = 0F;
-                    y = 0F;
-                }
+                
             }
             if (id == 1)
             {
