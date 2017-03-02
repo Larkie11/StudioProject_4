@@ -44,7 +44,6 @@ public class PlayerMovement : MonoBehaviour
         Speed = GlobalScript.myCharacters[GlobalScript.CharacterType].speed;
         jumpPower = GlobalScript.myCharacters[GlobalScript.CharacterType].jumpPower;
         audioEff = GameObject.FindGameObjectWithTag("SFX").GetComponent<AudioSource>();
-        GlobalScript.howmanytokill = 0;
 #if UNITY_ANDROID
                       Debug.Log("Android");
 #endif

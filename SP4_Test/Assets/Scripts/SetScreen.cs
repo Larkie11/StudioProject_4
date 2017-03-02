@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using UnityEngine.UI;
 
 public class SetScreen : MonoBehaviour {
-    List<string> Sizes = new List<string>();
     Resolution[] resolutions;
     int currSelection = 0;
     [SerializeField]
@@ -87,8 +86,8 @@ public class SetScreen : MonoBehaviour {
 
         text.text = resolutions[currSelection].width + " x " + resolutions[currSelection].height;
         if (fullScreen)
-            fs.text = "Yes";
+            fs.text = "Fullscreen";
         else
-            fs.text = "No";
+            fs.text = "Windowed";
 	}
 }
