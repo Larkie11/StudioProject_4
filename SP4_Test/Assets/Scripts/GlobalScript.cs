@@ -25,7 +25,7 @@ public class GlobalScript : MonoBehaviour {
     public static bool shieldisOn;
     public static bool isDead = false;
     public static bool keypickup = false;
-
+    public static float ammocounter = 0;
 
     //Kunta Level
     public static int BoxCounter;

@@ -40,7 +40,10 @@ public class fireball : MonoBehaviour {
 	
         /// rotation of the balls 
         /// 
-    
+    if(GlobalScript.Zakhp<=0)
+    {
+        Destroy(gameObject);
+    }
         transform.RotateAround(zakumpos, zAxis, 160 * Time.deltaTime);
 
         if(fireballhp<=0)

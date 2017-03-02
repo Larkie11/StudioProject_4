@@ -75,20 +75,30 @@ public class Zakboss : MonoBehaviour
 
     void Rollingrockskill1()
     {
-        audioEff.PlayOneShot(rock1);
+        if (GlobalScript.Zakhp >= 0)
+        {
+   audioEff.PlayOneShot(rock1);
         Instantiate(Resources.Load("ballball"), rockposition1.transform.position, Quaternion.identity);
         Instantiate(Resources.Load("zakrockskill"), new Vector3(transform.position.x , transform.position.y+5f, transform.position.z), Quaternion.identity);
+        }
+     
 
     }
     void Rollingrockskill2()
     {
-        audioEff.PlayOneShot(rock1);
+        if (GlobalScript.Zakhp >= 0)
+        {
+     audioEff.PlayOneShot(rock1);
         Instantiate(Resources.Load("ballball"), rockposition2.transform.position, Quaternion.identity);
         Instantiate(Resources.Load("zakrockskill"), new Vector3(transform.position.x, transform.position.y + 5f, transform.position.z), Quaternion.identity);
+        }
+   
     }
     void Fireballskill()
     {
-        audioEff.PlayOneShot(fireshiled1);
+        if (GlobalScript.Zakhp >= 0)
+        {
+     audioEff.PlayOneShot(fireshiled1);
         //transform.Translate(new Vector2(10f, 0));
        Instantiate(Resources.Load("fireball1"), new Vector2(transform.position.x + 6.5F, transform.position.y), Quaternion.identity);
        Instantiate(Resources.Load("zakfireskill"), new Vector3(transform.position.x, transform.position.y + 5f, transform.position.z), Quaternion.identity);
@@ -96,8 +106,11 @@ public class Zakboss : MonoBehaviour
         {
             Instantiate(Resources.Load("fireball1"), new Vector2(transform.position.x + 14f, transform.position.y), Quaternion.identity);
         }
-          
         GlobalScript.fireballcounter += 1;
+        }
+   
+          
+       
 
     }
   

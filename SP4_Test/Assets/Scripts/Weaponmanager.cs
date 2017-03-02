@@ -1,8 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
-
+using UnityEngine.UI;
 public class Weaponmanager : MonoBehaviour
 {
+    //[SerializeField]
+    //Text text;
 
     [SerializeField]
     GameObject activeweapon;
@@ -13,15 +15,15 @@ public class Weaponmanager : MonoBehaviour
     [SerializeField]
     float speed = 5;
     GameObject joybutton;
-    float ammocounter;
+   
     bool noammo = false;
 
     // Use this for initialization
     void Start()
     {
         wpn = activeweapon.GetComponent<Weapon>();
-        ammocounter = activeweapon.GetComponent<Weapon>().ammocout;
-
+        GlobalScript.ammocounter = activeweapon.GetComponent<Weapon>().ammocout;
+        
         GetComponent<SpriteRenderer>().sprite = wpn.sprite;
         joybutton = GameObject.Find("MobileJoystick");
         weaponcd = wpn.cooldown;
@@ -31,9 +33,11 @@ public class Weaponmanager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Debug.Log(ammocounter);
+
+       // text.text = "Ammo Count:  " + ammocounter.ToString()+"";
+
         weaponcd -= Time.deltaTime;
-        if (ammocounter <= 0 && noammo == false)
+        if (GlobalScript.ammocounter <= 0 && noammo == false)
         {
             noammo = true;
             Changetodefaultweapon();
@@ -53,7 +57,7 @@ public class Weaponmanager : MonoBehaviour
                 Vector3 rotation = transform.parent.localScale.x == 1 ? Vector3.zero : Vector3.forward * 1;
                 GameObject projectile = (GameObject)Instantiate(wpn.projectile, transform.position + activeweapon.transform.GetChild(0).localPosition *
                     transform.parent.localScale.x, Quaternion.Euler(rotation));
-                ammocounter--;
+                GlobalScript.ammocounter--;
                
                 
 
@@ -70,7 +74,7 @@ public class Weaponmanager : MonoBehaviour
                 Vector3 rotation = transform.parent.localScale.x == 1 ? Vector3.zero : Vector3.forward * 1;
                 GameObject projectile = (GameObject)Instantiate(wpn.projectile, transform.position + activeweapon.transform.GetChild(0).localPosition *
                     transform.parent.localScale.x, Quaternion.Euler(rotation));
-                ammocounter--;
+                GlobalScript.ammocounter--;
 
 
             }
@@ -91,11 +95,11 @@ public class Weaponmanager : MonoBehaviour
                     rotation.z += pelletrotation.z;
                     GameObject projectile = (GameObject)Instantiate(wpn.projectile, transform.position + activeweapon.transform.GetChild(0).localPosition *
                         transform.parent.localScale.x, Quaternion.Euler(rotation));
-                    ammocounter--;
+                 
                    
 
                 }
-
+                GlobalScript.ammocounter--;
             }
         
 
@@ -212,12 +216,12 @@ public class Weaponmanager : MonoBehaviour
         GetComponent<SpriteRenderer>().sprite = wpn.sprite;
         if(wpn.weapontype==Weapon.Types.SHOTGUN)
         {
-            ammocounter = (activeweapon.GetComponent<Weapon>().pelletammo)*5;
+            GlobalScript.ammocounter = activeweapon.GetComponent<Weapon>().ammocout/4;
        
         }
         else
         {
-            ammocounter = activeweapon.GetComponent<Weapon>().ammocout;
+            GlobalScript.ammocounter = activeweapon.GetComponent<Weapon>().ammocout;
         }
  
     }
